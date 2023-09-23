@@ -1,0 +1,47 @@
+body{
+    background-color: #ffefd4;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    background-color: #e0c9a9;
+    width: 350px;
+    border: solid 5px;
+    border-color: #702323;
+    text-align: center;
+    border-radius: 10px;
+    color: #3a2323;
+
+}
+
+.perguntas{
+    color: rgb(66, 31, 31);
+}
+
+input{
+    background-color: #e0c9a9;
+    border: solid 3px;
+    border-color: #702323;
+    border-radius: 5px;
+
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    background-color: #e0c9a9;
+    border: solid 3px;
+    border-color: #702323;
+    border-radius: 5px;
+    font-size: larger;
+    color: #3a2323;
+    
+}
+
+#pRuim{
+    color: red;
+}
+
+#pBom{
+    color: green;
+}

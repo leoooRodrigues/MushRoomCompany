@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Título da página</title>
+</head>
+<body>
+    
+ <h1> MUSH ROOM </h1>  
+    
+ <p>Quanto a empresa cobra por cogumelo:</p>
+ <input id="input_valor"> 
+ <p>Quantos cogumelos vendidos por ano:</p>
+ <input id="input_cogumelos">
+ <p>Gastos com a produção:</p>
+ <input id="input_gastos">
+ 
+ <button onclick="calcular()">calcular</button>
+ 
+ <div id= "div_mensagem" </div>
+
+</body>
+</html>
+
+<script>
+    
+
+    
+   function calcular() {
+       
+   var valor = Number(input_valor.value)
+   var gastos = Number(input_gastos.value)
+   var cogumelos = Number(input_cogumelos.value)
+   
+   var vendaPorCogumelos = valor * cogumelos
+   var vendaOtimizada = vendaPorCogumelos * 1.57
+   var gastosOtimizada = gastos * 0.85
+   
+   
+   div_mensagem.innerHTML = `<br>SEM A MUSH ROOM: <br>`
+   
+   div_mensagem.innerHTML +=`<br>•Valor da sua produção é de R$ ${vendaPorCogumelos}.`
+   
+   div_mensagem.innerHTML +=`<br>•O prejuízo é de R$ ${gastos}.`
+   
+   div_mensagem.innerHTML += `<br>•Um lucro anual com cogumelos de R$ ${vendaPorCogumelos - gastos}.<br>`  
+   
+   //
+   
+   div_mensagem.innerHTML += `<br>COM A MUSH ROOM: <br>`
+   
+   div_mensagem.innerHTML +=`<br>•Valor da sua produção se torna R$ ${vendaOtimizada}.`
+   
+   div_mensagem.innerHTML +=`<br>•O prejuizo é reduzido para R$ ${gastosOtimizada}.`
+   
+   div_mensagem.innerHTML += `<br>•Gerando um lucro anual com cogumelos de R$ ${vendaOtimizada - gastosOtimizada}.`
+   
+   
+   } 
+   
+    
+    
+    
+    
+    
+    
+</script>
