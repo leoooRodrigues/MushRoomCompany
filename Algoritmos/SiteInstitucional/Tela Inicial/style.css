@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
 }
 
 body {
@@ -8,6 +9,24 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     
+=======
+
+}
+
+body {
+
+    background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.102),rgb(255, 255, 255)
+    ),
+    url(./img-background.jpg) no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* background-size: 1830px 1300px;  */
+    
+
+
+>>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 }
 
 
@@ -27,8 +46,13 @@ body {
 .logo2 {
     display: flex;
     position: relative;
+<<<<<<< HEAD
     width: 35%;
     top: 150px;
+=======
+    width: 45%;
+    top: 150px; 
+>>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
     left: 80px;
 }
 
@@ -38,6 +62,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
 }
 
 .header .container li {
@@ -54,10 +79,38 @@ body {
 .header .container .navbar li a {
     text-decoration: none;
     color: #f5deb3;
+=======
+}
+ 
+.header .container li {
+    display: inline;
+    list-style: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'Bwrlin Sans FB Demi Bold';
+}
+
+.header .container .navbar li a {
+    text-decoration: none;
+    color: #f5deb3;
+    
+}
+
+.header .container .navbar li button {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7b3131;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f5deb3;
+>>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 }
 
 .cadbar {
 
+<<<<<<< HEAD
     font-size: 20px;
     position: relative;
     background-color: #91000089;
@@ -81,12 +134,57 @@ body {
     height: 25px;
     border-radius: 20px;
     cursor: pointer;
+=======
+
+    display: flex;
+    font-size: 25px;
+    position: relative;
+    background-color: #910000d3;
+    border-radius: 0 0 20px 20px;
+    height: 350px;
+    width: 20%;
+    justify-content: center;
+    color:#f5deb3;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    bottom: 380px;
+    gap: 20px;
+    right: 10px;
+    font-family: Arial;
+    
+    
+}
+
+.cadbar button {
+
+    width: 25%;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    color:#7b3131;
+    background-color: #f5deb3;
+
+}
+
+.cadbar a {
+
+    font-size: 20px;
+   
+>>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 
 }
 
 .cadbar input {
+<<<<<<< HEAD
     
     border-radius: 20px;
     height: 30px;
     background-color:  #f5deb3;
+=======
+
+    border-radius: 20px;
+    height: 30px;
+    background-color: #f5deb3;
+>>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 }
