@@ -1,0 +1,51 @@
+header {
+    background: #910000d8;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+header,
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+nav ul li {
+    margin-left: 50px;
+    color: wheat;
+}
+
+header h1 {
+    margin-left: 20px;
+    color: white;
+}
+
+button {
+    color: wheat;
+    border-radius: 10px;
+    background-color: wheat;
+    color: white;
+    width: 70px;
+    height: 25px;
+}
+
+#Logo_Escuro {
+    position: relative;
+    width: 40%;
+    top: 330px;
+    left: 60px;
+
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    position: relative;
+    float: right;
+
+    top: 17vh;
+}
