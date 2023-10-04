@@ -1,51 +1,92 @@
-header {
-    background: #910000d8;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-header,
-nav ul {
+body {
+    background-image: url(https://images.pexels.com/photos/3466359/pexels-photo-3466359.jpeg?auto=compress&cs=tinysrgb&w=1600) ;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    
+}
+
+
+.header {
+    background-color: #910000d8;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    color: #f5deb3;
+    position: relative;
+    left: 45px;
+    font-size: 50px;
+}
+
+.logo2 {
+    display: flex;
+    position: relative;
+    width: 35%;
+    top: 150px;
+    left: 80px;
+}
+
+.header .container {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    align-items: center;
 }
 
-nav ul li {
-    margin-left: 50px;
+.header .container li {
+    display: inline;
+    list-style: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: Arial;
+}
+
+
+
+.header .container .navbar li a {
+    text-decoration: none;
     color: #f5deb3;
 }
 
-header h1 {
-    margin-left: 20px;
-    color: white;
-}
+.cadbar {
 
-button {
-    color: wheat;
-    border-radius: 10px;
-    background-color: wheat;
-    color: white;
-    width: 70px;
-    height: 25px;
-}
-
-#Logo_Escuro {
+    font-size: 20px;
     position: relative;
-    width: 40%;
-    top: 330px;
-    left: 60px;
-
-}
-
-#login {
+    background-color: #91000089;
+    border-radius: 0 0 20px 20px;
+    width: 20%;
+    justify-content: center;
+    height: 200px;
+    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    background-color: red;
-    position: relative;
+    align-items: center;
     float: right;
+    bottom: 290px;
+    gap: 10px;
 
-    top: 17vh;
+}
+
+.cadbar button {
+
+    width: 25%;
+    height: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.cadbar input {
+    
+    border-radius: 20px;
+    height: 30px;
+    background-color:  #f5deb3;
 }
