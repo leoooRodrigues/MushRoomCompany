@@ -1,51 +1,123 @@
-header {
-    background: #910000d8;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+* {
+    margin: 0;
+    padding: 0;
+
 }
 
-header,
-nav ul {
+body {
+
+    background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.102),rgb(255, 255, 255)
+    ),
+    url(./img-background.jpg) no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* background-size: 1830px 1300px;  */
+    
+
+
+}
+
+
+.header {
+    background-color: #910000d8;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    color: #f5deb3;
+    position: relative;
+    left: 45px;
+    font-size: 50px;
+}
+
+.logo2 {
+    display: flex;
+    position: relative;
+    width: 45%;
+    top: 150px; 
+    left: 80px;
+}
+
+.header .container {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    align-items: center;
+}
+ 
+.header .container li {
+    display: inline;
+    list-style: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'Bwrlin Sans FB Demi Bold';
 }
 
-nav ul li {
-    margin-left: 50px;
-    color: wheat;
+.header .container .navbar li a {
+    text-decoration: none;
+    color: #f5deb3;
+    
 }
 
-header h1 {
-    margin-left: 20px;
-    color: white;
+.header .container .navbar li button {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7b3131;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f5deb3;
 }
 
-button {
-    color: wheat;
-    border-radius: 10px;
-    background-color: wheat;
-    color: white;
-    width: 70px;
-    height: 25px;
-}
+.cadbar {
 
-#Logo_Escuro {
-    position: relative;
-    width: 40%;
-    top: 330px;
-    left: 60px;
 
-}
-
-#login {
     display: flex;
-    flex-direction: column;
-    background-color: red;
+    font-size: 25px;
     position: relative;
+    background-color: #910000d3;
+    border-radius: 0 0 20px 20px;
+    height: 350px;
+    width: 20%;
+    justify-content: center;
+    color:#f5deb3;
+    flex-direction: column;
+    align-items: center;
     float: right;
+    bottom: 380px;
+    gap: 20px;
+    right: 10px;
+    font-family: Arial;
+    
+    
+}
 
-    top: 17vh;
+.cadbar button {
+
+    width: 25%;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    color:#7b3131;
+    background-color: #f5deb3;
+
+}
+
+.cadbar a {
+
+    font-size: 20px;
+   
+
+}
+
+.cadbar input {
+
+    border-radius: 20px;
+    height: 30px;
+    background-color: #f5deb3;
 }
