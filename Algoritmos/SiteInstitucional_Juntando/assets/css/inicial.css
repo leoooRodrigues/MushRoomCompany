@@ -5,16 +5,16 @@
 
 @font-face {
     font-family: Bwrlin Sans FB Demi Bold;
-    src: local(Bwrlin Sans FB Demi Bold), url(./berlin-sans-fb-demi-bold.ttf);
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
 }
 
-.pagina{
+.pagina {
     height: 100vh;
     width: 100%;
 }
 
-#pg1{
-    background-image:url(../img/backgroundInicial.jpg);
+#pg1 {
+    background-image: url(../img/backgroundInicial.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }

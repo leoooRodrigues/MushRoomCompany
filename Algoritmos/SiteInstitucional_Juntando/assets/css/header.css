@@ -1,6 +1,6 @@
 @font-face {
     font-family: Bwrlin Sans FB Demi Bold;
-    src: local(Bwrlin Sans FB Demi Bold), url(./berlin-sans-fb-demi-bold.ttf);
+    src: local(Bwrlin Sans FB Demi Bold), url(./assets/fonts/berlin-sans-fb-demi-bold.ttf);
 }
 
 .header {
@@ -29,7 +29,8 @@
 
 }
 
-.header .containerHeader .navbar li a, .header .containerHeader h1 a {
+.header .containerHeader .navbar li a,
+.header .containerHeader h1 a {
     text-decoration: none;
     color: #f5deb3;
 
