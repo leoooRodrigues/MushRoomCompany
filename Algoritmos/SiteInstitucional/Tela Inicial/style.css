@@ -1,16 +1,12 @@
 * {
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
+
 }
 
-body {
-    background-image: url(https://images.pexels.com/photos/3466359/pexels-photo-3466359.jpeg?auto=compress&cs=tinysrgb&w=1600) ;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    
-=======
-
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(./berlin-sans-fb-demi-bold.ttf);
 }
 
 body {
@@ -26,7 +22,6 @@ body {
     
 
 
->>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 }
 
 
@@ -46,13 +41,8 @@ body {
 .logo2 {
     display: flex;
     position: relative;
-<<<<<<< HEAD
-    width: 35%;
-    top: 150px;
-=======
     width: 45%;
     top: 150px; 
->>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
     left: 80px;
 }
 
@@ -62,24 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
-}
-
-.header .container li {
-    display: inline;
-    list-style: none;
-    padding: 0 30px;
-    cursor: pointer;
-    font-size: 25px;
-    font-family: Arial;
-}
-
-
-
-.header .container .navbar li a {
-    text-decoration: none;
-    color: #f5deb3;
-=======
+    font-family: Bwrlin Sans FB Demi Bold;
 }
  
 .header .container li {
@@ -88,7 +61,7 @@ body {
     padding: 0 30px;
     cursor: pointer;
     font-size: 25px;
-    font-family: 'Bwrlin Sans FB Demi Bold';
+    
 }
 
 .header .container .navbar li a {
@@ -105,36 +78,11 @@ body {
     height: 40px;
     border-radius: 20px;
     background-color: #f5deb3;
->>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
+    font-family: Bwrlin Sans FB Demi Bold;
 }
 
 .cadbar {
 
-<<<<<<< HEAD
-    font-size: 20px;
-    position: relative;
-    background-color: #91000089;
-    border-radius: 0 0 20px 20px;
-    width: 20%;
-    justify-content: center;
-    height: 200px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    float: right;
-    bottom: 290px;
-    gap: 10px;
-
-}
-
-.cadbar button {
-
-    width: 25%;
-    height: 25px;
-    border-radius: 20px;
-    cursor: pointer;
-=======
 
     display: flex;
     font-size: 25px;
@@ -148,10 +96,10 @@ body {
     flex-direction: column;
     align-items: center;
     float: right;
-    bottom: 380px;
+    bottom: 370px;
     gap: 20px;
     right: 10px;
-    font-family: Arial;
+    font-family:Bwrlin Sans FB Demi Bold;
     
     
 }
@@ -164,6 +112,7 @@ body {
     cursor: pointer;
     color:#7b3131;
     background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
 
 }
 
@@ -171,20 +120,12 @@ body {
 
     font-size: 20px;
    
->>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 
 }
 
 .cadbar input {
-<<<<<<< HEAD
-    
-    border-radius: 20px;
-    height: 30px;
-    background-color:  #f5deb3;
-=======
 
     border-radius: 20px;
     height: 30px;
     background-color: #f5deb3;
->>>>>>> dd3ef4c498ee9be3373bc0757ee3be08d7293f2d
 }
