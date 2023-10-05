@@ -12,14 +12,12 @@
 body {
 
     background:
-    linear-gradient(
-      rgba(255, 255, 255, 0.102),rgb(255, 255, 255)
-    ),
-    url(./img-background.jpg) no-repeat;
-    /* background-repeat: no-repeat; */
+        linear-gradient(rgba(255, 255, 255, 0.102), rgb(255, 255, 255)),
+        url(./img-background.jpg) no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    /* background-size: 1830px 1300px;  */
-    
+    background-size: 1920px 1080px;
+
 
 
 }
@@ -42,7 +40,7 @@ body {
     display: flex;
     position: relative;
     width: 45%;
-    top: 150px; 
+    top: 150px;
     left: 80px;
 }
 
@@ -54,20 +52,20 @@ body {
     align-items: center;
     font-family: Bwrlin Sans FB Demi Bold;
 }
- 
+
 .header .container li {
     display: inline;
     list-style: none;
     padding: 0 30px;
     cursor: pointer;
     font-size: 25px;
-    
+
 }
 
 .header .container .navbar li a {
     text-decoration: none;
     color: #f5deb3;
-    
+
 }
 
 .header .container .navbar li button {
@@ -92,16 +90,16 @@ body {
     height: 350px;
     width: 20%;
     justify-content: center;
-    color:#f5deb3;
+    color: #f5deb3;
     flex-direction: column;
     align-items: center;
     float: right;
-    bottom: 370px;
+    bottom: 48vh;
     gap: 20px;
     right: 10px;
-    font-family:Bwrlin Sans FB Demi Bold;
-    
-    
+    font-family: Bwrlin Sans FB Demi Bold;
+
+
 }
 
 .cadbar button {
@@ -110,7 +108,7 @@ body {
     height: 35px;
     border-radius: 20px;
     cursor: pointer;
-    color:#7b3131;
+    color: #7b3131;
     background-color: #f5deb3;
     font-family: Bwrlin Sans FB Demi Bold;
 
@@ -119,7 +117,7 @@ body {
 .cadbar a {
 
     font-size: 20px;
-   
+
 
 }
 
