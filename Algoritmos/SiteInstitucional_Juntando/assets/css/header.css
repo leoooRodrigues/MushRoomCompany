@@ -1,0 +1,54 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(./berlin-sans-fb-demi-bold.ttf);
+}
+
+.header {
+    background-color: #910000d8;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+}
+
+
+.header .containerHeader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Bwrlin Sans FB Demi Bold;
+}
+
+.header .containerHeader li {
+    display: inline;
+    list-style: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 25px;
+
+}
+
+.header .containerHeader .navbar li a, .header .containerHeader h1 a {
+    text-decoration: none;
+    color: #f5deb3;
+
+}
+
+.header .containerHeader .navbar li button {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7b3131;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+}
+
+.logo {
+    color: #f5deb3;
+    position: relative;
+    left: 45px;
+    font-size: 50px;
+}

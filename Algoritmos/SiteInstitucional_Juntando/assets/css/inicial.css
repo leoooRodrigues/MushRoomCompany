@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(./berlin-sans-fb-demi-bold.ttf);
+}
+
+.pagina{
+    height: 100vh;
+    width: 100%;
+}
+
+#pg1{
+    background-image:url(../img/backgroundInicial.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgCoguIni {
+    display: flex;
+    position: relative;
+    width: 45%;
+    top: 150px;
+    left: 80px;
+}
+
+
+.cadbar {
+    display: flex;
+    font-size: 25px;
+    position: relative;
+    background-color: #910000d3;
+    border-radius: 0 0 20px 20px;
+    height: 350px;
+    width: 20%;
+    justify-content: center;
+    color: #f5deb3;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    bottom: 48vh;
+    gap: 20px;
+    right: 10px;
+    font-family: Bwrlin Sans FB Demi Bold;
+    margin-top: 100px;
+
+}
+
+.cadbar button {
+
+    width: 25%;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #7b3131;
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+
+}
+
+.cadbar a {
+
+    font-size: 20px;
+    text-decoration: none;
+    color: #f5deb3;
+}
+
+.cadbar input {
+
+    border-radius: 20px;
+    height: 30px;
+    background-color: #f5deb3;
+}
