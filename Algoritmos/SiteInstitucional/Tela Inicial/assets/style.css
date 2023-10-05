@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    background:
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+        linear-gradient(rgba(255, 255, 255, 0.102), rgb(255, 255, 255)),
+        url(./img-background.jpg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 1920px 1080px;
+
+
+
+=======
+    linear-gradient(rgba(255, 255, 255, 0.102),rgb(255, 255, 255)), url(./images/img-background.jpg) no-repeat;
+    background-size: cover;
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+
+.header {
+    background-color: #712323;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    color: #FDF2DC;
+    position: relative;
+    left: 45px;
+    font-size: 50px;
+}
+
+.logo2 {
+    display: flex;
+    position: relative;
+    width: 45%;
+    top: 150px;
+    left: 80px;
+}
+
+.header .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Bold;
+}
+
+.header .container li {
+    display: inline;
+    list-style: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 25px;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+
+=======
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+.header .container .navbar li a {
+    text-decoration: none;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+    color: #f5deb3;
+
+=======
+    color: #FDF2DC;
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+.header .container .navbar li button {
+    text-decoration: none;
+    cursor: pointer;
+    color: #712323;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #FDF2DC;
+    font-family: Bold;
+}
+
+.cadbar {
+    display: flex;
+    font-size: 25px;
+    position: relative;
+    background-color: #712323;
+    border-radius: 0 0 20px 20px;
+    height: 350px;
+    width: 20%;
+    justify-content: center;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+    color: #f5deb3;
+=======
+    color:#FDF2DC;
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    bottom: 48vh;
+    gap: 20px;
+    right: 10px;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+    font-family: Bwrlin Sans FB Demi Bold;
+
+
+=======
+    font-family: Bold;
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+.cadbar button {
+    width: 25%;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+    color: #7b3131;
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+
+=======
+    color:#712323;
+    background-color: #FDF2DC;
+    font-family: Bold;
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+.cadbar a {
+    font-size: 20px;
+<<<<<<< HEAD:Algoritmos/SiteInstitucional/Tela Inicial/style.css
+
+
+=======
+>>>>>>> 12a463c1d2287c5eaa36036a526b6297dbae92a9:Algoritmos/SiteInstitucional/Tela Inicial/assets/style.css
+}
+
+.cadbar input {
+
+    border-radius: 20px;
+    height: 30px;
+    background-color: #FDF2DC;
+}

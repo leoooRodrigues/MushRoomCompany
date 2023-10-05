@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    color: #FDF2DC;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.inpt, span {
+    border: 2px solid #712323;
+    border-radius: 10px;
+}
+
+.inpt{
+    background-color: #FDF2DC;
+    color: black;
+    height: 30px;
+    padding-top: 17px;
+}
+
+span{
+    color: #FDF2DC;
+    background-color: #712323;
+    cursor: default;
+    height: 45px;
+    font-size: 30px;
+    width: 350px;
+    margin: 13px;
+    
+}
+
+.botao{
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: #FDF2DC;
+    background-color: #712323;
+    width: 170px;
+    height: 35px;
+    font-size: 15px;
+    border: 1px solid;
+}
+
+a{
+    color: #FDF2DC;
+}
+
+.botao:hover{
+    background-color: #4b1717;
+}
+
+a:hover{
+    color: #FDF2DC;
+    transition: 300ms;
+    text-shadow: 0 0 8px black;
+}
+ 
+#input_cnpj{
+    padding-left: 35px;
+}
+
+#input_email{
+    padding-left: 35px;
+}
+
+#input_telefone{
+    padding-left: 6px; 
+} 
