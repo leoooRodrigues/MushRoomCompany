@@ -12,6 +12,14 @@
     height: 100vh;
     width: 100%;
 }
+body{
+    min-width: 800px;
+    min-height: 400px;
+}
+
+
+/* --------------TELA INICIAL------------- */
+
 
 #pg1 {
     background-image: url(../img/backgroundInicial.jpg);
@@ -21,8 +29,9 @@
 
 .imgCoguIni {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 45%;
+    min-width: 350px;
     top: 150px;
     left: 80px;
 }
@@ -30,28 +39,26 @@
 
 .cadbar {
     display: flex;
-    font-size: 25px;
-    position: relative;
-    background-color: #910000d3;
-    border-radius: 0 0 20px 20px;
-    height: 350px;
-    width: 20%;
-    justify-content: center;
-    color: #f5deb3;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     float: right;
-    bottom: 48vh;
-    gap: 20px;
-    right: 10px;
+    margin-top: 110px;
+    margin-right: 1%;
+    padding: 15px;
+    height: 350px;
+    width: fit-content;
+    font-size: 25px;
+    color: #f5deb3;
+    background-color: #910000d3;
+    border-radius: 0 0 20px 20px;
     font-family: Bwrlin Sans FB Demi Bold;
-    margin-top: 100px;
 
 }
 
 .cadbar button {
 
-    width: 25%;
+    width: 35%;
     height: 35px;
     border-radius: 20px;
     cursor: pointer;

@@ -6,6 +6,7 @@
 .header {
     background-color: #910000d8;
     width: 100%;
+    min-width: 800px;
     height: 100px;
     position: absolute;
 }
@@ -23,10 +24,16 @@
 .header .containerHeader li {
     display: inline;
     list-style: none;
-    padding: 0 30px;
     cursor: pointer;
     font-size: 25px;
 
+}
+
+.header .containerHeader .navbar ul{
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    justify-content: space-around;
 }
 
 .header .containerHeader .navbar li a,
@@ -40,7 +47,7 @@
     text-decoration: none;
     cursor: pointer;
     color: #7b3131;
-    width: 80px;
+    min-width: 80px;
     height: 40px;
     border-radius: 20px;
     background-color: #f5deb3;
@@ -52,4 +59,5 @@
     position: relative;
     left: 45px;
     font-size: 50px;
+    min-width: 380px;
 }
