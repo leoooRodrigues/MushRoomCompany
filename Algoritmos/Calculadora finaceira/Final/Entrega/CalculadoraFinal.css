@@ -1,7 +1,12 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../Entrega/berlin-sans-fb-demi-bold.ttf);
+}
 *{
+    font-family: Bwrlin Sans FB Demi Bold;
     padding: 0%;
     margin: 0%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
 body{
     background-image: url(img-MUSH.png);
@@ -15,7 +20,8 @@ body{
 
 .quadrado{
 background-color: #fdf3dd85;
-width: fit-content;
+width: 70%;
+border : 2px solid black;
 height: 65vh;
 justify-content: center;
 align-items: center;
