@@ -1,11 +1,37 @@
-body{
-    background-color: #ffefd4;
+*{
+    padding: 0%;
+    margin: 0%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+body{
+    background-image: url(img-MUSH.png);
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+.quadrado{
+background-color: #fdf3dd85;
+width: fit-content;
+height: 65vh;
+justify-content: center;
+align-items: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -3.5%;
+    justify-content: space-around;
+    border-radius: 30px;
+
+}
 h1{
     background-color: #e0c9a9;
-    width: 350px;
+    justify-content: center;
+    align-items: center;
+   width: 35%;
     border: solid 5px;
     border-color: #702323;
     text-align: center;
@@ -16,6 +42,7 @@ h1{
 
 .perguntas{
     color: rgb(66, 31, 31);
+    
 }
 
 input{
@@ -23,6 +50,7 @@ input{
     border: solid 3px;
     border-color: #702323;
     border-radius: 5px;
+  
 
 }
 
@@ -36,8 +64,8 @@ button{
     font-size: larger;
     color: #3a2323;
     
-}
 
+}
 #pRuim{
     color: red;
 }
