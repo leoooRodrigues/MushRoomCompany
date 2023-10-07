@@ -12,7 +12,8 @@
     height: 100vh;
     width: 100%;
 }
-body{
+
+body {
     min-width: 800px;
     min-height: 400px;
 }
@@ -22,7 +23,8 @@ body{
 
 
 #pg1 {
-    background-image: url(../img/backgroundInicial.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.356), rgba(255, 255, 255, 0.877)), url(../img/backgroundInicial.jpg);
+    ;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -30,10 +32,10 @@ body{
 .imgCoguIni {
     display: flex;
     position: absolute;
-    width: 45%;
+    width: 44%;
     min-width: 350px;
-    top: 150px;
-    left: 80px;
+    top: 284px;
+    left: 69px;
 }
 
 
@@ -41,16 +43,16 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+
     float: right;
     margin-top: 110px;
     margin-right: 1%;
     padding: 15px;
     height: 350px;
     width: fit-content;
-    font-size: 25px;
+    font-size: 24px;
     color: #f5deb3;
-    background-color: #910000d3;
+    background-color: #712323;
     border-radius: 0 0 20px 20px;
     font-family: Bwrlin Sans FB Demi Bold;
 
@@ -58,13 +60,15 @@ body{
 
 .cadbar button {
 
+    align-self: center;
     width: 35%;
     height: 35px;
     border-radius: 20px;
     cursor: pointer;
-    color: #7b3131;
+    color: #712323;
     background-color: #f5deb3;
     font-family: Bwrlin Sans FB Demi Bold;
+
 
 }
 
@@ -78,6 +82,19 @@ body{
 .cadbar input {
 
     border-radius: 20px;
-    height: 30px;
+    height: 33px;
     background-color: #f5deb3;
+    width: 226px;
+    align-self: center;
+
+
+}
+
+.cadbar span {
+    padding-inline-start: 31px;
+}
+
+.cadbarInput {
+    display: flex;
+    flex-direction: column;
 }

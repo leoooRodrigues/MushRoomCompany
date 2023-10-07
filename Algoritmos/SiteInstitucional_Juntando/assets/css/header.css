@@ -4,7 +4,7 @@
 }
 
 .header {
-    background-color: #910000d8;
+    background-color: #712323;
     width: 100%;
     min-width: 800px;
     height: 100px;
@@ -29,7 +29,7 @@
 
 }
 
-.header .containerHeader .navbar ul{
+.header .containerHeader .navbar ul {
     display: flex;
     flex-direction: row;
     width: 40vw;
@@ -46,7 +46,7 @@
 .header .containerHeader .navbar li button {
     text-decoration: none;
     cursor: pointer;
-    color: #7b3131;
+    color: #712323;
     min-width: 80px;
     height: 40px;
     border-radius: 20px;

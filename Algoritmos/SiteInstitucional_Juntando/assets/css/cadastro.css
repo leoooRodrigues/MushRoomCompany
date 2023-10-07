@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -7,7 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     background-image: url(../img/backgroundCadastro.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,14 +16,15 @@ body{
     min-height: 400px;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
 }
-footer{
+
+footer {
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -34,7 +36,7 @@ footer{
     color: #FDF2DC;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,19 +44,20 @@ footer{
     height: 100vh;
 }
 
-.inpt, span {
+.inpt,
+span {
     border: 2px solid #712323;
     border-radius: 10px;
 }
 
-.inpt{
+.inpt {
     background-color: #FDF2DC;
     color: black;
     height: 30px;
     padding-top: 17px;
 }
 
-span{
+span {
     color: #FDF2DC;
     background-color: #712323;
     cursor: default;
@@ -62,10 +65,10 @@ span{
     font-size: 30px;
     width: 350px;
     margin: 13px;
-    
+
 }
 
-.botao{
+.botao {
     cursor: pointer;
     border: none;
     border-radius: 10px;
@@ -77,28 +80,28 @@ span{
     border: 1px solid;
 }
 
-a{
+a {
     color: #FDF2DC;
 }
 
-.botao:hover{
+.botao:hover {
     background-color: #4b1717;
 }
 
-a:hover{
+a:hover {
     color: #FDF2DC;
     transition: 300ms;
     text-shadow: 0 0 8px black;
 }
- 
-#input_cnpj{
+
+#input_cnpj {
     padding-left: 35px;
 }
 
-#input_email{
+#input_email {
     padding-left: 35px;
 }
 
-#input_telefone{
-    padding-left: 6px; 
-} 
+#input_telefone {
+    padding-left: 6px;
+}
