@@ -7,8 +7,10 @@
     background-color: #712323;
     width: 100%;
     min-width: 800px;
-    height: 100px;
-    position: absolute;
+    height: 85px;
+    position:  fixed;
+    border-radius: 0 0 15px 15px;
+
 }
 
 
@@ -25,7 +27,7 @@
     display: inline;
     list-style: none;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 25px;;
 
 }
 
@@ -34,6 +36,9 @@
     flex-direction: row;
     width: 40vw;
     justify-content: space-around;
+    column-gap: 50px;
+    
+    width: fit-content  
 }
 
 .header .containerHeader .navbar li a,
