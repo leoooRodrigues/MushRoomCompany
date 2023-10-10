@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="Style.css">
     <title>Line Chart</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
@@ -17,7 +18,7 @@
 
 <body>
     <div>
-        <h1>Sensor DHT 11 - Umidade</h1>
+        <h1 >Sensor DHT 11 - Umidade </h1>
         <section style="width:100%">
             <canvas id="dht11Umidade"></canvas>
         </section>
@@ -89,7 +90,7 @@
                 type: 'line',
                 data: {
                     datasets: [{
-                        label: "Temperatura",
+                        label:"Temperatura",
                         type: 'line',
                         borderColor: ['#ff3232']
                     }]

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../../Algoritmos/SiteInstitucional_Juntando/assets/fonts/berlin-sans-fb-demi-bold.ttf);
+}body{
+    background-color:#f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+}
+h1{color: #712323;}
+
