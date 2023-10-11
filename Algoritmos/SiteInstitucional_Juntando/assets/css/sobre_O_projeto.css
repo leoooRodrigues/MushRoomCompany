@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../img/Background_detalhes_do_projeto.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
+}
+
+.divcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 38%;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: #f5deb3;
+
+
+}
+
+.Projeto {
+    float: left;
+    font-size: 26px;
+    top: 18vh;
+    left: 4vw;
+}
+
+.sensores {
+    float: right;
+    top: 37vh;
+    right: 4vw;
+}
+
+
+h1 {
+    font-size: 80px;
+    padding-bottom: 40px;
+    font-family: Bwrlin Sans FB Demi Bold;
+}
+
+.sensores img {
+    position: relative;
+    top: -14vh;
+}

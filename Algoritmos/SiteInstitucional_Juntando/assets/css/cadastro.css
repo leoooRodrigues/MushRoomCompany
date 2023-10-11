@@ -1,12 +1,11 @@
-@font-face {
-    font-family: Bwrlin Sans FB Demi Bold;
-    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
+    border: none;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -15,7 +14,7 @@ body {
     background-size: cover;
     min-width: 800px;
     min-height: 400px;
-}   
+}
 
 main {
     display: flex;
@@ -25,6 +24,17 @@ main {
     justify-content: center;
 }
 
+footer {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    min-width: 800px;
+    background-color: black;
+    color: #FDF2DC;
+}
 
 .container {
     display: flex;
