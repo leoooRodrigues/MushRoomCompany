@@ -23,19 +23,20 @@ body {
 
 
 #pg1 {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.356), rgba(255, 255, 255, 0.700)), url(../img/backgroundInicial.jpg);;
+    background-image: url(../img/backgroundInicial.jpg);
+    ;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#pg2{
-    background-image: url(../img/Background_detalhes_do_projeto.png);;
+#pg2 {
+    background-image: url(../img/Background_detalhes_do_projeto.jpg);
+
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.degrade{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.700), rgba(255, 255, 255, 0.0));
+.degrade {
     width: 100%;
     height: 300px;
     position: absolute;
