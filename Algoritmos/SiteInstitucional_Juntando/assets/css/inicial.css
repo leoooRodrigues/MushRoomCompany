@@ -3,12 +3,27 @@
     padding: 0;
 }
 
+.bg1-2 {
+    background-image: url(../img/backgroundInicial.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 150vh;
+}
+
 @font-face {
     font-family: Bwrlin Sans FB Demi Bold;
     src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
 }
 
 .pagina {
+    height: 100vh;
+    width: 100%;
+}
+
+#pg2 {
+    background-image: url(../img/Background_detalhes_do_projeto.png);
+    background-size: cover;
+
     height: 100vh;
     width: 100%;
 }
@@ -22,19 +37,6 @@ body {
 /* --------------TELA INICIAL------------- */
 
 
-#pg1 {
-    background-image: url(../img/backgroundInicial.jpg);
-    ;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#pg2 {
-    background-image: url(../img/Background_detalhes_do_projeto.jpg);
-
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 .degrade {
     width: 100%;
