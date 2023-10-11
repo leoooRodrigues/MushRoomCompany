@@ -4,9 +4,6 @@
 }
 
 body {
-    background-image: url(../img/Background_detalhes_do_projeto.png);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 @font-face {
@@ -41,7 +38,7 @@ body {
 }
 
 
-h1 {
+.Titulo{
     font-size: 80px;
     padding-bottom: 40px;
     font-family: Bwrlin Sans FB Demi Bold;
