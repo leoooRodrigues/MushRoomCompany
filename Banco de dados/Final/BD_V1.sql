@@ -7,7 +7,9 @@ idEmpresa int primary key auto_increment,
 nome varchar (20) not null,
 cnpj char (18) not null unique,
 email varchar (30) not null,
-celular varchar (17) not null
+celular varchar (17) not null,
+fkCogumelo int,
+foreign key (fkCogumelo) references cogumelo (idCogumelo)
 );
 
 create table usuarios(
@@ -16,7 +18,9 @@ tipoUser varchar(20),
 constraint chkTipoUser check (tipoUser IN ('ADM','Normal','SuperADM')),
 nomeUser varchar(50) not null,
 cpf char(14) unique not null,
-senha varchar(20) not null
+senha varchar(20) not null,
+fkEmpresa int,
+foreign key (fkEmpresa) references empresa (idEmpresa)
 );
 
 create table cogumelo(
@@ -31,14 +35,18 @@ umiMin INT not null
 create table sensor(
 idSensor int primary key auto_increment, 
 statSensor boolean not null,
-nomeSensor varchar(30) not null
+nomeSensor varchar(30) not null,
+fkEmpresa int,
+foreign key (fkEmpresa) references empresa (idEmpresa)
 );
 
 create table registros(
 idRegistro int primary key auto_increment,
 dataHora datetime default current_timestamp, 
 dadoSensorTemp int not null,
-dadoSensorUmi int not null
+dadoSensorUmi int not null,
+fkSensor int,
+foreign key (fkSensor) references sensor (idSensor)
 );
 
 insert into registros(dadoSensorTemp, dadoSensorUmi) VALUES
