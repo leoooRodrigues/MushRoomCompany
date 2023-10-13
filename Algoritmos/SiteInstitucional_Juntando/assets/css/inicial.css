@@ -1,8 +1,18 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: Bwrlin Sans FB Demi Bold;
 }
-
+body {
+    min-width: 800px;
+    min-height: 400px;
+    background-color: #5b2222;
+}
 .bg1-2 {
     background-image: url(../img/backgroundInicial.jpg);
     background-size: cover;
@@ -10,28 +20,12 @@
     height: 150vh;
 }
 
-@font-face {
-    font-family: Bwrlin Sans FB Demi Bold;
-    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
-}
-
 .pagina {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
-#pg2 {
-    background-image: url(../img/Background_detalhes_do_projeto.png);
-    background-size: cover;
 
-    height: 100vh;
-    width: 100%;
-}
-
-body {
-    min-width: 800px;
-    min-height: 400px;
-}
 
 
 /* --------------TELA INICIAL------------- */
@@ -54,67 +48,54 @@ body {
 }
 
 
-.cadbar {
+
+
+/* --------------TELA 2------------- */
+
+
+#pg2 {
+    background-image: url(../img/Background_detalhes_do_projeto.png);
+    background-size: cover;
+}
+
+.divcard {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    width: 38%;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: #f5deb3;
 
+
+}
+
+.Projeto {
+    float: left;
+    font-size: 26px;
+    top: 18vh;
+    left: 4vw;
+}
+
+.sensores {
     float: right;
-    margin-top: 110px;
-    margin-right: 1%;
-    padding: 36px;
-    height: 350px;
-    width: fit-content;
-    font-size: 24px;
-    color: #f5deb3;
-    background-color: #712323;
-    border-radius: 0 0 20px 20px;
-    font-family: Bwrlin Sans FB Demi Bold;
-
+    top: 37vh;
+    right: 4vw;
 }
 
-.cadbar button {
 
-    align-self: center;
-    width: 35%;
-    height: 35px;
-    border-radius: 20px;
-    cursor: pointer;
-    color: #712323;
-    background-color: #f5deb3;
-    font-family: Bwrlin Sans FB Demi Bold;
-
-
+.Titulo{
+    font-size: 80px;
+    padding-bottom: 40px;
 }
 
-.cadbar a {
-
-    font-size: 20px;
-    text-decoration: none;
-    color: #f5deb3;
+.sensores img {
+    position: relative;
+    top: -14vh;
 }
 
-.cadbar input {
-
-    border-radius: 20px;
-    height: 33px;
-    background-color: #f5deb3;
-    width: 226px;
-    align-self: center;
-
-
-}
-
-.cadbar span {
-    padding-inline-start: 31px;
-}
-
-.cadbarInput {
-    display: flex;
-    flex-direction: column;
-}
-
-#button {
+.btn-sobre-nos {
     width: 356px;
     height: 88px;
     position: relative;
@@ -124,4 +105,59 @@ body {
     font-size: 46px;
     background-color: #f5deb3;
     color: #5b2222;
+    cursor: pointer;
 }
+
+.btn-sobre-nos:hover {
+    background-color: #c7b695;
+    box-shadow: 0px 0px 30px #f5deb3;
+
+}
+
+
+
+/* --------------TELA 3------------- */
+
+
+#pg3{
+    background-image: url(../img/BackgroundInfo.png);
+    background-size: cover;
+    margin-top: 35vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.divInfo{
+    width: 40%;
+    height: 70vh;
+    margin-top: 25vh;
+    color: #f5deb3;
+}
+
+.textoInfo{
+    font-size: 25px;
+}
+
+@keyframes go-back {
+    0% {
+        transform: translateX(63px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+#pg3 a{
+    color: #f5deb3;margin-top: 5px;
+}
+.asda{
+
+    animation: go-back 1s infinite alternate;
+}
+
+
+.textoAnima{
+    display: flex;
+    flex-direction: row;
+}
+

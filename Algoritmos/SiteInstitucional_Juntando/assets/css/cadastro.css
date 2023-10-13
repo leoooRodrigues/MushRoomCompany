@@ -6,7 +6,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -58,9 +57,10 @@ span {
     padding-top: 17px;
     margin-top: 5px;
     width: 65%;
+    box-sizing: border-box;
 }
 
-span {
+.spanCadastro {
     color: #FDF2DC;
     background-color: #712323;
     cursor: default;

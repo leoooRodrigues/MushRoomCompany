@@ -17,21 +17,37 @@
 
             <div class="navbar">
                 <ul>
+                    <li><a href="inicial.html">HOME</li>
                     <li><a href="#">SOBRE NÓS</a></li>
                     <li><a href="#">CALCULADORA FINANCEIRA</a></li>
-                    <li><button><b>LOGIN</b></button></li>
-
+                    <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
                 </ul>
             </div>
         </div>
+        <div class="cadbar" id="cadbar">
+                <div class="cadbarInput">
+                    <span>CNPJ</span>
+                    <input type="text">
+                </div>
+
+
+
+                <div class="cadbarInput">
+                    <span>SENHA</span> <input type="text">
+
+                </div>
+                <button><B>ENTRAR</B></button>
+
+                <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
+            </div>
     </div>
 
     <div class="container">
         <main>
-            <span>Empresa: <input class="inpt" id="input_empresa"></span>
-            <span>CNPJ: <input class="inpt" id="input_cnpj"></span>
-            <span>E-mail: <input class="inpt" id="input_email"></span>
-            <span>Telefone: <input class="inpt" id="input_telefone"></span>
+            <span class="spanCadastro">Empresa: <input class="inpt" id="input_empresa"></span>
+            <span class="spanCadastro">CNPJ: <input class="inpt" id="input_cnpj"></span>
+            <span class="spanCadastro">E-mail: <input class="inpt" id="input_email"></span>
+            <span class="spanCadastro">Telefone: <input class="inpt" id="input_telefone"></span>
             <button class="botao">CADASTRAR</button>
         </main>  
     </div>
@@ -46,3 +62,14 @@
 
 <!-- FDF2DC bege-->
 <!-- 712323 vermelho-->
+
+<script type="text/javascript">
+    function aparecerLogin(){
+
+        var disP= cadbar.style.display
+
+        if (disP == `flex`) {cadbar.style.display ="none"}
+        else {cadbar.style.display ="flex"}
+        
+    }
+</script>

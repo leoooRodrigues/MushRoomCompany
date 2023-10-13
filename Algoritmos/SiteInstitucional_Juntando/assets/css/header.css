@@ -8,7 +8,8 @@
     width: 100%;
     min-width: 800px;
     height: 100px;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
 }
 
 
@@ -28,11 +29,14 @@
     font-size: 25px;
 
 }
+.header .containerHeader .navbar{
+    width: 45%;
+}
 
 .header .containerHeader .navbar ul {
     display: flex;
     flex-direction: row;
-    width: 40vw;
+    width: 100%;
     justify-content: space-around;
 }
 
@@ -60,4 +64,76 @@
     left: 45px;
     font-size: 50px;
     min-width: 380px;
+}
+
+
+
+@keyframes transicaoCad {
+  from {
+    transform: translateY(-80px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cadbar {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    float: right;
+    margin-right: 1%;
+    margin-top: 20px;
+    padding: 36px;
+    height: 350px;
+    width: fit-content;
+    font-size: 24px;
+    color: #f5deb3;
+    background-color: #712323;
+    border: 2px black solid;
+    border-radius:20px;
+    font-family: Bwrlin Sans FB Demi Bold;
+    animation: transicaoCad 1s;
+
+}
+
+.cadbar button {
+
+    align-self: center;
+    width: 35%;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #712323;
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+
+
+}
+
+.cadbar a {
+
+    font-size: 20px;
+    text-decoration: none;
+    color: #f5deb3;
+}
+
+.cadbar input {
+
+    border-radius: 20px;
+    height: 33px;
+    background-color: #f5deb3;
+    width: 226px;
+    align-self: center;
+
+
+}
+
+.cadbar span {
+    padding-inline-start: 31px;
+}
+
+.cadbarInput {
+    display: flex;
+    flex-direction: column;
 }
