@@ -111,6 +111,7 @@ body {
 .btn-sobre-nos:hover {
     background-color: #c7b695;
     box-shadow: 0px 0px 30px #f5deb3;
+    transition: 400ms;
 
 }
 

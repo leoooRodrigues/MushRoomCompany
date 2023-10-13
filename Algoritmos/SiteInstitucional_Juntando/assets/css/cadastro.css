@@ -45,7 +45,7 @@ footer {
 }
 
 .inpt,
-span {
+.spanCadastro {
     border: 2px solid #712323;
     border-radius: 10px;
 }
@@ -86,12 +86,12 @@ span {
     border: 1px solid;
 }
 
-a {
-    color: #FDF2DC;
-}
-
 .botao:hover {
     background-color: #4b1717;
+}
+
+a {
+    color: #FDF2DC;
 }
 
 a:hover {
