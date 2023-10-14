@@ -1,0 +1,99 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Bwrlin Sans FB Demi Bold;
+}
+
+body {
+    background-image: url(../img/Background_sobre_nos.jpg);
+    background-size: cover;
+
+}
+
+.sobre_nos  {
+
+    color: #5b2222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    position: relative;
+    top: 65px;
+    
+
+}
+
+.sobre_nos .descricao{
+    background-color: #eedec8ea;
+    border-radius: 40px;  
+    height: 40vh;
+    width: 80vh;
+    padding: 70px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    font-family:arial;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px ;
+   
+
+     
+    
+}
+  
+.box_sn{
+
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.sobre_nos .box_sn h1{
+
+    color:#eedec8 ;
+    
+}
+
+.sobre_nos .box_sn button{
+
+    background-color: #eedec8ea;
+    color: #5b2222;
+    border-radius: 20px;
+    height: 55px;
+    width: 470px;
+    font-size: 40px;
+    position: relative ;
+    top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+
+}
+
+.logo_Whatsapp{
+
+    width: 45px;
+    height: 45px;
+    position: relative ;
+    left: 13px;
+}
+
+.frase_button{
+
+    align-self: center;
+    position: relative ;
+    left: 15px;
+}
