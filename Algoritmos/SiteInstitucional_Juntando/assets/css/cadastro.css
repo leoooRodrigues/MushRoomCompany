@@ -4,6 +4,7 @@
 }
 
 * {
+    font-family: Bwrlin Sans FB Demi Bold;
     margin: 0;
     padding: 0;
 }
@@ -12,8 +13,11 @@ body {
     background-image: url(../img/backgroundCadastro.png);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
     min-width: 800px;
     min-height: 400px;
+    align-items: center;
 }
 
 main {
@@ -35,7 +39,32 @@ footer {
     background-color: black;
     color: #FDF2DC;
 }
+.quadrado{
+    background-color: #fdf3dd85;
+    width: 50%;
+    border : 2px solid black;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 30px;
+    margin-top: 10%;
+}
+.TituloCad{
+    background-color: #e0c9a9;
+    justify-content: center;
+    align-items: center;
+   width: 35%;
+    border: solid 5px;
+    border-color: #702323;
+    text-align: center;
+    border-radius: 10px;
+    color: #3a2323;
 
+}
 .container {
     display: flex;
     justify-content: center;
@@ -54,7 +83,8 @@ footer {
     background-color: #FDF2DC;
     color: black;
     height: 30px;
-    padding-top: 17px;
+    padding-left: 7px;
+    font-size: 20px;
     margin-top: 5px;
     width: 65%;
     box-sizing: border-box;
