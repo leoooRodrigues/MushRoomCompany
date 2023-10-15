@@ -12,6 +12,8 @@ body {
     min-width: 800px;
     min-height: 400px;
     background-color: #5b2222;
+    height: 100%;
+    position: relative;
 }
 .bg1-2 {
     background-image: url(../img/backgroundInicial.jpg);
@@ -23,6 +25,7 @@ body {
 .pagina {
     min-height: 100vh;
     width: 100%;
+    background-repeat: no-repeat;
 }
 
 
@@ -88,6 +91,7 @@ body {
 .Titulo{
     font-size: 80px;
     padding-bottom: 40px;
+    color: #f5deb3;
 }
 
 .sensores img {
@@ -149,7 +153,8 @@ body {
 }
 
 #pg3 a{
-    color: #f5deb3;margin-top: 5px;
+    color: #f5deb3;
+    margin-top: 5px;
 }
 .asda{
 
@@ -162,3 +167,83 @@ body {
     flex-direction: row;
 }
 
+
+/* --------------TELA 4------------- */
+
+#pg4{
+    background-image: url(../img/Background_sobre_nos.jpg);
+    background-size: cover;
+}
+
+.sobre_nos  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    position: relative;
+    top: 65px;
+}
+
+.sobre_nos .descricao{
+    background-color: #eedec8ea;
+    border-radius: 40px;  
+    height: 40vh;
+    padding: 110px 70px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px ;
+    color: #5b2222;  
+}
+  
+.box_sn{
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+.btnsobre{
+    background-color: #eedec8ea;
+    color: #5b2222;
+    border-radius: 20px;
+    height: 55px;
+    width: 470px;
+    font-size: 40px;
+    position: relative ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo_Whatsapp{
+    width: 45px;
+    height: 45px;
+    position: relative ;
+    margin-left: 13px;
+}
+
+.frase_button{
+    align-self: center;
+    position: relative ;
+    margin-left: 15px;
+}
+
+
+/*---------------  FOOTER  ---------------*/
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    min-width: 800px;
+    background-color: black;
+    color: #FDF2DC;
+}
