@@ -8,6 +8,7 @@
     padding: 0;
     font-family: Bwrlin Sans FB Demi Bold;
 }
+
 body {
     min-width: 800px;
     min-height: 400px;
@@ -15,6 +16,7 @@ body {
     height: 100%;
     position: relative;
 }
+
 .bg1-2 {
     background-image: url(../img/backgroundInicial.jpg);
     background-size: cover;
@@ -88,7 +90,7 @@ body {
 }
 
 
-.Titulo{
+.Titulo {
     font-size: 80px;
     padding-bottom: 40px;
     color: #f5deb3;
@@ -124,7 +126,7 @@ body {
 /* --------------TELA 3------------- */
 
 
-#pg3{
+#pg3 {
     background-image: url(../img/BackgroundInfo.png);
     background-size: cover;
     margin-top: 35vw;
@@ -132,14 +134,14 @@ body {
     justify-content: space-around;
 }
 
-.divInfo{
+.divInfo {
     width: 40%;
     height: 70vh;
     margin-top: 25vh;
     color: #f5deb3;
 }
 
-.textoInfo{
+.textoInfo {
     font-size: 25px;
 }
 
@@ -147,22 +149,24 @@ body {
     0% {
         transform: translateX(63px);
     }
+
     100% {
         transform: translateX(5px);
     }
 }
 
-#pg3 a{
+#pg3 a {
     color: #f5deb3;
     margin-top: 5px;
 }
-.asda{
+
+.asda {
 
     animation: go-back 1s infinite alternate;
 }
 
 
-.textoAnima{
+.textoAnima {
     display: flex;
     flex-direction: row;
 }
@@ -170,12 +174,12 @@ body {
 
 /* --------------TELA 4------------- */
 
-#pg4{
+#pg4 {
     background-image: url(../img/Background_sobre_nos.jpg);
     background-size: cover;
 }
 
-.sobre_nos  {
+.sobre_nos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,9 +189,9 @@ body {
     top: 65px;
 }
 
-.sobre_nos .descricao{
-    background-color: #eedec8ea;
-    border-radius: 40px;  
+.sobre_nos .descricao {
+    background-color: #ebdcc9;
+    border-radius: 40px;
     height: 40vh;
     padding: 110px 70px;
     font-size: 25px;
@@ -195,40 +199,41 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 30px ;
-    color: #5b2222;  
+    margin-top: 30px;
+    color: #5b2222;
 }
-  
-.box_sn{
+
+.box_sn {
     width: 45vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
-.btnsobre{
+
+.btnsobre {
     background-color: #eedec8ea;
     color: #5b2222;
     border-radius: 20px;
     height: 55px;
     width: 470px;
     font-size: 40px;
-    position: relative ;
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.logo_Whatsapp{
+.logo_Whatsapp {
     width: 45px;
     height: 45px;
-    position: relative ;
+    position: relative;
     margin-left: 13px;
 }
 
-.frase_button{
+.frase_button {
     align-self: center;
-    position: relative ;
+    position: relative;
     margin-left: 15px;
 }
 
@@ -244,6 +249,6 @@ footer {
     height: 70px;
     width: 100%;
     min-width: 800px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.493);
     color: #FDF2DC;
 }
