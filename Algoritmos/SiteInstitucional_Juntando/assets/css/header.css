@@ -51,6 +51,25 @@
 
 }
 
+.linha_baixo
+{
+    position: relative;
+}
+.linha_baixo:after{
+    content: "";
+    position: absolute;
+    background-color: #f5deb3;
+    height: 3px;
+    width: 0%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+.linha_baixo:hover:after{
+    width: 100%;
+}
+
+
 .header .containerHeader .navbar li button {
     text-decoration: none;
     cursor: pointer;
@@ -69,7 +88,11 @@
     font-size: 50px;
     min-width: 380px;
 }
-
+.logo:hover {
+    color: #FDF2DC;
+    transition: 300ms;
+    text-shadow: 0 0 8px black;
+}
 
 
 @keyframes transicaoCad {
@@ -133,6 +156,7 @@
 
 }
 
+
 .cadbar span {
     padding-inline-start: 31px;
 }
@@ -142,9 +166,27 @@
     flex-direction: column;
 }
 
-a:hover {
-    color: #FDF2DC;
-    transition: 300ms;
-    text-shadow: 0 0 8px black;
+
+/* largura da barra de scroll */
+::-webkit-scrollbar 
+{
+    width: 20px;
 }
 
+/* borda e sombra da barra de scroll */
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 5px #d9c49c;
+    border-radius: 10px;
+}
+
+/* cor e borda da barra de scroll */
+::-webkit-scrollbar-thumb 
+{
+    background: #f5deb3;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover 
+{
+    background: #d9c49c;
+}

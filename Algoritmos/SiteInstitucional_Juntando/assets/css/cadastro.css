@@ -119,13 +119,3 @@ footer {
 .botao:hover {
     background-color: #4b1717;
 }
-
-a {
-    color: #FDF2DC;
-}
-
-a:hover {
-    color: #FDF2DC;
-    transition: 300ms;
-    text-shadow: 0 0 8px black;
-}
