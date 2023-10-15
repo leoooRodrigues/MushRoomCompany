@@ -129,15 +129,3 @@ a:hover {
     transition: 300ms;
     text-shadow: 0 0 8px black;
 }
-
-#input_cnpj {
-    padding-left: 35px;
-}
-
-#input_email {
-    padding-left: 35px;
-}
-
-#input_telefone {
-    padding-left: 6px;
-}
