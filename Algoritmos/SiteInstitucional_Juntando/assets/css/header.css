@@ -148,11 +148,12 @@
 .cadbar input {
 
     border-radius: 20px;
-    height: 33px;
+    height: 30px;
     background-color: #f5deb3;
     width: 226px;
     align-self: center;
-
+    padding-left: 7px;
+    font-size: 20px;
 
 }
 
