@@ -113,22 +113,26 @@
         div_mensagem.style.display = "flex";
       }
 
-      if (
-        CNPJ.indexOf("0") >= 5 ||
-        CNPJ.indexOf("1") >= 5 ||
-        CNPJ.indexOf("2") >= 5 ||
-        CNPJ.indexOf("3") >= 5 ||
-        CNPJ.indexOf("4") >= 5 ||
-        CNPJ.indexOf("5") >= 5 ||
-        CNPJ.indexOf("6") >= 5 ||
-        CNPJ.indexOf("7") >= 5 ||
-        CNPJ.indexOf("8") >= 5 ||
-        CNPJ.indexOf("9") >= 5
+      var mensagem1 = '';
+      var contador1 =0 
+        while(contador1 < CNPJ.length){
+      if(
+        CNPJ[contador1]  != 0 &&
+        CNPJ[contador1]  != 1 &&
+        CNPJ[contador1]  != 2 &&
+        CNPJ[contador1]  != 3 &&
+        CNPJ[contador1]  != 4 &&
+        CNPJ[contador1]  != 5 &&
+        CNPJ[contador1]  != 6 &&
+        CNPJ[contador1]  != 7 &&
+        CNPJ[contador1]  != 8 &&
+        CNPJ[contador1]  != 9
       ) {
-      } else {
-        div_mensagem.innerHTML += `-Deve apenas conter numeros <br>`;
-        div_mensagem.style.display = "flex";
-      }
+        mensagem1 = `-Não pode conter outros caracteres <br> alem de numeros no CNPJ <br>`
+        div_mensagem.style.display = "flex"}
+      contador1 += 1
+    }
+      div_mensagem.innerHTML+= mensagem1 
 
       //SENHA
 
@@ -185,43 +189,26 @@
         div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
         div_mensagem.style.display = "flex";
       }
-      if (
-        Telefone.indexOf("0") >= 5 ||
-        Telefone.indexOf("1") >= 5 ||
-        Telefone.indexOf("2") >= 5 ||
-        Telefone.indexOf("3") >= 5 ||
-        Telefone.indexOf("4") >= 5 ||
-        Telefone.indexOf("5") >= 5 ||
-        Telefone.indexOf("6") >= 5 ||
-        Telefone.indexOf("7") >= 5 ||
-        Telefone.indexOf("8") >= 5 ||
-        Telefone.indexOf("9") >= 5
-      ) {
-      } else {
-        div_mensagem.innerHTML += `-Deve conter apenas numeros no telefone <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-
-
+      var mensagem = '';
       var contador = 0;
 
-      while(contador < Telefone.length){
-        if (
-          Telefone[contador] != 0 &&
-          Telefone[contador] != 1 &&
-          Telefone[contador] != 2 &&
-          Telefone[contador] != 3 &&
-          Telefone[contador] != 4 &&
-          Telefone[contador] != 5 &&
-          Telefone[contador] != 6 &&
-          Telefone[contador] != 7 &&
-          Telefone[contador] != 8 &&
-          Telefone[contador] != 9)
-        {
-          alert(`Não pode conter outros caracteres alem de numeros no telefone, o caracter está na posição ${contador + 1}`)
-        }
-        contador += 1;
-      }
+while(contador < Telefone.length){
+  if (
+    Telefone[contador] != 0 &&
+    Telefone[contador] != 1 &&
+    Telefone[contador] != 2 &&
+    Telefone[contador] != 3 &&
+    Telefone[contador] != 4 &&
+    Telefone[contador] != 5 &&
+    Telefone[contador] != 6 &&
+    Telefone[contador] != 7 &&
+    Telefone[contador] != 8 &&
+    Telefone[contador] != 9)
+  {
+    mensagem =`-Não pode conter outros caracteres <br> alem de numeros no telefone`
+    div_mensagem.style.display = "flex"
+  }
+  contador += 1;
+      }div_mensagem.innerHTML+= mensagem 
     }
 </script>
