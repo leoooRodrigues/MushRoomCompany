@@ -48,8 +48,10 @@
                 <span class="spanCadastro">Empresa: <input class="inpt" id="input_empresa"></span>
                 <span class="spanCadastro">CNPJ: <input class="inpt" id="input_cnpj"></span>
                 <span class="spanCadastro">E-mail: <input class="inpt" id="input_email"></span>
+                <span class="spanCadastro">Senha: <input class="inpt" id="input_senha" /></span>
                 <span class="spanCadastro">Telefone: <input class="inpt" id="input_telefone"></span>
-                <button class="botao">CADASTRAR</button>
+                <div id="div_mensagem" class="mensagem"></div>
+                <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
             </main>  
         </div>
     </div>
@@ -72,6 +74,120 @@
 
         if (disP == `flex`) {cadbar.style.display ="none"}
         else {cadbar.style.display ="flex"}
-        
     }
+        function CADASTRAR() {
+            div_mensagem.style.display = "flex";
+            var Empresa = input_empresa.value;
+            var CNPJ = input_cnpj.value;
+            var email = input_email.value;
+            var Senha = input_senha.value;
+            var Telefone = input_telefone.value;
+
+    //EMPRESA
+
+    if (
+      Empresa.indexOf("#") >= 0 ||
+      Empresa.indexOf("@") >= 0 ||
+      Empresa.indexOf("!") >= 0 ||
+      Empresa.indexOf("%") >= 0 ||
+      Empresa.indexOf("*") >= 0 ||
+      Empresa.indexOf("$") >= 0 ||
+      Empresa.indexOf("&") >= 0
+    ) {
+      div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
+    }
+
+    //CNPJ
+
+    if (CNPJ.length != 14) {
+      div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
+    }
+
+    if (CNPJ.indexOf(".") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
+    }
+
+    if (
+      CNPJ.indexOf("0") >= 5 ||
+      CNPJ.indexOf("1") >= 5 ||
+      CNPJ.indexOf("2") >= 5 ||
+      CNPJ.indexOf("3") >= 5 ||
+      CNPJ.indexOf("4") >= 5 ||
+      CNPJ.indexOf("5") >= 5 ||
+      CNPJ.indexOf("6") >= 5 ||
+      CNPJ.indexOf("7") >= 5 ||
+      CNPJ.indexOf("8") >= 5 ||
+      CNPJ.indexOf("9") >= 5
+    ) {
+      div_mensagem.innerHTML += `-Contém apenas numeros <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Deve apenas conter numeros <br>`;
+    }
+
+    //SENHA
+
+    if (Senha.length < 8) {
+      div_mensagem.innerHTML += `-Não possui 8 letras na senha <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Possui 8 letras na senha <br>`;
+    }
+
+    if (Senha.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+    }
+
+    if (
+      Senha.indexOf("#") >= 1 ||
+      Senha.indexOf("@") >= 1 ||
+      Senha.indexOf("!") >= 1 ||
+      Senha.indexOf("%") >= 1 ||
+      Senha.indexOf("*") >= 1 ||
+      Senha.indexOf("$") >= 1 ||
+      Senha.indexOf("&") >= 1
+    ) {
+      div_mensagem.innerHTML += `-A senha contém um caracter especial <br>`;
+    }
+
+    //EMAIL
+    if (email.indexOf("@") >= 1) {
+      div_mensagem.innerHTML += `-Contém @ <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Deve conter @ <br>`;
+    }
+    if (email.indexOf(".com") >= 1) {
+      div_mensagem.innerHTML += `-Contém .com <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Deve conter .com <br>`;
+    }
+    if (email.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+    }
+
+    //TELEFONE
+    if (Telefone.length == 11) {
+      div_mensagem.innerHTML += `-Possui a quantidade de caracteres nescessários <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
+    }
+    if (Telefone.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
+    }
+    if (
+      Telefone.indexOf("0") >= 5 ||
+      Telefone.indexOf("1") >= 5 ||
+      Telefone.indexOf("2") >= 5 ||
+      Telefone.indexOf("3") >= 5 ||
+      Telefone.indexOf("4") >= 5 ||
+      Telefone.indexOf("5") >= 5 ||
+      Telefone.indexOf("6") >= 5 ||
+      Telefone.indexOf("7") >= 5 ||
+      Telefone.indexOf("8") >= 5 ||
+      Telefone.indexOf("9") >= 5
+    ) {
+      div_mensagem.innerHTML += `-Contém apenas numeros <br>`;
+    } else {
+      div_mensagem.innerHTML += `-Deve conter apenas numeros no telefone <br>`;
+    }
+        
+}
 </script>
