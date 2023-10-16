@@ -114,7 +114,6 @@ footer {
     height: 35px;
     font-size: 15px;
     border: 1px solid;
-    display: flex;
 }
 
 .botao:hover {

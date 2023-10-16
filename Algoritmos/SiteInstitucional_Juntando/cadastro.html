@@ -76,119 +76,152 @@
         if (disP == `flex`) {cadbar.style.display ="none"}
         else {cadbar.style.display ="flex"}
     }
-        function CADASTRAR() {
-            div_mensagem.style.display = "flex";
-            var Empresa = input_empresa.value;
-            var CNPJ = input_cnpj.value;
-            var email = input_email.value;
-            var Senha = input_senha.value;
-            var Telefone = input_telefone.value;
+    function CADASTRAR() {
+      div_mensagem.style.display = "none"
+      var Empresa = input_empresa.value;
+      var CNPJ = input_cnpj.value;
+      var email = input_email.value;
+      var Senha = input_senha.value;
+      var Telefone = input_telefone.value;
 
-    //EMPRESA
+      div_mensagem.innerHTML = '';
 
-    if (
-      Empresa.indexOf("#") >= 0 ||
-      Empresa.indexOf("@") >= 0 ||
-      Empresa.indexOf("!") >= 0 ||
-      Empresa.indexOf("%") >= 0 ||
-      Empresa.indexOf("*") >= 0 ||
-      Empresa.indexOf("$") >= 0 ||
-      Empresa.indexOf("&") >= 0
-    ) {
-      div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
-    }
+      //EMPRESA
 
-    //CNPJ
+      if (
+        Empresa.indexOf("#") >= 0 ||
+        Empresa.indexOf("@") >= 0 ||
+        Empresa.indexOf("!") >= 0 ||
+        Empresa.indexOf("%") >= 0 ||
+        Empresa.indexOf("*") >= 0 ||
+        Empresa.indexOf("$") >= 0 ||
+        Empresa.indexOf("&") >= 0
+      ) {
+        div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
+        div_mensagem.style.display = "flex"
+      }
 
-    if (CNPJ.length != 14) {
-      div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
-    }
+      //CNPJ
 
-    if (CNPJ.indexOf(".") >= 0) {
-      div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
-    }
+      if (CNPJ.length != 14) {
+        div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
+        div_mensagem.style.display = "flex";
+      }
 
-    if (
-      CNPJ.indexOf("0") >= 5 ||
-      CNPJ.indexOf("1") >= 5 ||
-      CNPJ.indexOf("2") >= 5 ||
-      CNPJ.indexOf("3") >= 5 ||
-      CNPJ.indexOf("4") >= 5 ||
-      CNPJ.indexOf("5") >= 5 ||
-      CNPJ.indexOf("6") >= 5 ||
-      CNPJ.indexOf("7") >= 5 ||
-      CNPJ.indexOf("8") >= 5 ||
-      CNPJ.indexOf("9") >= 5
-    ) {
-      div_mensagem.innerHTML += `-Contém apenas numeros <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Deve apenas conter numeros <br>`;
-    }
+      if (CNPJ.indexOf(".") >= 0) {
+        div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
+        div_mensagem.style.display = "flex";
+      }
 
-    //SENHA
+      if (
+        CNPJ.indexOf("0") >= 5 ||
+        CNPJ.indexOf("1") >= 5 ||
+        CNPJ.indexOf("2") >= 5 ||
+        CNPJ.indexOf("3") >= 5 ||
+        CNPJ.indexOf("4") >= 5 ||
+        CNPJ.indexOf("5") >= 5 ||
+        CNPJ.indexOf("6") >= 5 ||
+        CNPJ.indexOf("7") >= 5 ||
+        CNPJ.indexOf("8") >= 5 ||
+        CNPJ.indexOf("9") >= 5
+      ) {
+      } else {
+        div_mensagem.innerHTML += `-Deve apenas conter numeros <br>`;
+        div_mensagem.style.display = "flex";
+      }
 
-    if (Senha.length < 8) {
-      div_mensagem.innerHTML += `-Não possui 8 letras na senha <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Possui 8 letras na senha <br>`;
-    }
+      //SENHA
 
-    if (Senha.indexOf(" ") >= 0) {
-      div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
-    }
+      if (Senha.length < 8) {
+        div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+        div_mensagem.style.display = "flex";
+      }
 
-    if (
-      Senha.indexOf("#") >= 1 ||
-      Senha.indexOf("@") >= 1 ||
-      Senha.indexOf("!") >= 1 ||
-      Senha.indexOf("%") >= 1 ||
-      Senha.indexOf("*") >= 1 ||
-      Senha.indexOf("$") >= 1 ||
-      Senha.indexOf("&") >= 1
-    ) {
-      div_mensagem.innerHTML += `-A senha contém um caracter especial <br>`;
-    }
+      if (Senha.indexOf(" ") >= 0) {
+        div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+        div_mensagem.style.display = "flex";
+      }
 
-    //EMAIL
-    if (email.indexOf("@") >= 1) {
-      div_mensagem.innerHTML += `-Contém @ <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Deve conter @ <br>`;
-    }
-    if (email.indexOf(".com") >= 1) {
-      div_mensagem.innerHTML += `-Contém .com <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Deve conter .com <br>`;
-    }
-    if (email.indexOf(" ") >= 0) {
-      div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
-    }
-
-    //TELEFONE
-    if (Telefone.length == 11) {
-      div_mensagem.innerHTML += `-Possui a quantidade de caracteres nescessários <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
-    }
-    if (Telefone.indexOf(" ") >= 0) {
-      div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
-    }
-    if (
-      Telefone.indexOf("0") >= 5 ||
-      Telefone.indexOf("1") >= 5 ||
-      Telefone.indexOf("2") >= 5 ||
-      Telefone.indexOf("3") >= 5 ||
-      Telefone.indexOf("4") >= 5 ||
-      Telefone.indexOf("5") >= 5 ||
-      Telefone.indexOf("6") >= 5 ||
-      Telefone.indexOf("7") >= 5 ||
-      Telefone.indexOf("8") >= 5 ||
-      Telefone.indexOf("9") >= 5
-    ) {
-      div_mensagem.innerHTML += `-Contém apenas numeros <br>`;
-    } else {
-      div_mensagem.innerHTML += `-Deve conter apenas numeros no telefone <br>`;
-    }
+      if (
+        Senha.indexOf("#") >= 1 ||
+        Senha.indexOf("@") >= 1 ||
+        Senha.indexOf("!") >= 1 ||
+        Senha.indexOf("%") >= 1 ||
+        Senha.indexOf("*") >= 1 ||
+        Senha.indexOf("$") >= 1 ||
+        Senha.indexOf("_") >= 1 ||
+        Senha.indexOf("-") >= 1 ||
+        Senha.indexOf("&") >= 1
+      ) {
         
-}
+      }else{
+        div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+        div_mensagem.style.display = "flex";
+      }
+
+      //EMAIL
+      if (email.indexOf("@") >= 1) {
+      } else {
+        div_mensagem.innerHTML += `-Deve conter @ <br>`;
+        div_mensagem.style.display = "flex";
+      }
+      if (email.indexOf(".com") >= 1) {
+      } else {
+        div_mensagem.innerHTML += `-Deve conter .com <br>`;
+        div_mensagem.style.display = "flex";
+      }
+      if (email.indexOf(" ") >= 0) {
+        div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+        div_mensagem.style.display = "flex";
+      }
+
+      //TELEFONE
+      if (Telefone.length == 11) {
+      } else {
+        div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
+        div_mensagem.style.display = "flex";
+      }
+      if (Telefone.indexOf(" ") >= 0) {
+        div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
+        div_mensagem.style.display = "flex";
+      }
+      if (
+        Telefone.indexOf("0") >= 5 ||
+        Telefone.indexOf("1") >= 5 ||
+        Telefone.indexOf("2") >= 5 ||
+        Telefone.indexOf("3") >= 5 ||
+        Telefone.indexOf("4") >= 5 ||
+        Telefone.indexOf("5") >= 5 ||
+        Telefone.indexOf("6") >= 5 ||
+        Telefone.indexOf("7") >= 5 ||
+        Telefone.indexOf("8") >= 5 ||
+        Telefone.indexOf("9") >= 5
+      ) {
+      } else {
+        div_mensagem.innerHTML += `-Deve conter apenas numeros no telefone <br>`;
+        div_mensagem.style.display = "flex";
+      }
+
+
+
+      var contador = 0;
+
+      while(contador < Telefone.length){
+        if (
+          Telefone[contador] != 0 &&
+          Telefone[contador] != 1 &&
+          Telefone[contador] != 2 &&
+          Telefone[contador] != 3 &&
+          Telefone[contador] != 4 &&
+          Telefone[contador] != 5 &&
+          Telefone[contador] != 6 &&
+          Telefone[contador] != 7 &&
+          Telefone[contador] != 8 &&
+          Telefone[contador] != 9)
+        {
+          alert(`Não pode conter outros caracteres alem de numeros no telefone, o caracter está na posição ${contador + 1}`)
+        }
+        contador += 1;
+      }
+    }
 </script>
