@@ -46,11 +46,11 @@ body {
     justify-content: center;
 }
 
-.sidebar .opcao {
+/* .sidebar .opcao {
 
-    color: white;
+    
 
-}
+} */
 
 select {
     color: #712323;
@@ -152,5 +152,5 @@ h3 {
     border: 1px solid #712323;
     margin-top: 20px;
     border-radius: 10px;
-    background-color: black;
+
 }

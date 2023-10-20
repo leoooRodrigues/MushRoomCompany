@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/dash_cssV2.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <title>Dash</title>
+  <title>MushRoom.co</title>
 </head>
 
 <body>
@@ -55,11 +55,11 @@
                 <a href="#">setor 5</a>
                 <a href="#">setor 6</a> -->
       <div class="select">
-        <select>
-          <option class="opcao" value="">setor 1</option>
-          <option value="">setor 2</option>
-          <option value="">setor 3</option>
-          <option value="">setor 4</option>
+        <select id="slcSetor">
+          <option class="opcao1" value="1">setor 1</option>
+          <option class="opcao2" value="2">setor 2</option>
+          <!-- <option class="opcao3" value="3">setor 3</option>
+          <option class="opcao4" value="4">setor 4</option> -->
         </select>
       </div> <br>
       <div class="botao"><button onclick="setor()">Ver setor</button></div>
@@ -103,7 +103,7 @@
         </div><!-- fim box2 -->
 
       </div>
-      <div class="canva">
+      <div class="canva" id="str1">
 
         <div class="chart-container">
           <canvas id="myChart"></canvas>
@@ -112,8 +112,20 @@
         <div class="chart-container">
           <canvas id="myChart2"></canvas>
 
-        </div> <!-- chart-container -->
+        </div>
       </div>
+      <!-- setor 2 -->
+      <div class="canva" id="str2" style="display: none;">
+
+        <div class="chart-container">
+          <canvas id="myChart3"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="myChart4"></canvas>
+
+        </div>
+      </div> <!-- setor 2 -->
     </div>
   </div>
 </body>
@@ -122,6 +134,7 @@
 
 
 <script>
+  // grafico 1
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
@@ -129,13 +142,42 @@
     data: {
       labels: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho'],
       datasets: [{
-        label: 'umidade media',
+        label: 'umidade media (%)',
         data: [90, 89, 93, 87, 88, 82],
         borderWidth: 1
       },
       {
-        label: 'temperatura media',
+        label: 'temperatura media (°)',
         data: [22, 24, 27, 23, 20, 18],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+      trans
+    }
+  });
+
+
+  // grafico 2
+  const ctx2 = document.getElementById('myChart2');
+
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      datasets: [{
+        label: 'umidade (%)',
+        data: [80, 82, 80, 85, 80, 83],
+        borderWidth: 1
+      },
+      {
+        label: 'temperatura (°)',
+        data: [30, 29, 28, 25, 22, 23],
         borderWidth: 1
       }]
     },
@@ -147,9 +189,39 @@
       }
     }
   });
-  const ctx2 = document.getElementById('myChart2');
 
-  new Chart(ctx2, {
+  // grafico 3
+  const ctx3 = document.getElementById('myChart3');
+
+  new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho'],
+      datasets: [{
+        label: 'umidade media',
+        data: [70, 95, 80, 79, 87, 90],
+        borderWidth: 1
+      },
+      {
+        label: 'temperatura media',
+        data: [23, 25, 22, 27, 25, 17],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+  // grafico 4
+  const ctx4 = document.getElementById('myChart4');
+
+  new Chart(ctx4, {
     type: 'line',
     data: {
       labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
@@ -172,6 +244,36 @@
       }
     }
   });
+
+
+
+
+  // função
+
+  function setor() {
+    var sector = Number(slcSetor.value);
+    console.log(sector)
+
+
+    if (sector == 2) {
+      var str = document.getElementById('str1');
+      var str2 = document.getElementById('str2');
+
+      str1.style.display = 'none'
+      str2.style.display = 'flex'
+
+
+    }
+    if (sector == 1) {
+      var str = document.getElementById('str1');
+      var str2 = document.getElementById('str2');
+
+      str1.style.display = 'flex'
+      str2.style.display = 'none'
+    }
+
+  }
 </script>
+
 
 </html>

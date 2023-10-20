@@ -1,204 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/cadastro.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MushRoom.co</title>
+  <link rel="stylesheet" href="assets/css/cadastro.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/header.css">
 
 </head>
-<body >
-    <!-- ************HEADER************* -->
-    <div class="header">
-        <div class="containerHeader">
 
-            <h1 class="logo"><a href="inicial.html">MUSHROOM.co</a></h1>
+<body>
+  <!-- ************HEADER************* -->
+  <div class="header">
+    <div class="containerHeader">
 
-            <div class="navbar">
-                <ul>
-                    <li><a class="linha_baixo" href="inicial.html">HOME</li>
-                    <li><a class="linha_baixo" href="#">SOBRE NÓS</a></li>
-                    <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
-                    <li><a class="linha_baixo" href="dashV2.html">DASH</a></li>
-                    <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
-                </ul>
-            </div>
-        </div>
-        <div class="cadbar" id="cadbar">
-                <div class="cadbarInput">
-                    <span>CNPJ</span>
-                    <input type="text">
-                </div>
+      <h1 class="logo"><a href="inicial.html">MUSHROOM.co</a></h1>
 
-
-
-                <div class="cadbarInput">
-                    <span>SENHA</span> <input type="text">
-
-                </div>
-                <button><B>ENTRAR</B></button>
-
-                <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
-            </div>
+      <div class="navbar">
+        <ul>
+          <li><a class="linha_baixo" href="inicial.html">HOME</li>
+          <li><a class="linha_baixo" href="#">SOBRE NÓS</a></li>
+          <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
+          <li><a class="linha_baixo" href="dashV2.html">DASH</a></li>
+          <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
+        </ul>
+      </div>
     </div>
-    <div class="quadrado">
-        <h1 class="TituloCad">Cadastrar</h1>
-        <div class="container">
-            <main>
-                <span class="spanCadastro">Empresa: <input class="inpt" id="input_empresa"></span>
-                <span class="spanCadastro">CNPJ: <input class="inpt" id="input_cnpj"></span>
-                <span class="spanCadastro">E-mail: <input class="inpt" id="input_email"></span>
-                <span class="spanCadastro">Senha: <input class="inpt" id="input_senha" /></span>
-                <span class="spanCadastro">Telefone: <input class="inpt" id="input_telefone"></span>
-                <div id="div_mensagem" class="mensagem"></div>
-                <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
-            </main>  
-        </div>
+    <div class="cadbar" id="cadbar">
+      <div class="cadbarInput">
+        <span>CNPJ</span>
+        <input type="text">
+      </div>
+
+
+
+      <div class="cadbarInput">
+        <span>SENHA</span> <input type="text">
+
+      </div>
+      <button><B>ENTRAR</B></button>
+
+      <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
     </div>
-    <footer>
-            <address id="endereco">
-                <a href="https://maps.app.goo.gl/MXbF6UQy1vSC8Der6"> Rua Haddock Lobo, 595</a>
-            </address>
-            <p>Tel/Whatsap:(11)9 9782-8063</p>
-    </footer>
+  </div>
+  <div class="quadrado">
+    <h1 class="TituloCad">Cadastrar</h1>
+    <div class="container">
+      <main>
+        <span class="spanCadastro">Empresa: <input class="inpt" id="input_empresa"></span>
+        <span class="spanCadastro">CNPJ: <input class="inpt" id="input_cnpj"></span>
+        <span class="spanCadastro">E-mail: <input class="inpt" id="input_email"></span>
+        <span class="spanCadastro">Senha: <input class="inpt" id="input_senha" /></span>
+        <span class="spanCadastro">Telefone: <input class="inpt" id="input_telefone"></span>
+        <div id="div_mensagem" class="mensagem"></div>
+        <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
+      </main>
+    </div>
+  </div>
+  <footer>
+    <address id="endereco">
+      <a href="https://maps.app.goo.gl/MXbF6UQy1vSC8Der6"> Rua Haddock Lobo, 595</a>
+    </address>
+    <p>Tel/Whatsap:(11)9 9782-8063</p>
+  </footer>
 </body>
+
 </html>
 
 <!-- FDF2DC bege-->
 <!-- 712323 vermelho-->
 
 <script type="text/javascript">
-    function aparecerLogin(){
+  function aparecerLogin() {
 
-        var disP= cadbar.style.display
+    var disP = cadbar.style.display
 
-        if (disP == `flex`) {cadbar.style.display ="none"}
-        else {cadbar.style.display ="flex"}
+    if (disP == `flex`) { cadbar.style.display = "none" }
+    else { cadbar.style.display = "flex" }
+  }
+  function CADASTRAR() {
+    div_mensagem.style.display = "none"
+    var Empresa = input_empresa.value;
+    var CNPJ = input_cnpj.value;
+    var email = input_email.value;
+    var Senha = input_senha.value;
+    var Telefone = input_telefone.value;
+
+    div_mensagem.innerHTML = '';
+
+    //EMPRESA
+
+    if (
+      Empresa.indexOf("#") >= 0 ||
+      Empresa.indexOf("@") >= 0 ||
+      Empresa.indexOf("!") >= 0 ||
+      Empresa.indexOf("%") >= 0 ||
+      Empresa.indexOf("*") >= 0 ||
+      Empresa.indexOf("$") >= 0 ||
+      Empresa.indexOf("&") >= 0
+    ) {
+      div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
+      div_mensagem.style.display = "flex"
     }
-    function CADASTRAR() {
-      div_mensagem.style.display = "none"
-      var Empresa = input_empresa.value;
-      var CNPJ = input_cnpj.value;
-      var email = input_email.value;
-      var Senha = input_senha.value;
-      var Telefone = input_telefone.value;
 
-      div_mensagem.innerHTML = '';
+    //CNPJ
 
-      //EMPRESA
-
-      if (
-        Empresa.indexOf("#") >= 0 ||
-        Empresa.indexOf("@") >= 0 ||
-        Empresa.indexOf("!") >= 0 ||
-        Empresa.indexOf("%") >= 0 ||
-        Empresa.indexOf("*") >= 0 ||
-        Empresa.indexOf("$") >= 0 ||
-        Empresa.indexOf("&") >= 0
-      ) {
-        div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
-        div_mensagem.style.display = "flex"
-      }
-
-      //CNPJ
-
-      if (CNPJ.length != 14) {
-        div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      if (CNPJ.indexOf(".") >= 0) {
-        div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      var mensagem1 = '';
-      var contador1 =0 
-      while(contador1 < CNPJ.length){
-        var num = 0
-        while(num <= 9){
-          if(CNPJ[contador1]  == num) {mensagem1 = "";break}else{
-            mensagem1 = `-Não pode conter outros caracteres <br> alem de numeros no CNPJ <br>`
-            div_mensagem.style.display = "flex"
-
-          }
-          num += 1
-        }
-          contador1 += 1
-      }
-      div_mensagem.innerHTML+= mensagem1 
-
-      //SENHA
-
-      if (Senha.length < 8) {
-        div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      if (Senha.indexOf(" ") >= 0) {
-        div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      if (
-        Senha.indexOf("#") >= 1 ||
-        Senha.indexOf("@") >= 1 ||
-        Senha.indexOf("!") >= 1 ||
-        Senha.indexOf("%") >= 1 ||
-        Senha.indexOf("*") >= 1 ||
-        Senha.indexOf("$") >= 1 ||
-        Senha.indexOf("_") >= 1 ||
-        Senha.indexOf("-") >= 1 ||
-        Senha.indexOf("&") >= 1
-      ) {
-        
-      }else{
-        div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      //EMAIL
-      if (email.indexOf("@") >= 1) {
-      } else {
-        div_mensagem.innerHTML += `-Deve conter @ <br>`;
-        div_mensagem.style.display = "flex";
-      }
-      if (email.indexOf(".com") >= 1) {
-      } else {
-        div_mensagem.innerHTML += `-Deve conter .com <br>`;
-        div_mensagem.style.display = "flex";
-      }
-      if (email.indexOf(" ") >= 0) {
-        div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
-        div_mensagem.style.display = "flex";
-      }
-
-      //TELEFONE
-      if (Telefone.length == 11) {
-      } else {
-        div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
-        div_mensagem.style.display = "flex";
-      }
-      if (Telefone.indexOf(" ") >= 0) {
-        div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
-        div_mensagem.style.display = "flex";
-      }
-      var mensagem = '';
-      var contador = 0;
-
-      while(contador < Telefone.length){
-        var num = 0
-        while(num <= 9){
-          if(Telefone[contador]  == num) {mensagem = "";break}else{
-            mensagem = `-Não pode conter outros caracteres <br> alem de numeros no Telefone <br>`
-            div_mensagem.style.display = "flex"
-
-          }
-          num += 1
-        }
-        contador += 1;
-      }
-      div_mensagem.innerHTML+= mensagem
+    if (CNPJ.length != 14) {
+      div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
+      div_mensagem.style.display = "flex";
     }
+
+    if (CNPJ.indexOf(".") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
+      div_mensagem.style.display = "flex";
+    }
+
+    var mensagem1 = '';
+    var contador1 = 0
+    while (contador1 < CNPJ.length) {
+      var num = 0
+      while (num <= 9) {
+        if (CNPJ[contador1] == num) { mensagem1 = ""; break } else {
+          mensagem1 = `-Não pode conter outros caracteres <br> alem de numeros no CNPJ <br>`
+          div_mensagem.style.display = "flex"
+
+        }
+        num += 1
+      }
+      contador1 += 1
+    }
+    div_mensagem.innerHTML += mensagem1
+
+    //SENHA
+
+    if (Senha.length < 8) {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+      div_mensagem.style.display = "flex";
+    }
+
+    if (Senha.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+      div_mensagem.style.display = "flex";
+    }
+
+    if (
+      Senha.indexOf("#") >= 1 ||
+      Senha.indexOf("@") >= 1 ||
+      Senha.indexOf("!") >= 1 ||
+      Senha.indexOf("%") >= 1 ||
+      Senha.indexOf("*") >= 1 ||
+      Senha.indexOf("$") >= 1 ||
+      Senha.indexOf("_") >= 1 ||
+      Senha.indexOf("-") >= 1 ||
+      Senha.indexOf("&") >= 1
+    ) {
+
+    } else {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+      div_mensagem.style.display = "flex";
+    }
+
+    //EMAIL
+    if (email.indexOf("@") >= 1) {
+    } else {
+      div_mensagem.innerHTML += `-Deve conter @ <br>`;
+      div_mensagem.style.display = "flex";
+    }
+    if (email.indexOf(".com") >= 1) {
+    } else {
+      div_mensagem.innerHTML += `-Deve conter .com <br>`;
+      div_mensagem.style.display = "flex";
+    }
+    if (email.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+      div_mensagem.style.display = "flex";
+    }
+
+    //TELEFONE
+    if (Telefone.length == 11) {
+    } else {
+      div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
+      div_mensagem.style.display = "flex";
+    }
+    if (Telefone.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
+      div_mensagem.style.display = "flex";
+    }
+    var mensagem = '';
+    var contador = 0;
+
+    while (contador < Telefone.length) {
+      var num = 0
+      while (num <= 9) {
+        if (Telefone[contador] == num) { mensagem = ""; break } else {
+          mensagem = `-Não pode conter outros caracteres <br> alem de numeros no Telefone <br>`
+          div_mensagem.style.display = "flex"
+
+        }
+        num += 1
+      }
+      contador += 1;
+    }
+    div_mensagem.innerHTML += mensagem
+  }
 </script>
