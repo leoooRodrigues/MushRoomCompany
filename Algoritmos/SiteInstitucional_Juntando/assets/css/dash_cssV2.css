@@ -1,0 +1,156 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
+}
+
+* {
+    font-family: Bwrlin Sans FB Demi Bold;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100vw;
+}
+
+.inpts_dash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar {
+    width: 10%;
+    background-color: #712323;
+    height: 100%;
+    border: black 1px solid;
+}
+
+.sidebar h3 {
+    color: #f5deb3;
+    font-size: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar .opcao {
+
+    color: white;
+
+}
+
+select {
+    color: #712323;
+    padding: 10px;
+
+}
+
+.select {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10vh;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar a:hover {
+    border-left: 4px solid #f5deb3;
+    background-color: #f5deb3;
+    color: #712323;
+    font-weight: bold;
+}
+
+/* fim da sidebar */
+
+.content {
+    width: 88%;
+    /* background-color: rgba(224, 220, 220, 0.425); */
+
+    background-color: #f5deb3;
+    position: relative;
+    right: 0vw;
+    padding: 10px;
+    top: -16px;
+}
+
+.titulo-secao {
+    border-radius: 10px;
+    background-color: #712323;
+    padding: 10px;
+    border: black 1px solid;
+
+    margin-top: 10%;
+}
+
+.titulo-secao h2 {
+    font: 19px;
+
+}
+
+.titulo-secao p,
+h2 {
+    color: #f5deb3;
+}
+
+.separador {
+    width: 100%;
+    height: 1px;
+    background-color: #f5deb3;
+}
+
+.box-info {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-info p,
+h3 {
+    color: #f5deb3;
+}
+
+.box-info-single {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 30px;
+    background-color: #712323;
+}
+
+.canva {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.chart-container {
+    display: flex;
+    height: 40vh;
+    width: 40vw;
+    border: 1px solid #712323;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: black;
+}

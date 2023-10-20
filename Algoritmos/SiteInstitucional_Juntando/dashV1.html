@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt_br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <title>Dash</title>
 </head>
+
 <body>
     <div class="header">
         <div class="containerHeader">
@@ -28,29 +30,29 @@
             </div>
         </div>
         <div class="cadbar" id="cadbar">
-                <div class="cadbarInput">
-                    <span>CNPJ</span>
-                    <input type="text">
-                </div>
+            <div class="cadbarInput">
+                <span>CNPJ</span>
+                <input type="text">
+            </div>
 
 
 
-                <div class="cadbarInput">
-                    <span>SENHA</span> <input type="text">
+            <div class="cadbarInput">
+                <span>SENHA</span> <input type="text">
 
-                </div>
-                <button><B>ENTRAR</B></button>
+            </div>
+            <button><B>ENTRAR</B></button>
 
-                <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
+            <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
         </div>
     </div>
-        <!-- fim header -->
+    <!-- fim header -->
 
     <div class="main">
         <div class="inpts_dash">
             <div class="sidebar">
                 <h3>Setores</h3>
-               <!--  <a href="#">setor 1</a>
+                <!--  <a href="#">setor 1</a>
                 <a href="#">setor 2</a>
                 <a href="#">setor 3</a>
                 <a href="#">setor 4</a>
@@ -62,7 +64,8 @@
                         <option class="opcao" value="">setor 2</option>
                         <option class="opcao" value="">setor 3</option>
                         <option class="opcao" value="">setor 4</option>
-                    </select></div> <br>
+                    </select>
+                </div> <br>
                 <button class="botao" onclick="setor()">Ver setor</button>
                 <br>
                 <div class="separador"></div>
@@ -77,14 +80,14 @@
                     <p>Dashboard</p>
                 </div>
                 <div class="box-info">
-                <!-- box1 -->
+                    <!-- box1 -->
                     <div class="box-info-single">
                         <div class="info-text">
                             <h3>sales</h3>
                             <p>R$1.000</p>
                         </div>
                     </div> <!-- fim box1 -->
-               
+
                     <!-- box2 -->
                     <div class="box-info-single">
                         <div class="info-text">
@@ -92,7 +95,7 @@
                             <p>R$1.000</p>
                         </div>
                     </div> <!-- fim box2 -->
-                 
+
                     <!-- box3 -->
                     <div class="box-info-single">
                         <div class="info-text">
@@ -105,8 +108,8 @@
         </div>
         <div class="graf">
             <div class="graficos">
-                <h3 >Sensor DHT 11 - Umidade </h3>
-                <section style="width: 70vw" >
+                <h3>Sensor DHT 11 - Umidade </h3>
+                <section style="width: 70vw">
                     <canvas id="dht11Umidade"></canvas>
                 </section>
             </div>
@@ -119,10 +122,10 @@
             </div>
 
             <!--<h1>Sensor Luminosidade</h1> -->
-            <section style="width: 100vw; display: none;" >
+            <section style="width: 100vw; display: none;">
                 <canvas id="luminosidade"></canvas>
             </section>
-            
+
             <div class="graficos">
                 <h3>Sensor LM 35 - Temperatura</h3>
                 <section style="width: 70vw; ">
@@ -139,6 +142,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 
@@ -192,7 +196,7 @@
             type: 'line',
             data: {
                 datasets: [{
-                    label:"Temperatura",
+                    label: "Temperatura",
                     type: 'line',
                     borderColor: ['#ff3232']
                 }]
