@@ -20,7 +20,7 @@
       <div class="navbar">
         <ul>
           <li><a class="linha_baixo" href="inicial.html">HOME</li>
-          <li><a class="linha_baixo" href="#pg4">SOBRE NÓS</a></li>
+          <li><a class="linha_baixo" href="inicial.html #pg4">SOBRE NÓS</a></li>
           <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
           <li><a class="linha_baixo" href="dashV2.html">DASH</a></li>
           <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
@@ -158,7 +158,6 @@
           beginAtZero: true
         }
       }
-      trans
     }
   });
 
@@ -277,3 +276,14 @@
 
 
 </html>
+
+<script type="text/javascript">
+  function aparecerLogin(){
+
+      var disP= cadbar.style.display
+
+      if (disP == `flex`) {cadbar.style.display ="none"}
+      else {cadbar.style.display ="flex"}
+      
+  }
+</script>
