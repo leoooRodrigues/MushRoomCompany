@@ -34,14 +34,14 @@
         <div class="cadbar" id="cadbar">
             <div class="cadbarInput">
                 <span>CNPJ</span>
-                <input type="text">
+                <input type="text" class="inpsbege">
             </div>
 
 
 
             <div class="cadbarInput">
-                <span>SENHA</span> <input type="text">
-
+                <span>SENHA</span>
+                <input type="password" class="inpsbege">
             </div>
             <button><B>ENTRAR</B></button>
 
@@ -71,80 +71,93 @@
                 <button class="botao" onclick="setor()">Ver setor</button>
                 <br>
                 <div class="separador"></div>
+                <div id="divMostrar" style="display: none;">
+                    <div class="inps_limitador">
+                        umidade ideal minima:
+                        <input type="number" id="inp_umi_min" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        umidade ideal maxima:
+                        <input type="number" id="inp_umi_max" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        temperatura ideal minima:
+                        <input type="number" id="inp_temp_min" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        temperatura ideal maxima:
+                        <input type="number" id="inp_temp_max" class="inpsbege">
+                    </div>
+                    <button id="btnConfirmar" class="btnMostrar" onclick="confirmar()">Confirmar</button>
+                </div>
+                <button id="btnMostrar" class="btnMostrar" onclick="habilitar()">Mudar Parametros</button>
             </div>
 
-            <div class="content">
-                <div class="titulo-secao">
-                    <h2>Dashboard</h2>
-                    <br>
+        </div>
+        <div class="content">
+            <div class="box-info">
+                <!-- box1 -->
+                <div class="box-info-single">
+                    <div>
+                        <h3>Temperatura Min ideal:</h3>
+                        <h3 id="vlr_Temp_min">29</h3>
+                    </div>
                     <div class="separador"></div>
-                    <br>
-                    <p>Dashboard</p>
-                </div>
-                <div class="box-info">
-                    <!-- box1 -->
-                    <div class="box-info-single">
-                        <div>
-                            <h3>Temperatura</h3>
-                            <p id="vlr_Temp"></p>
-                        </div>
-                        <div class="separador"></div>
-                        <div>
-                            <h3>Umidade</h3>
-                            <p id="vlr_Umi"></p>
-                        </div>
-                    </div> <!-- fim box1 -->
+                    <div>
+                        <h3>Umidade Min ideal:</h3>
+                        <h3 id="vlr_Umi_min">20</h3>
+                    </div>
+                </div> <!-- fim box1 -->
 
-                    <!-- box2 -->
-                    <div class="box-ideal">
-                        <div id="temp" class="ideal temp">Temperatura Ideal</div>
-                        <div id="umi" class="ideal umi">Umidade Ideal</div>
-                    </div> <!-- fim box2 -->
+                <!-- box2 -->
+                <div class="box-ideal">
+                    <div id="temp" class="ideal temp">Temperatura Ideal</div>
+                    <div id="umi" class="ideal umi">Umidade Ideal</div>
+                </div> <!-- fim box2 -->
 
-                    <!-- box3 -->
-                    <div class="box-info-single">
-                        <div>
-                            <h3>Temperatura</h3>
-                            <p id="vlr_Temp"></p>
-                        </div>
-                        <div class="separador"></div>
-                        <div>
-                            <h3>Umidade</h3>
-                            <p id="vlr_Umi"></p>
-                        </div>
-                    </div><!-- fim box2 -->
+                <!-- box3 -->
+                <div class="box-info-single">
+                    <div>
+                        <h3>Temperatura Max ideal:</h3>
+                        <h3 id="vlr_Temp_max">20</h3>
+                    </div>
+                    <div class="separador"></div>
+                    <div>
+                        <h3>Umidade Maxideal:</h3>
+                        <h3 id="vlr_Umi_max">20</h3>
+                    </div>
+                </div><!-- fim box2 -->
+            </div>
+            <div class="canva2" id="str1">
+
+                <h1>Setor 1</h1>
+
+                <div class="canva">
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="myChart2"></canvas>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="canva2" id="str1">
+            <!-- setor 2 -->
 
-            <h1>Setor 1</h1>
+            <div class="canva2" id="str2" style="display: none;">
 
-            <div class="canva">
-                <div class="chart-container">
-                    <canvas id="myChart"></canvas>
-                </div>
+                <h1>Setor 2</h1>
 
-                <div class="chart-container">
-                    <canvas id="myChart2"></canvas>
+                <div class="canva">
+                    <div class="chart-container">
+                        <canvas id="myChart3"></canvas>
+                    </div>
 
-                </div>
-            </div>
-        </div>
-        <!-- setor 2 -->
+                    <div class="chart-container">
+                        <canvas id="myChart4"></canvas>
 
-        <div class="canva2" id="str2" style="display: none;">
-
-            <h1>Setor 2</h1>
-
-            <div class="canva">
-                <div class="chart-container">
-                    <canvas id="myChart3"></canvas>
-                </div>
-
-                <div class="chart-container">
-                    <canvas id="myChart4"></canvas>
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,6 +169,10 @@
 <script>
     // grafico 1
     const ctx = document.getElementById('myChart');
+    var umiMin = 70
+    var umiMax = 100
+    var TempMin = 15
+    var TempMax = 25
 
     new Chart(ctx, {
         type: 'bar',
@@ -307,12 +324,46 @@
 
 
 
+
+
+    var cadbar = document.getElementById('cadbar')
+
     function aparecerLogin() {
 
         var disP = cadbar.style.display
 
         if (disP == `flex`) { cadbar.style.display = "none" }
-        else { cadbar.style.display = "flex" }
+        else {
+            cadbar.style.display = "flex"
+            cadbar.style.primary.dim(on)
+        }
 
+
+    }
+
+    function habilitar() {
+        divMostrar
+        var disP = divMostrar.style.display
+
+        if (disP == `none`) {
+            divMostrar.style.display = "grid"
+            btnMostrar.style.display = "none"
+        }
+    }
+
+    function confirmar() {
+        alert(`Parametros mudados com sucesso ${TempMax}`)
+        divMostrar.style.display = "none"
+        btnMostrar.style.display = "flex"
+
+        umiMin = Number(inp_umi_min.value);
+        umiMax = Number(inp_umi_max.value);
+        TempMin = Number(inp_temp_min.value);
+        TempMax = Number(inp_temp_max.value);
+
+        vlr_Umi_min.innerHTML = umiMin;
+        vlr_Umi_max.innerHTML = umiMax;
+        vlr_Temp_min.innerHTML = TempMin;
+        vlr_Temp_max.innerHTML = TempMax;
     }
 </script>
