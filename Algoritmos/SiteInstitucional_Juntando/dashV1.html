@@ -174,20 +174,23 @@
     var TempMin = 15
     var TempMax = 25
 
+    var vlrsGraficoUmi = [80, 81, 89, 90, 87, 80]
+    var vlrsGraficoTemp = [28, 25, 19, 17, 24, 29]
+
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho'],
+            labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
             datasets: [{
                 label: 'umidade media (%)',
-                data: [90, 89, 93, 87, 88, 82],
+                data: vlrsGraficoUmi,
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
                 borderWidth: 1
             },
             {
                 label: 'temperatura media (°)',
-                data: [22, 24, 27, 23, 20, 18],
+                data: vlrsGraficoTemp,
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
                 borderWidth: 1
@@ -212,7 +215,7 @@
             labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
             datasets: [{
                 label: 'umidade (%)',
-                data: [80, 82, 80, 85, 80, 83],
+                data: vlrsGraficoUmi,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
                 borderWidth: 2,
@@ -220,7 +223,7 @@
             },
             {
                 label: 'temperatura (°)',
-                data: [30, 29, 28, 25, 22, 23],
+                data: vlrsGraficoTemp,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
                 borderWidth: 2,
@@ -241,7 +244,7 @@
     new Chart(ctx3, {
         type: 'bar',
         data: {
-            labels: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho'],
+            labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
             datasets: [{
                 label: 'umidade media',
                 data: [70, 95, 80, 79, 87, 90],
@@ -309,8 +312,15 @@
             var str = document.getElementById('str1');
             var str2 = document.getElementById('str2');
 
-            str1.style.display = 'none';
-            str2.style.display = 'flex';
+            str1.style.display = 'none'
+            str2.style.display = 'flex'
+
+            // vlrsGraficoTemp = [16,17,20,24,29,25]
+            // vlrsGraficoUmi = [80,81,85,90,92,90]
+
+            // ctx.update();
+            // ctx2.update();
+
         }
         if (sector == 1) {
             var str = document.getElementById('str1');
@@ -352,18 +362,44 @@
     }
 
     function confirmar() {
-        alert(`Parametros mudados com sucesso ${TempMax}`)
-        divMostrar.style.display = "none"
-        btnMostrar.style.display = "flex"
-
         umiMin = Number(inp_umi_min.value);
         umiMax = Number(inp_umi_max.value);
         TempMin = Number(inp_temp_min.value);
         TempMax = Number(inp_temp_max.value);
 
-        vlr_Umi_min.innerHTML = umiMin;
-        vlr_Umi_max.innerHTML = umiMax;
-        vlr_Temp_min.innerHTML = TempMin;
-        vlr_Temp_max.innerHTML = TempMax;
+        if (umiMax <= 100 && umiMin < umiMax && umiMin > 0 && TempMax < 40 && TempMin > 10 && TempMax > TempMin) {
+            alert(`Parametros mudados com sucesso`)
+            divMostrar.style.display = "none"
+            btnMostrar.style.display = "flex"
+
+
+            vlr_Umi_min.innerHTML = umiMin;
+            vlr_Umi_max.innerHTML = umiMax;
+            vlr_Temp_min.innerHTML = TempMin;
+            vlr_Temp_max.innerHTML = TempMax;
+
+            if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMin + 4 && vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMax - 4) {
+                temp.style.backgroundColor= '#29cf00'
+            }else if(vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMin || vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMax){
+                temp.style.backgroundColor= '#ff0000'
+            }else{
+                temp.style.backgroundColor= '#ffff00'
+
+            }
+
+            if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMin + 5 && vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMax -5) {
+                temp.style.backgroundColor= '#29cf00'
+            }else if(vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMin || vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMax){
+                temp.style.backgroundColor= '#ff0000'
+            }else{
+                temp.style.backgroundColor= '#ffff00'
+
+            }
+        }
+        else {
+            alert(`As mudanças não foram feitas!! Revise os valores passados`)
+        }
+
     }
+
 </script>
