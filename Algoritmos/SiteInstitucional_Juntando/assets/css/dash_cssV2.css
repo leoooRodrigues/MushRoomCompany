@@ -3,17 +3,18 @@
     src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
 }
 
-* {
+*{
     font-family: Bwrlin Sans FB Demi Bold;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 html,
 body {
     background-color: #f5deb3;
     font-family: Bwrlin Sans FB Demi Bold;
-    height: 100%;
+    height: 100vh;
 }
 
 .main {
@@ -21,7 +22,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     height: 100%;
-    width: 100vw;
+    width: 100%;
 }
 
 .inpts_dash {
@@ -86,7 +87,6 @@ select {
 
     background-color: #f5deb3;
     position: relative;
-    right: 0vw;
     padding: 10px;
     top: -16px;
 }
