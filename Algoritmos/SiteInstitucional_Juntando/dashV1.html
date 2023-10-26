@@ -97,9 +97,9 @@
 
         </div>
         <div class="content">
-            <div class="box-info">
+            <div class="divInforma">
                 <!-- box1 -->
-                <div class="box-info-single">
+                <div class="box-informacoes">
                     <div>
                         <h3>Temperatura Min ideal:</h3>
                         <h3 id="vlr_Temp_min">29</h3>
@@ -118,7 +118,7 @@
                 </div> <!-- fim box2 -->
 
                 <!-- box3 -->
-                <div class="box-info-single">
+                <div class="box-informacoes">
                     <div>
                         <h3>Temperatura Max ideal:</h3>
                         <h3 id="vlr_Temp_max">20</h3>
@@ -135,12 +135,12 @@
                 <h1>Setor 1</h1>
 
                 <div class="canva">
-                    <div class="chart-container">
-                        <canvas id="myChart"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart" class="cnvs" ></canvas>
                     </div>
 
-                    <div class="chart-container">
-                        <canvas id="myChart2"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart2" class="cnvs" ></canvas>
 
                     </div>
                 </div>
@@ -152,12 +152,12 @@
                 <h1>Setor 2</h1>
 
                 <div class="canva">
-                    <div class="chart-container">
-                        <canvas id="myChart3"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart3" class="cnvs" ></canvas>
                     </div>
 
-                    <div class="chart-container">
-                        <canvas id="myChart4"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart4" class="cnvs" ></canvas>
 
                     </div>
                 </div>
@@ -170,12 +170,12 @@
                 <h1>Geral</h1>
 
                 <div class="canva">
-                    <div class="chart-container">
-                        <canvas id="myChart5"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart5" class="cnvs" ></canvas>
                     </div>
 
-                    <div class="chart-container">
-                        <canvas id="myChart6"></canvas>
+                    <div class="graf-conteudo">
+                        <canvas id="myChart6" class="cnvs" ></canvas>
 
                     </div>
                 </div>
@@ -327,7 +327,7 @@
     new Chart(ctx5, {
         type: 'bar',
         data: {
-            labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
+            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
             datasets: [{
                 label: 'umidade media',
                 data: [70, 95, 80, 79, 87, 90],
