@@ -3,7 +3,7 @@
     src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
 }
 
-*{
+* {
     font-family: Bwrlin Sans FB Demi Bold;
     margin: 0;
     padding: 0;
