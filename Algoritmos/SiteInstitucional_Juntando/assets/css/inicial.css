@@ -18,7 +18,9 @@ body {
 }
 
 .bg1-2 {
-    background-image: url(../img/backgroundInicial.jpg);
+    
+    background-image: linear-gradient(rgba(255, 255, 255, 0.481) , rgba(255, 255, 255, 0.329)),
+    url(../img/backgroundInicial.jpg);
     background-size: cover;
     width: 100%;
     height: 150vh;
