@@ -69,17 +69,11 @@ idRegistros int auto_increment,
 dataHora datetime,
 dadosSensor int,
 fkSensor int, 
-tipoDado char(4)
+tipoDado char(4),
 constraint chkTipo check(tipoDado in('Umid', 'Temp')),
 constraint Sensorfk foreign key (fkSensor)
 references Sensor(idSensor),
 primary key(idRegistros,fkSensor))auto_increment=5000;
-
-select * from Usuarios;
-select * from empresa;
-select * from cogumelo;
-select * from sensor; 
-select * from registros;
 
 insert into empresa(nome,email,cnpj,telefone) values 
 	('Vendetta Cogu','vendetta.cogu@gmail.com','15.634.778/0001-02','(31) 93529-8167'),
@@ -121,7 +115,6 @@ insert into sensor(statensor,nomeSensor,fkSetor) values
 (1,'Umidade',11);
 
 
-
 insert into registros (dataHora, dadosSensor,tipoDado, fkSensor) values
 (current_timestamp(),70,'Umid',105),
 (current_timestamp(),65,'Umid',107),
@@ -133,6 +126,25 @@ select *from sensor;
 select *from setor;
 select *from cogumelo;
 select *from empresa;
-select	*from usuarios;
+select *from usuarios;
 select *from fase;
+
+select* from empresa join usuarios
+on usuarios.fkEmpresa = empresa.idEmpresa;
+
+select* from empresa join setor
+on setor.fkEmpresa = empresa.idEmpresa;
+
+select* from empresa join setor
+on setor.fkEmpresa = empresa.idEmpresa;
+
+
+
+
+
+
+
+
+
+
 
