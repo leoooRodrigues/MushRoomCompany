@@ -154,7 +154,7 @@ h2 {
     background-color: #f5deb3;
 }
 
-.box-info {
+.divInforma {
     width: 100%;
     margin-top: 10px;
     display: flex;
@@ -163,7 +163,7 @@ h2 {
     color: #f5deb3;
 }
 
-.box-info-single {
+.box-informacoes {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -211,12 +211,13 @@ h2 {
     width: 100%;
     justify-content: center;
     row-gap: 10px;
+    margin-top: 30px;
 }
 
-.chart-container {
+.graf-conteudo {
     display: flex;
     height: 40%;
-    width: 100%;
+    width: 45%;
     border: 1px solid #712323;
     margin-top: 20px;
     border-radius: 10px;
@@ -234,4 +235,7 @@ h2 {
     font-family: Bwrlin Sans FB Demi Bold;
     font-size: 20px;
     margin-top: 20px;
+}
+
+.cnvs{
 }
