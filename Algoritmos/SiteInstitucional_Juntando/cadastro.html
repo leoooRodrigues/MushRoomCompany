@@ -38,8 +38,8 @@
 
 
       <div class="cadbarInput">
-        <span>SENHA</span> 
-        <input type="text" class="inpsbege">
+        <span>SENHA</span>
+        <input type="password" class="inpsbege">
 
       </div>
       <button><B>ENTRAR</B></button>
@@ -51,11 +51,13 @@
     <h1 class="TituloCad">Cadastrar</h1>
     <div class="container">
       <main>
-        <span class="spanCadastro">Empresa: <input class="inpt" id="input_empresa"></span>
-        <span class="spanCadastro">CNPJ: <input class="inpt" id="input_cnpj"></span>
-        <span class="spanCadastro">E-mail: <input class="inpt" id="input_email"></span>
-        <span class="spanCadastro">Senha: <input class="inpt" id="input_senha" /></span>
-        <span class="spanCadastro">Telefone: <input class="inpt" id="input_telefone"></span>
+        <span class="spanCadastro">Empresa: <input class="inpt" placeholder="Nome da Empresa" id="input_empresa"></span>
+        <span class="spanCadastro">CNPJ: <input class="inpt" placeholder="11222333444555566" id="input_cnpj"></span>
+        <span class="spanCadastro">Telefone: <input class="inpt" placeholder="11987651234" id="input_telefone"></span>
+        <span class="spanCadastro">E-mail: <input class="inpt" placeholder="********@*****.com" id="input_email"></span>
+        <span class="spanCadastro">Senha: <input class="inpt" type="password" placeholder="MushR@@m" id="input_senha" /></span>
+        <span class="spanCadastro">Confirmar: <input type="password" class="inpt" placeholder="confirmar senha" id="input_ConfSenha" /></span>
+
         <div id="div_mensagem" class="mensagem"></div>
         <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
       </main>
@@ -89,6 +91,7 @@
     var email = input_email.value;
     var Senha = input_senha.value;
     var Telefone = input_telefone.value;
+    var ConfSenha = input_ConfSenha.value;
 
     div_mensagem.innerHTML = '';
 
@@ -204,6 +207,9 @@
         num += 1
       }
       contador += 1;
+    }
+    if (Senha == ConfSenha) {
+      mensagem += `-Senhas incompatíveis`;
     }
     div_mensagem.innerHTML += mensagem
   }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" type="imagex/png" href="assets/img/Mush_Room_Logo_Mascote.png">
 
     <title>Dash</title>
@@ -29,7 +29,7 @@
                     <li><a class="linha_baixo" href="inicial.html #pg4">SOBRE NÓS</a></li>
                     <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
                     <li><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
-                    <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
+                    <!-- <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li> -->
                 </ul>
             </div>
         </div>
@@ -138,11 +138,11 @@
 
                 <div class="canva">
                     <div class="graf-conteudo">
-                        <canvas id="myChart" class="cnvs" ></canvas>
+                        <canvas id="myChart" class="cnvs"></canvas>
                     </div>
 
                     <div class="graf-conteudo">
-                        <canvas id="myChart2" class="cnvs" ></canvas>
+                        <canvas id="myChart2" class="cnvs"></canvas>
 
                     </div>
                 </div>
@@ -155,11 +155,11 @@
 
                 <div class="canva">
                     <div class="graf-conteudo">
-                        <canvas id="myChart3" class="cnvs" ></canvas>
+                        <canvas id="myChart3" class="cnvs"></canvas>
                     </div>
 
                     <div class="graf-conteudo">
-                        <canvas id="myChart4" class="cnvs" ></canvas>
+                        <canvas id="myChart4" class="cnvs"></canvas>
 
                     </div>
                 </div>
@@ -173,11 +173,11 @@
 
                 <div class="canva">
                     <div class="graf-conteudo">
-                        <canvas id="myChart5" class="cnvs" ></canvas>
+                        <canvas id="myChart5" class="cnvs"></canvas>
                     </div>
 
                     <div class="graf-conteudo">
-                        <canvas id="myChart6" class="cnvs" ></canvas>
+                        <canvas id="myChart6" class="cnvs"></canvas>
 
                     </div>
                 </div>
@@ -199,27 +199,32 @@
     var vlrsGraficoUmi = [80, 81, 89, 90, 87, 80]
     var vlrsGraficoTemp = [28, 25, 19, 17, 24, 29]
 
+    Chart.defaults.font.size = 16;
     new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
             datasets: [{
-                label: 'umidade media (%)',
+                label: 'Umidade media (%)',
                 data: vlrsGraficoUmi,
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-                borderWidth: 1
+               
+                
             },
             {
-                label: 'temperatura media (°)',
+                label: 'Temperatura media (°)',
                 data: vlrsGraficoTemp,
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 1
+               
+                
             }]
         },
         options: {
+            //    
             scales: {
+
                 y: {
                     beginAtZero: true
                 }
@@ -236,19 +241,19 @@
         data: {
             labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
             datasets: [{
-                label: 'umidade (%)',
+                label: 'Umidade (%)',
                 data: vlrsGraficoUmi,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
-                borderWidth: 2,
+    
                 order: 0
             },
             {
-                label: 'temperatura (°)',
+                label: 'Temperatura (°)',
                 data: vlrsGraficoTemp,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 2,
+    
             }]
         },
         options: {
@@ -268,18 +273,21 @@
         data: {
             labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
             datasets: [{
-                label: 'umidade media',
+                label: 'Umidade media',
                 data: [70, 95, 80, 79, 87, 90],
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-                borderWidth: 1,
+               
+                
+                
             },
             {
-                label: 'temperatura media',
+                label: 'Temperatura media',
                 data: [23, 25, 22, 27, 25, 17],
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 1
+               
+                
             }]
         },
         options: {
@@ -300,18 +308,20 @@
         data: {
             labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
             datasets: [{
-                label: 'umidade',
+                label: 'Umidade',
                 data: [88, 90, 93, 86, 98, 89],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
-                borderWidth: 2
+               
+                
             },
             {
-                label: 'temperatura',
+                label: 'Temperatura',
                 data: [27, 20, 18, 16, 20, 10],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 2
+               
+                
             }]
         },
         options: {
@@ -326,26 +336,37 @@
     // grafico 5
     const ctx5 = document.getElementById('myChart5');
 
+    Chart.defaults.font.size = 20;
     new Chart(ctx5, {
         type: 'bar',
         data: {
             labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
             datasets: [{
-                label: 'umidade media',
+                label: 'Umidade media',
                 data: [70, 95, 80, 79, 87, 90],
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-                borderWidth: 1,
+                
             },
             {
-                label: 'temperatura media',
+                label: 'Temperatura media',
                 data: [23, 25, 22, 27, 25, 17],
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 1
+                
             }]
         },
         options: {
+            indexAxis:"y",
+            // plugins: {
+            //     legend: {
+                //         labels: {
+                    //             font: {
+                        //                 size: 20
+                        //             }
+                        //         }
+                        //     }
+                        // },
             scales: {
                 y: {
                     beginAtZero: true
@@ -353,28 +374,29 @@
             }
         }
     });
-
-
+    
+    
     // grafico 6
     const ctx6 = document.getElementById('myChart6');
-
+    
+    Chart.defaults.elements.line.borderWidth = 3.5;
     new Chart(ctx6, {
         type: 'line',
         data: {
             labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
             datasets: [{
-                label: 'umidade',
+                label: 'Umidade',
                 data: [88, 90, 93, 86, 98, 89],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
-                borderWidth: 2
+
             },
             {
-                label: 'temperatura',
+                label: 'Temperatura',
                 data: [27, 20, 18, 16, 20, 10],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-                borderWidth: 2
+  
             }]
         },
         options: {
