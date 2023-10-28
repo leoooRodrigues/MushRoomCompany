@@ -147,15 +147,17 @@ body {
     font-size: 25px;
 }
 
-@keyframes go-back {
+@keyframes seta {
     0% {
         transform: translateX(63px);
     }
 
     100% {
-        transform: translateX(5px);
+        transform: translateX(0px);
     }
 }
+
+
 
 #pg3 a {
     color: #f5deb3;
@@ -164,7 +166,7 @@ body {
 
 .home-interact {
     bottom: 15px;
-    animation: go-back 1s infinite alternate;
+    animation: seta 1s infinite alternate;
     position: relative;
 }
 

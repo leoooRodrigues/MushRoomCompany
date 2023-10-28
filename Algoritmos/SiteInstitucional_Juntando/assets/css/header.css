@@ -103,7 +103,7 @@
 }
 
 
-@keyframes transicaoCad {
+@keyframes transicaoCadDesc {
     from {
         transform: translateY(-80px);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
@@ -111,6 +111,20 @@
 
     to {
         transform: translateY(0);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+
+    
+}
+
+@keyframes transicaoCadSobe {
+    from {
+        transform: translateY(0);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
+    }
+
+    to {
+        transform: translateY(-80px);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     }
 
@@ -133,7 +147,7 @@
     border: 2px black solid;
     border-radius: 20px;
     font-family: Bwrlin Sans FB Demi Bold;
-    animation: transicaoCad 1s;
+    animation: transicaoCadDesc 1s;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     
 }
