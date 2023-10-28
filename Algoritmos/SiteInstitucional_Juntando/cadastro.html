@@ -52,11 +52,15 @@
     <div class="container">
       <main>
         <span class="spanCadastro">Empresa: <input class="inpt" placeholder="Nome da Empresa" id="input_empresa"></span>
-        <span class="spanCadastro">CNPJ: <input class="inpt" placeholder="11222333444555566" id="input_cnpj"></span>
-        <span class="spanCadastro">Telefone: <input class="inpt" placeholder="11987651234" id="input_telefone"></span>
+        <span class="spanCadastro">CNPJ: <input class="inpt" type="number" placeholder="11222333444555566"
+            id="input_cnpj"></span>
+        <span class="spanCadastro">Telefone: <input class="inpt" placeholder="11987651234" id="input_telefone"
+            type="number" style="appearance: none;"></span>
         <span class="spanCadastro">E-mail: <input class="inpt" placeholder="********@*****.com" id="input_email"></span>
-        <span class="spanCadastro">Senha: <input class="inpt" type="password" placeholder="MushR@@m" id="input_senha" /></span>
-        <span class="spanCadastro">Confirmar: <input type="password" class="inpt" placeholder="confirmar senha" id="input_ConfSenha" /></span>
+        <span class="spanCadastro">Senha: <input class="inpt" type="password" placeholder="MushR@@m"
+            id="input_senha" /></span>
+        <span class="spanCadastro">Confirmar: <input type="password" class="inpt" placeholder="confirmar senha"
+            id="input_ConfSenha" /></span>
 
         <div id="div_mensagem" class="mensagem"></div>
         <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
@@ -77,244 +81,226 @@
 <!-- 712323 vermelho-->
 
 <script type="text/javascript">
-function aparecerLogin() {
+  function aparecerLogin() {
 
-  var disP = cadbar.style.display
+    var disP = cadbar.style.display
 
-  if (disP == `flex`) { cadbar.style.display = "none" }
-  else { cadbar.style.display = "flex" }
-}
-
-function CADASTRAR() {
-  var validacao = 0;
-  div_mensagem.style.display = "none"
-  var Empresa = input_empresa.value;
-  var CNPJ = input_cnpj.value;
-  var email = input_email.value;
-  var Senha = input_senha.value;
-  var Telefone = input_telefone.value;
-  var ConfSenha = input_ConfSenha.value;
-  
-
-  div_mensagem.innerHTML = '';
-
-  //EMPRESA
-
-  if (
-    Empresa.indexOf("#") >= 0 ||
-    Empresa.indexOf("@") >= 0 ||
-    Empresa.indexOf("!") >= 0 ||
-    Empresa.indexOf("%") >= 0 ||
-    Empresa.indexOf("*") >= 0 ||
-    Empresa.indexOf("$") >= 0 ||
-    Empresa.indexOf("&") >= 0
-
-  ) {
-    div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
-    div_mensagem.style.display = "flex"
-    validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
+    if (disP == `flex`) { cadbar.style.display = "none" }
+    else { cadbar.style.display = "flex" }
   }
 
-  //CNPJ
+  function CADASTRAR() {
+    var validacao = 0;
+    div_mensagem.style.display = "none"
+    var Empresa = input_empresa.value;
+    var CNPJ = input_cnpj.value;
+    var email = input_email.value;
+    var Senha = input_senha.value;
+    var Telefone = input_telefone.value;
+    var ConfSenha = input_ConfSenha.value;
 
-  if (CNPJ.length != 14) {
-    div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
-    div_mensagem.style.display = "flex";
-  validacao = 1
-  }else{
-    if (validacao != 0) {
+
+    div_mensagem.innerHTML = '';
+
+    //EMPRESA
+
+    if (
+      Empresa.indexOf("#") >= 0 ||
+      Empresa.indexOf("@") >= 0 ||
+      Empresa.indexOf("!") >= 0 ||
+      Empresa.indexOf("%") >= 0 ||
+      Empresa.indexOf("*") >= 0 ||
+      Empresa.indexOf("$") >= 0 ||
+      Empresa.indexOf("&") >= 0
+
+    ) {
+      div_mensagem.style.display = "flex"
+      div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
+
       validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-
-  if (CNPJ.indexOf(".") >= 0) {
-    div_mensagem.innerHTML += `-Não pode conter pontos <br>`;
-    div_mensagem.style.display = "flex";
-  validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-  var mensagem1 = ''
-  var contador1 = 0
-  while (contador1 < CNPJ.length) {
-    var num = 0
-    while (num <= 9) {
-      if (CNPJ[contador1] == num) { 
-        if (validacao != 0) {
-          validacao = 1
-        }else{
-          validacao = 0
-        }
-        break;  
-      } else {
-        mensagem1 =  `-Não pode conter outros caracteres <br> alem de numeros no CNPJ <br>`
-        div_mensagem.style.display = "flex"
-
+    } else {
+      if (validacao != 0) {
         validacao = 1
-      }
-      num += 1
-    }
-    contador1 += 1
-  }
-  div_mensagem.innerHTML += mensagem1
-  //SENHA
-
-  if (Senha.length < 8) {
-    div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-
-  if (Senha.indexOf(" ") >= 0) {
-    div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
-    div_mensagem.style.display = "flex";
-  validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-
-  if (
-    Senha.indexOf("#") >= 1 ||
-    Senha.indexOf("@") >= 1 ||
-    Senha.indexOf("!") >= 1 ||
-    Senha.indexOf("%") >= 1 ||
-    Senha.indexOf("*") >= 1 ||
-    Senha.indexOf("$") >= 1 ||
-    Senha.indexOf("_") >= 1 ||
-    Senha.indexOf("-") >= 1 ||
-    Senha.indexOf("&") >= 1
-  ) {
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  } else {
-    div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }
-
-  //EMAIL
-  if (email.indexOf("@") >= 1) {
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  } else {
-    div_mensagem.innerHTML += `-Deve conter @ <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }
-  if (email.indexOf(".com") >= 1) {
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  } else {
-    div_mensagem.innerHTML += `-Deve conter .com <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }
-  if (email.indexOf(" ") >= 0) {
-    div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-
-  //TELEFONE
-  if (Telefone.length == 11) {
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  } else {
-    div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }
-  if (Telefone.indexOf(" ") >= 0) {
-    div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
-    div_mensagem.style.display = "flex";
-    validacao = 1
-  }else{
-    if (validacao != 0) {
-      validacao = 1
-    }else{
-      validacao = 0
-    }
-  }
-  var mensagem = '';
-  var contador = 0;
-
-  while (contador < Telefone.length) {
-    var num = 0
-    while (num <= 9) {
-      if (Telefone[contador] == num) { 
-        mensagem = ""; 
-        break; 
-        if (validacao != 0) {
-          validacao = 1
-        }else{
-          validacao = 0
-        }
-
       } else {
-        mensagem = `-Não pode conter outros caracteres <br> alem de numeros no Telefone <br>`
-        div_mensagem.style.display = "flex"
-        validacao = 1
+        validacao = 0
       }
-      num += 1
     }
-    contador += 1;
-  }
-  if (Senha != ConfSenha) {
-    mensagem += `-Senhas incompatíveis`;
-    validacao = 1
-  }else{
-    if (validacao != 0) {
+
+    //CNPJ
+
+    if (CNPJ.length == 14) {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    } else {
+      div_mensagem.style.display = "flex";
+      div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
       validacao = 1
-    }else{
-      validacao = 0
     }
-  }
-  if (validacao == 1) {
-    div_mensagem.style.display = 'flex'
-    div_mensagem.innerHTML += mensagem1
-  }else{
+
+    if (CNPJ.indexOf(".") == 0) {
+      div_mensagem.style.display = "flex";
+      div_mensagem.innerHTML += `-Não pode conter pontuação <br>`;
+
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+
+
+    //SENHA
+
+    if (Senha.length < 8) {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+
+    if (Senha.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+
+    if (
+      Senha.indexOf("#") >= 1 ||
+      Senha.indexOf("@") >= 1 ||
+      Senha.indexOf("!") >= 1 ||
+      Senha.indexOf("%") >= 1 ||
+      Senha.indexOf("*") >= 1 ||
+      Senha.indexOf("$") >= 1 ||
+      Senha.indexOf("_") >= 1 ||
+      Senha.indexOf("-") >= 1 ||
+      Senha.indexOf("&") >= 1
+    ) {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    } else {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+    //EMAIL
+    if (email.indexOf("@") >= 1) {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    } else {
+      div_mensagem.innerHTML += `-Deve conter @ <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    if (email.indexOf(".com") >= 1) {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    } else {
+      div_mensagem.innerHTML += `-Deve conter .com <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    if (email.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+
+    //TELEFONE
+    if (Telefone.length == 11) {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    } else {
+      div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    if (Telefone.indexOf(" ") > 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+    var mensagem = '';
+    var contador = 0;
+
+    while (contador < Telefone.length) {
+      var num = 0
+      while (num <= 9) {
+        if (Telefone[contador] == num) {
+          mensagem = "";
+          break;
+          if (validacao != 0) {
+            validacao = 1
+          } else {
+            validacao = 0
+          }
+
+        } else {
+          mensagem = `-Não pode conter outros caracteres <br> alem de numeros no Telefone <br>`
+          div_mensagem.style.display = "flex"
+          validacao = 1
+        }
+        num += 1
+      }
+      contador += 1;
+    }
+    if (Senha != ConfSenha) {
+      mensagem += `-Senhas incompatíveis`;
+      validacao = 1
+    } else {
+      if (validacao != 0) {
+        validacao = 1
+      } else {
+        validacao = 0
+      }
+    }
+    if (validacao == 1) {
+      div_mensagem.style.display = 'flex'
+      div_mensagem.innerHTML += mensagem1
+    } else {
       div_mensagem.style.display = 'none'
+    }
+    div_mensagem.innerHTML += mensagem1
   }
-  
-}
+
 </script>
