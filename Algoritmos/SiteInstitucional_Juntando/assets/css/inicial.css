@@ -107,7 +107,7 @@ body {
     width: 356px;
     height: 88px;
     position: relative;
-    top: 7vh;
+    top: 4vh;
     left: 1vw;
     border-radius: 43px;
     font-size: 46px;
@@ -189,7 +189,7 @@ body {
     align-items: center;
     font-size: 50px;
     position: relative;
-    top: 65px;
+    top: 100px;
 }
 
 .sobre_nos .descricao {
