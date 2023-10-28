@@ -106,11 +106,15 @@
 @keyframes transicaoCad {
     from {
         transform: translateY(-80px);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
     }
 
     to {
         transform: translateY(0);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     }
+
+    
 }
 
 .cadbar {
@@ -131,6 +135,7 @@
     font-family: Bwrlin Sans FB Demi Bold;
     animation: transicaoCad 1s;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    
 }
 
 .cadbar button {
