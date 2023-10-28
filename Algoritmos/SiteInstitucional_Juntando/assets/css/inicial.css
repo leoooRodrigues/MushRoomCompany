@@ -163,8 +163,9 @@ body {
 }
 
 .home-interact {
-
+    bottom: 15px;
     animation: go-back 1s infinite alternate;
+    position: relative;
 }
 
 
