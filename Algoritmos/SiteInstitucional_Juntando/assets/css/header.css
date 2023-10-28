@@ -7,6 +7,7 @@
 * {
     font-family: Bwrlin Sans FB Demi Bold;
     border: none;
+    scroll-behavior: smooth;
 }
 
 .header {
