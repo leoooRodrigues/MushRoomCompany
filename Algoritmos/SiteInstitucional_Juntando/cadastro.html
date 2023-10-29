@@ -90,6 +90,8 @@
   }
 
   function CADASTRAR() {
+
+    console.log('sla')
     var validacao = 0;
     div_mensagem.style.display = "none"
     var Empresa = input_empresa.value;
@@ -118,23 +120,11 @@
       div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
 
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
 
     //CNPJ
 
-    if (CNPJ.length == 14) {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
-    } else {
+    if (CNPJ.length != 14) {
       div_mensagem.style.display = "flex";
       div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
       validacao = 1
@@ -142,15 +132,9 @@
 
     if (CNPJ.indexOf(".") == 0) {
       div_mensagem.style.display = "flex";
-      div_mensagem.innerHTML += `-Não pode conter pontuação <br>`;
+      div_mensagem.innerHTML += `-Não pode conter pontuação no CNPJ <br>`;
 
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
 
 
@@ -160,68 +144,38 @@
       div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
 
     if (Senha.indexOf(" ") >= 0) {
       div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
 
     if (
-      Senha.indexOf("#") >= 1 ||
-      Senha.indexOf("@") >= 1 ||
-      Senha.indexOf("!") >= 1 ||
-      Senha.indexOf("%") >= 1 ||
-      Senha.indexOf("*") >= 1 ||
-      Senha.indexOf("$") >= 1 ||
-      Senha.indexOf("_") >= 1 ||
-      Senha.indexOf("-") >= 1 ||
-      Senha.indexOf("&") >= 1
+      !(Senha.indexOf("#") >= 1 ||
+        Senha.indexOf("@") >= 1 ||
+        Senha.indexOf("!") >= 1 ||
+        Senha.indexOf("%") >= 1 ||
+        Senha.indexOf("*") >= 1 ||
+        Senha.indexOf("$") >= 1 ||
+        Senha.indexOf("_") >= 1 ||
+        Senha.indexOf("-") >= 1 ||
+        Senha.indexOf("&") >= 1)
     ) {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
-    } else {
       div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
     }
 
     //EMAIL
-    if (email.indexOf("@") >= 1) {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
-    } else {
-      div_mensagem.innerHTML += `-Deve conter @ <br>`;
+    if (!(email.indexOf("@") >= 1)) {
+      div_mensagem.innerHTML += `-Deve conter @ no email<br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
     }
-    if (email.indexOf(".com") >= 1) {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
-    } else {
-      div_mensagem.innerHTML += `-Deve conter .com <br>`;
+    if (!(email.indexOf(".com") >= 1)) {
+      div_mensagem.innerHTML += `-Deve conter .com no email <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
     }
@@ -229,39 +183,25 @@
       div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
 
+
     //TELEFONE
-    if (Telefone.length == 11) {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
-    } else {
-      div_mensagem.innerHTML += `-Não possui os caracteres nescessários <br>`;
+    if (Telefone.length != 11) {
+
+      div_mensagem.innerHTML += `-Telefone precisa de 11 caracteres<br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
     }
+
     if (Telefone.indexOf(" ") > 0) {
       div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
       div_mensagem.style.display = "flex";
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
     var mensagem = '';
     var contador = 0;
+
 
     while (contador < Telefone.length) {
       var num = 0
@@ -269,38 +209,28 @@
         if (Telefone[contador] == num) {
           mensagem = "";
           break;
-          if (validacao != 0) {
-            validacao = 1
-          } else {
-            validacao = 0
-          }
-
-        } else {
-          mensagem = `-Não pode conter outros caracteres <br> alem de numeros no Telefone <br>`
+          mensagem = `-Não pode conter outros caracteres <br> além de numeros no Telefone <br>`
           div_mensagem.style.display = "flex"
           validacao = 1
+
         }
         num += 1
       }
       contador += 1;
     }
+
     if (Senha != ConfSenha) {
       mensagem += `-Senhas incompatíveis`;
       validacao = 1
-    } else {
-      if (validacao != 0) {
-        validacao = 1
-      } else {
-        validacao = 0
-      }
     }
-    if (validacao == 1) {
-      div_mensagem.style.display = 'flex'
-      div_mensagem.innerHTML += mensagem1
-    } else {
-      div_mensagem.style.display = 'none'
+
+    div_mensagem.innerHTML += mensagem;
+
+
+    if (validacao == 0) {
+      window.location.href = 'dashV1.html'
     }
-    div_mensagem.innerHTML += mensagem1
   }
+
 
 </script>
