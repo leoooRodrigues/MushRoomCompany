@@ -104,12 +104,12 @@
                 <div class="box-informacoes">
                     <div>
                         <h3>Temperatura Min ideal:</h3>
-                        <h3 id="vlr_Temp_min">29</h3>
+                        <h3 id="vlr_Temp_min">15°C</h3>
                     </div>
                     <div class="separador"></div>
                     <div>
                         <h3>Umidade Min ideal:</h3>
-                        <h3 id="vlr_Umi_min">20</h3>
+                        <h3 id="vlr_Umi_min">85%</h3>
                     </div>
                 </div> <!-- fim box1 -->
 
@@ -123,12 +123,12 @@
                 <div class="box-informacoes">
                     <div>
                         <h3>Temperatura Max ideal:</h3>
-                        <h3 id="vlr_Temp_max">20</h3>
+                        <h3 id="vlr_Temp_max">21°C</h3>
                     </div>
                     <div class="separador"></div>
                     <div>
                         <h3>Umidade Maxideal:</h3>
-                        <h3 id="vlr_Umi_max">20</h3>
+                        <h3 id="vlr_Umi_max">92%</h3>
                     </div>
                 </div><!-- fim box2 -->
             </div>
@@ -209,16 +209,16 @@
                 data: vlrsGraficoUmi,
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-               
-                
+
+
             },
             {
                 label: 'Temperatura media (°)',
                 data: vlrsGraficoTemp,
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-               
-                
+
+
             }]
         },
         options: {
@@ -245,7 +245,7 @@
                 data: vlrsGraficoUmi,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
-    
+
                 order: 0
             },
             {
@@ -253,7 +253,7 @@
                 data: vlrsGraficoTemp,
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-    
+
             }]
         },
         options: {
@@ -277,17 +277,17 @@
                 data: [70, 95, 80, 79, 87, 90],
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-               
-                
-                
+
+
+
             },
             {
                 label: 'Temperatura media',
                 data: [23, 25, 22, 27, 25, 17],
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-               
-                
+
+
             }]
         },
         options: {
@@ -312,16 +312,16 @@
                 data: [88, 90, 93, 86, 98, 89],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#0000ff'),
-               
-                
+
+
             },
             {
                 label: 'Temperatura',
                 data: [27, 20, 18, 16, 20, 10],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-               
-                
+
+
             }]
         },
         options: {
@@ -346,27 +346,27 @@
                 data: [70, 95, 80, 79, 87, 90],
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
-                
+
             },
             {
                 label: 'Temperatura media',
                 data: [23, 25, 22, 27, 25, 17],
                 backgroundColor: ('#ff0000'),
                 borderColor: ('#ff0000'),
-                
+
             }]
         },
         options: {
-            indexAxis:"y",
+            indexAxis: "y",
             // plugins: {
             //     legend: {
-                //         labels: {
-                    //             font: {
-                        //                 size: 20
-                        //             }
-                        //         }
-                        //     }
-                        // },
+            //         labels: {
+            //             font: {
+            //                 size: 20
+            //             }
+            //         }
+            //     }
+            // },
             scales: {
                 y: {
                     beginAtZero: true
@@ -374,11 +374,11 @@
             }
         }
     });
-    
-    
+
+
     // grafico 6
     const ctx6 = document.getElementById('myChart6');
-    
+
     Chart.defaults.elements.line.borderWidth = 3.5;
     new Chart(ctx6, {
         type: 'line',
@@ -396,7 +396,7 @@
                 data: [27, 20, 18, 16, 20, 10],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
-  
+
             }]
         },
         options: {
