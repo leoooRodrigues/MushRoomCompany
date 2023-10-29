@@ -160,7 +160,7 @@
 
             </div>
 
-            <button class="btnsobre btn-sobre-nos">
+            <button class="btnsobre btn-sobre-nos" onclick="whats()" target="_blank">
                 <img class="logo_Whatsapp" src="./assets/img/logo_whatsapp-removebg-preview.png"><span
                     class="frase_button">ENTRE EM CONTATO</span>
             </button>
@@ -190,5 +190,9 @@
             cadbar.style.display = "flex"   
         }
 
+    }
+
+    function whats(){
+        window.open ('https://web.whatsapp.com/', '_blank')
     }
 </script>
