@@ -18,8 +18,8 @@ const serial = async (
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'D@a170305',
-            database: 'metricas'
+            password: '1304',
+            database: 'mushroom'
         }
     ).promise();
 
@@ -53,8 +53,8 @@ const serial = async (
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                'INSERT INTO sensores (dht11_umidade, dht11_temperatura, lm35_temperatura) VALUES (?, ?, ?)',
-                [dht11Umidade, dht11Temperatura, lm35Temperatura]
+                'INSERT INTO registros (dataHora,DadosUmi, DadosTemp,fkSetor,fkEmpresa) VALUES (current_timestamp(),?,?,10,1)',
+                [dht11Umidade, lm35Temperatura]
             );
         }
 
