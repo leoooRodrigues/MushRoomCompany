@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
 
     <title>MushRoom.co</title>
@@ -74,6 +75,9 @@
                 <button class="botao" onclick="setor()">Ver setor</button>
                 <br>
                 <div class="separador"></div>
+                <!-- 
+                <input type="number" id="inpt_mudar"><br>
+                <button onclick="mudarParametros()">Mudar</button> -->
                 <div id="divMostrar" style="display: none;">
                     <div class="inps_limitador">
                         umidade ideal minima:
@@ -333,6 +337,8 @@
         }
     });
 
+
+    var Parametros = [70, 95, 80, 79, 87, 90]
     // grafico 5
     const ctx5 = document.getElementById('myChart5');
 
@@ -343,7 +349,7 @@
             labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
             datasets: [{
                 label: 'Umidade media',
-                data: [70, 95, 80, 79, 87, 90],
+                data: Parametros,
                 backgroundColor: ('#0000ff'),
                 borderColor: ('#0000ff'),
 
@@ -524,5 +530,15 @@
         }
 
     }
+
+    // function mudarParametros() {
+    //     num1 = Number(inpt_mudar.value)
+
+    //     if (Parametros.length == 6) {
+    //         Parametros.splice(1, 1)
+    //         Parametros.push(num1);
+    //         ctx5.update();
+    //     }
+    // }
 
 </script>
