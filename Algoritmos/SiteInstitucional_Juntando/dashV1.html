@@ -11,6 +11,7 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
     <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
 
     <title>MushRoom.co</title>
@@ -75,8 +76,21 @@
                 <button class="botao" onclick="setor()">Ver setor</button>
                 <br>
                 <div class="separador"></div>
-                <!-- 
-                <input type="number" id="inpt_mudar"><br>
+
+                
+                <div class="select" style="margin-top: 20px;">
+                    <select id="slcFaseCogu" class="inpt">
+                        <option class="opcao0" value="0">Selecione a fase do cogumelo</option>
+                        <option class="opcao1" value="1">Inoculação</option>
+                        <option class="opcao2" value="2">Colonização</option>
+                        <option class="opcao2" value="3">desenvolvimento</option>
+                        <!-- <option class="opcao3" value="3">setor 3</option>
+                      <option class="opcao4" value="4">setor 4</option> -->
+                    </select>
+                </div> <br>
+
+                <button id="btnConfirmar" class="btnMostrar" onclick="confirmar()">Confirmar</button>
+                <!-- <input type="number" id="inpt_mudar"><br>
                 <button onclick="mudarParametros()">Mudar</button> -->
                 <div id="divMostrar" style="display: none;">
                     <div class="inps_limitador">
@@ -103,7 +117,7 @@
 
         </div>
         <div class="content">
-            <div class="divInforma">
+            <div class="divInforma" id="divInfo" style="display: none;">
                 <!-- box1 -->
                 <div class="box-informacoes">
                     <div>
@@ -138,7 +152,7 @@
             </div>
             <div class="canva2" id="str1" style="display: none;">
 
-                <h1>Setor 1</h1>
+                <h1>Setor 1 - Shiitake</h1>
 
                 <div class="canva">
                     <div class="graf-conteudo">
@@ -155,7 +169,7 @@
 
             <div class="canva2" id="str2" style="display: none;">
 
-                <h1>Setor 2</h1>
+                <h1>Setor 2 - Champignom de Paris</h1>
 
                 <div class="canva">
                     <div class="graf-conteudo">
@@ -207,7 +221,7 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
+            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
             datasets: [{
                 label: 'Umidade media (%)',
                 data: vlrsGraficoUmi,
@@ -275,7 +289,7 @@
     new Chart(ctx3, {
         type: 'bar',
         data: {
-            labels: ['sensor 1', 'sensor 2', 'sensor 3', 'sensor 4', 'sensor 5', 'sensor6'],
+            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
             datasets: [{
                 label: 'Umidade media',
                 data: [70, 95, 80, 79, 87, 90],
@@ -340,7 +354,7 @@
 
     var Parametros = [70, 95, 80, 79, 87, 90]
     // grafico 5
-    const ctx5 = document.getElementById('myChart5');
+    var ctx5 = document.getElementById('myChart5');
 
     Chart.defaults.font.size = 20;
     new Chart(ctx5, {
@@ -420,16 +434,19 @@
 
     // função
 
+    var sector = 0;
+    // var divInfo = document.getElementById('divInforma');
     function setor() {
-        var sector = Number(slcSetor.value);
+        sector = Number(slcSetor.value)
         if (sector == 2) {
             var str = document.getElementById('str1');
             var str2 = document.getElementById('str2');
             var str3 = document.getElementById('str3');
-
             str1.style.display = 'none'
             str2.style.display = 'flex'
             str3.style.display = 'none'
+            divInfo.style.display = 'flex'
+
 
             // vlrsGraficoTemp = [16,17,20,24,29,25]
             // vlrsGraficoUmi = [80,81,85,90,92,90]
@@ -446,6 +463,8 @@
             str1.style.display = 'flex'
             str2.style.display = 'none'
             str3.style.display = 'none'
+            divInfo.style.display = 'flex'
+
         }
 
         if (sector == 0) {
@@ -456,6 +475,7 @@
             str1.style.display = 'none'
             str2.style.display = 'none'
             str3.style.display = 'flex'
+            divInfo.style.display = 'none'
         }
 
 
@@ -491,39 +511,92 @@
     }
 
     function confirmar() {
-        umiMin = Number(inp_umi_min.value);
-        umiMax = Number(inp_umi_max.value);
-        TempMin = Number(inp_temp_min.value);
-        TempMax = Number(inp_temp_max.value);
+        
+        faseCogu = slcFaseCogu.value
 
-        if (umiMax <= 100 && umiMin < umiMax && umiMin > 0 && TempMax < 40 && TempMin > 10 && TempMax > TempMin) {
-            alert(`Parametros mudados com sucesso`)
-            divMostrar.style.display = "none"
-            btnMostrar.style.display = "flex"
-
-
-            vlr_Umi_min.innerHTML = umiMin;
-            vlr_Umi_max.innerHTML = umiMax;
-            vlr_Temp_min.innerHTML = TempMin;
-            vlr_Temp_max.innerHTML = TempMax;
-
-            if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMin + 4 && vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMax - 4) {
-                temp.style.backgroundColor = '#29cf00'
-            } else if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMin || vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMax) {
-                temp.style.backgroundColor = '#ff0000'
-            } else {
-                temp.style.backgroundColor = '#ffff00'
-
+        if(sector == 1){
+            if (faseCogu == 1) {
+                alert(`Fase mudada com sucesso`)
+                
+                vlr_Umi_min.innerHTML = 83;
+                vlr_Umi_max.innerHTML = 89;
+                vlr_Temp_min.innerHTML = 17;
+                vlr_Temp_max.innerHTML = 22;
+                
+            }else if(faseCogu == 2){
+                
+                alert(`Fase mudada com sucesso`)
+                vlr_Umi_min.innerHTML = 81;
+                vlr_Umi_max.innerHTML = 87;
+                vlr_Temp_min.innerHTML = 19;
+                vlr_Temp_max.innerHTML = 25;
+                
+            }else if(faseCogu == 3){
+                alert(`Fase mudada com sucesso`)
+                
+                vlr_Umi_min.innerHTML = 86;
+                vlr_Umi_max.innerHTML = 92;
+                vlr_Temp_min.innerHTML = 15;
+                vlr_Temp_max.innerHTML = 20;
+                
+            }else{
+                alert("Insira um fase para seu cogumelo!")
             }
 
-            if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMin + 5 && vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMax - 5) {
-                temp.style.backgroundColor = '#29cf00'
-            } else if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMin || vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMax) {
-                temp.style.backgroundColor = '#ff0000'
-            } else {
-                temp.style.backgroundColor = '#ffff00'
+        }else if(sector == 2){
+            if (faseCogu == 1) {
+                alert(`Fase mudada com sucesso`)
 
+                vlr_Umi_min.innerHTML = 82;
+                vlr_Umi_max.innerHTML = 90;
+                vlr_Temp_min.innerHTML = 15;
+                vlr_Temp_max.innerHTML = 23;
+                
+            }else if(faseCogu == 2){
+                alert(`Fase mudada com sucesso`)
+                
+                vlr_Umi_min.innerHTML = 80;
+                vlr_Umi_max.innerHTML = 88;
+                vlr_Temp_min.innerHTML = 18;
+                vlr_Temp_max.innerHTML = 25;
+                
+            }else if(faseCogu == 3){
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = 83;
+                vlr_Umi_max.innerHTML = 89;
+                vlr_Temp_min.innerHTML = 17;
+                vlr_Temp_max.innerHTML = 28;
+                
             }
+            
+            else{
+                alert("Insira um fase para seu cogumelo!")
+            }
+            // divMostrar.style.display = "none"
+            // btnMostrar.style.display = "flex"
+
+
+
+            // if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMin + 4 && vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMax - 4) {
+            //     temp.style.backgroundColor = '#29cf00'
+            // } else if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMin || vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMax) {
+            //     temp.style.backgroundColor = '#ff0000'
+            // } else {
+            //     temp.style.backgroundColor = '#ffff00'
+
+            // }
+
+            // if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMin + 5 && vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMax - 5) {
+            //     temp.style.backgroundColor = '#29cf00'
+            // } else if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMin || vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMax) {
+            //     temp.style.backgroundColor = '#ff0000'
+            // } else {
+            //     temp.style.backgroundColor = '#ffff00'
+
+            // }
+        }else if(sector == 0){
+            
         }
         else {
             alert(`As mudanças não foram feitas!! Revise os valores passados`)
@@ -532,13 +605,29 @@
     }
 
     // function mudarParametros() {
+        
     //     num1 = Number(inpt_mudar.value)
 
     //     if (Parametros.length == 6) {
+
     //         Parametros.splice(1, 1)
     //         Parametros.push(num1);
-    //         ctx5.update();
+    //         // addData(num1)
+    //         this.ctx5.update();
     //     }
+
     // }
+
+    // function addData(newData) {
+
+    //     ctx5.dataset.data.push(Parametros);
+
+    // }
+
+    // setInterval(() => {
+    //     
+    //     ctx5.update();
+    // }, 1000);
+
 
 </script>
