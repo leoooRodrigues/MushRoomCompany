@@ -214,8 +214,8 @@
     var TempMin = 15
     var TempMax = 25
 
-    var vlrsGraficoUmi = [80, 81, 89, 90, 87, 80]
-    var vlrsGraficoTemp = [28, 25, 19, 17, 24, 29]
+    var vlrsGraficoUmi = [80, 81, 89, 90, 87, 86]
+    var vlrsGraficoTemp = [28, 25, 19, 17, 24, 20]
 
     Chart.defaults.font.size = 16;
     new Chart(ctx, {
@@ -335,7 +335,7 @@
             },
             {
                 label: 'Temperatura',
-                data: [27, 20, 18, 16, 20, 10],
+                data: [27, 20, 18, 16, 20, 13],
                 backgroundColor: ('#00000000'),
                 borderColor: ('#ff0000'),
 
@@ -446,6 +446,8 @@
             str2.style.display = 'flex'
             str3.style.display = 'none'
             divInfo.style.display = 'flex'
+
+            temp.style.backgroundColor = '#ffFF00'
 
 
             // vlrsGraficoTemp = [16,17,20,24,29,25]
