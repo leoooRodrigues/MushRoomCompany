@@ -24,10 +24,9 @@ primary key (idUsuario, fkEmpresa)
 )auto_increment = 1000;
 
 
-
-
 create table fase (
 idFase int primary key auto_increment,
+cogumelo varchar(45),
 faseCogumelo varchar(45),
 tempMin int,
 TempMax int,
@@ -39,7 +38,6 @@ create table setor(
 idSetor int auto_increment,
 Nome varchar (45),
 fkEmpresa int,
-cogumelo varchar(45),
 fkFase int,
 constraint FasefkSetor foreign key (fkFase)
 references fase(idFase),
@@ -113,6 +111,7 @@ select *from setor;
 select *from empresa;
 select *from usuarios;
 select *from fase;
+
 
 -- Tabelas com ligação
 
