@@ -6,9 +6,7 @@
 #include <DHT.h>
 
 #define DHTPIN A0
-#define LM35PIN A1
-#define LUMIPIN A2
-#define CHAVPIN 7
+#define LM35PIN A5
 
 DHT dht(DHTPIN, DHT11);
 

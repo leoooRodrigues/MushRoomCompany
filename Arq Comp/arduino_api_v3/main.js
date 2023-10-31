@@ -53,7 +53,7 @@ const serial = async (
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                'INSERT INTO registros (dataHora,DadosUmi, DadosTemp,fkSetor,fkEmpresa) VALUES (current_timestamp(),?,?,10,1)',
+                'INSERT INTO registros (dataHora, DadosUmi, DadosTemp, fkSetor,fkEmpresa) VALUES (current_timestamp(),?,?,10,1)',
                 [dht11Umidade, lm35Temperatura]
             );
         }
