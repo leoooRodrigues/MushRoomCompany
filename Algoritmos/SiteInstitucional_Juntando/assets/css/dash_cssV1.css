@@ -248,6 +248,12 @@ h2 {
     text-align: center;
 }
 
+.doughnut{
+    width: 30%;
+    align-self: center;
+    justify-content: flex-end;
+}
+
 .cnvs {
     width: 100%;
 }
