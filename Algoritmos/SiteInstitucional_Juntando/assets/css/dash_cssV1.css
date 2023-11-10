@@ -203,11 +203,12 @@ h2 {
 
 .canva {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-flow: row wrap;
+    justify-content: space-between;
     width: 100%;
     height: 1000px;
     justify-content: center;
+    gap: 100px;
 
 }
 

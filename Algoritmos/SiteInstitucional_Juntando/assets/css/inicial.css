@@ -1,12 +1,8 @@
-@font-face {
-    font-family: Bwrlin Sans FB Demi Bold;
-    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Bwrlin Sans FB Demi Bold;
 }
 
 body {
