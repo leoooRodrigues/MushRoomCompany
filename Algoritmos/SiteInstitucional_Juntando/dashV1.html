@@ -154,14 +154,17 @@
 
                 <h1>Setor 1 - Shiitake</h1>
 
-                <div class="canva">
-                    <div class="graf-conteudo">
-                        <canvas id="myChart" class="cnvs"></canvas>
-                    </div>
+                <div class="Sensor">
+                    <span>Sensor 1</span>
+                    <div class="canva">
+                        <div class="graf-conteudo">
+                            <canvas id="myChart" class="cnvs"></canvas>
+                        </div>
 
-                    <div class="graf-conteudo">
-                        <canvas id="myChart2" class="cnvs"></canvas>
+                        <div class="graf-conteudo">
+                            <canvas id="myChart2" class="cnvs"></canvas>
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -208,46 +211,30 @@
 
 <script>
     // grafico 1
-    const ctx = document.getElementById('myChart');
     var umiMin = 70
     var umiMax = 100
     var TempMin = 15
     var TempMax = 25
-
     var vlrsGraficoUmi = [80, 81, 89, 90, 87, 86]
     var vlrsGraficoTemp = [28, 25, 19, 17, 24, 20]
+    
+    const ctx = document.getElementById('myChart');
 
     Chart.defaults.font.size = 16;
     new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
+            labels: ['12:00','13:00','14:00','15:00','16:00','17:00'],
             datasets: [{
-                label: 'Umidade media (%)',
-                data: vlrsGraficoUmi,
-                backgroundColor: ('#0000ff'),
-                borderColor: ('#0000ff'),
-
-
-            },
-            {
-                label: 'Temperatura media (°)',
-                data: vlrsGraficoTemp,
-                backgroundColor: ('#ff0000'),
-                borderColor: ('#ff0000'),
-
+                label: 'Temperatura (°C)',
+                data: [17, 83],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
 
             }]
         },
-        options: {
-            //    
-            scales: {
-
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 
 
@@ -283,43 +270,47 @@
         }
     });
 
-    // grafico 3
-    const ctx3 = document.getElementById('myChart3');
+    const ctx9 = document.getElementById('myChart3');
 
-    new Chart(ctx3, {
-        type: 'bar',
+    Chart.defaults.font.size = 16;
+    new Chart(ctx9, {
+        type: 'doughnut',
         data: {
-            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
+            labels: ['Não Ideal', 'Ideal'],
             datasets: [{
-                label: 'Umidade media',
-                data: [70, 95, 80, 79, 87, 90],
-                backgroundColor: ('#0000ff'),
-                borderColor: ('#0000ff'),
-
-
-
-            },
-            {
-                label: 'Temperatura media',
-                data: [23, 25, 22, 27, 25, 17],
-                backgroundColor: ('#ff0000'),
-                borderColor: ('#ff0000'),
-
+                label: 'Umidade media (%)',
+                data: [17, 83],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
 
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+    });
+    // grafico 3
+    const ctx3 = document.getElementById('myChart4');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['Não Ideal', 'Ideal'],
+            datasets: [{
+                label: 'Umidade media (%)',
+                data: [17, 83],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
+
+            }]
+        },
     });
 
 
     // grafico 4
-    const ctx4 = document.getElementById('myChart4');
+    const ctx4 = document.getElementById('myChart5');
 
     new Chart(ctx4, {
         type: 'line',
@@ -354,50 +345,28 @@
 
     var Parametros = [70, 95, 80, 79, 87, 90]
     // grafico 5
-    var ctx5 = document.getElementById('myChart5');
+    const ctx5 = document.getElementById('myChart6');
 
-    Chart.defaults.font.size = 20;
+    Chart.defaults.font.size = 16;
     new Chart(ctx5, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
-            labels: ['dia 1', 'dia 2', 'dia 3', 'dia 4', 'dia 5', 'dia 6'],
+            labels: ['Não Ideal', 'Ideal'],
             datasets: [{
-                label: 'Umidade media',
-                data: Parametros,
-                backgroundColor: ('#0000ff'),
-                borderColor: ('#0000ff'),
-
-            },
-            {
-                label: 'Temperatura media',
-                data: [23, 25, 22, 27, 25, 17],
-                backgroundColor: ('#ff0000'),
-                borderColor: ('#ff0000'),
+                label: 'Umidade media (%)',
+                data: [17, 83],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
 
             }]
         },
-        options: {
-            indexAxis: "y",
-            // plugins: {
-            //     legend: {
-            //         labels: {
-            //             font: {
-            //                 size: 20
-            //             }
-            //         }
-            //     }
-            // },
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 
 
     // grafico 6
-    const ctx6 = document.getElementById('myChart6');
+    const ctx6 = document.getElementById('myChart7');
 
     Chart.defaults.elements.line.borderWidth = 3.5;
     new Chart(ctx6, {
@@ -446,8 +415,6 @@
             str2.style.display = 'flex'
             str3.style.display = 'none'
             divInfo.style.display = 'flex'
-
-            temp.style.backgroundColor = '#ffFF00'
 
 
             // vlrsGraficoTemp = [16,17,20,24,29,25]
