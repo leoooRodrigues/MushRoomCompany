@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora | Cogumelos</title>
+</head>
+<body>
+    
+    <h1>Calculadora financeira</h1>
+    <p>Insira o tipo de cogumelo produzido pela sua empresa:</p>
+        <input type="text" id="input_cogumelo"><br>
+    <p>Insira quantos kilos de cogumelos frescos são produzidos por safra:</p>
+        <input type="number" id="input_kg"><br><br>
+    Insira quantos reais são investidos por kilo na safra: <br>
+    Isso inclui gasto com substrato, compra do bloco e esporos. <br>
+        <input type="number" id="input_investimento">
+    <p>Insira o preço de venda do kilo do cogumelo:</p>
+        <input type="number" id="input_preco_kg"><br><br>
+        
+    <button onclick="calcular()">Calcular lucro</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){   
+        var cogumelo = input_cogumelo.value
+        var qtdKilo = Number(input_kg.value)
+        var precoKg = Number(input_preco_kg.value)
+        var investimento = Number(input_investimento.value) * qtdKilo
+        var faturamento = qtdKilo * precoKg
+        var semSolucao = faturamento - investimento
+        var comSolucao = (faturamento * 1.57) - investimento
+        var qtdKiloSolucao = Number (qtdKilo * 1.57)
+        var qtdKiloSolucaoDiferenca = qtdKiloSolucao - qtdKilo
+
+        div_mensagem.innerHTML = `<br>
+            <b>Valores sem os sensores da Mush Room Company:</b><br>
+                Na produção de ${cogumelo}, com um investimento de R$ ${investimento}, o lucro da empresa será de R$ ${semSolucao}. <br><br>
+            <b>Valores com os sensores da Mush Room Company:</b><br>
+                Na produção de ${cogumelo}, com um investimento de R$ ${investimento}, você irá colher ${qtdKiloSolucaoDiferenca} kilos a mais (57% kilos de cogumelo a mais), resultando em uma produção total de ${qtdKiloSolucao} kg , e o lucro da empresa será de R$ ${comSolucao}.`
+
+        if (faturamento < investimento){
+            div_mensagem.innerHTML += `<br><br>
+            <b style='color: red'>Se o investimento for maior que o faturamento, a empresa dará prejuízo. Aumente o preço de venda ou reduza o custo por kilo!</b> <br>
+            <b>A MUSHROOM COMPANY irá auxiliá-lo! Entre em contato conosco!</b>!`
+        }
+
+
+
+}
+</script>

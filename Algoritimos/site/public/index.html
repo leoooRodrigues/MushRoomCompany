@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MushRoom.co</title>
+    <link rel="stylesheet" href="assets/css/inicial.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+    <script src="./js/sessao.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/sobre_O_projeto.css"> -->
+    <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
+</head>
+
+<body>
+
+    <!-- ************HEADER************* -->
+    <div class="header">
+        <div class="containerHeader">
+
+            <h1 class="logo"><a href="index.html">MUSHROOM.co</a></h1>
+
+            <div class="navbar">
+                <ul>
+                    <li><a class="linha_baixo" href="#pg1">HOME</li>
+                    <li><a class="linha_baixo" href="#pg4">SOBRE NÓS</a></li>
+                    <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
+                    <li id="dashUser"><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
+                    <li id="sairUser"><button onclick="limparSessao()"><b>SAIR</b></button></li>
+                    <!-- <li id="sairUser"><b class="linha_baixo"  href="#"  onclick="limparSessao()">SAIR</a></li> -->
+                    <li><button onclick="aparecerLogin()" id="btnUser"><b>LOGIN</b></button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cadbar" id="cadbar">
+            <div class="cadbarInput">
+                <span>CNPJ</span>
+                <input type="text" class="inpsbege" id="cnpj_ipt">
+            </div>
+
+            <div class="cadbarInput">
+                <span>SENHA</span>
+                <input type="password" class="inpsbege" id="senha_ipt">
+
+            </div>
+            <button onclick="entrar()"><B>ENTRAR</B></button>
+
+            <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
+        </div>
+    </div>
+
+    <!-- ************ Pagina Inicial ************* -->
+    <div class="bg1-2">
+        <div class="pagina" id="pg1">
+
+
+
+            <img src="assets/img/Logo_Escuro.png" class="imgCoguIni" ;>
+
+
+        </div>
+
+
+        <div class="pagina" id="pg2">
+
+
+
+            <div class="divcard Projeto">
+                <h1 class="Titulo">O PROJETO</h1>
+                <p>
+                    O sistema da MushRoom Company representa uma solução avançada
+                    para a coleta e armazenamento de dados cruciais de temperatura e
+                    umidade, que desempenham um papel essencial no controle e desenvolvimento
+                    de cogumelos em suas instalações
+                    de produção. Para esta
+                    finalidade, utilizamos sensores DHT11 de alta precisão,
+                    cuidadosamente posicionados nos galpões de produção, que coletam
+                    dados em tempo real e os armazenam de forma organizada em nosso
+                    banco de dados central.
+                </p>
+                <p>Através da implementação deste monitoramento automatizado, a
+                    MushRoom Company assegura um aumento notável
+                    na produção de cogumelos prontos para comercialização. Essa
+                    melhoria substancial não apenas otimiza o processo de cultivo, mas
+                    também garante um maior rendimento e qualidade dos cogumelos,
+                    proporcionando resultados sólidos e consistentes aos nossos clientes
+                </p>
+
+
+
+            </div>
+
+            <div class="divcard sensores">
+
+                <h1 class="Titulo">SENSORES</h1>
+
+                <img src="assets/img/Temperatura_umidadeIMG.png">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="pagina" id="pg3">
+        <div class="divInfoDash divInfo">
+            <p>
+            <h1 class="Titulo">DASHBOARD EM TEMPO REAL</h1>
+            <h1>EXIBIÇÃO DE GRÁFICO</h1><br><br>
+            <span class="textoInfo">
+                Com o objetivo de proporcionar uma visualização
+                mais acessível dos dados que coletamos para nossos
+                clientes, disponibilizamos gráficos que representam
+                a evolução da umidade relativa e temperatura ao
+                longo do tempo. Esses parâmetros são geralmente
+                registrados a cada 10 minutos. A quantidade de gráficos gerados é diretamente proporcional ao número
+                de galpões que estão sendo monitorados. Dessa
+                forma, nossos clientes podem acompanhar de maneira eficaz as condições ambientais em cada área
+                de produção, garantindo uma gestão mais informada
+                e precisa de suas operações.<br><br>
+                <div class="textoAnima"><a href="dashV1.html">Dashboard</a>
+                    <h1 class="home-interact">🠔</h1>
+                </div>
+            </span>
+
+            </p>
+        </div>
+        <div class="divInfoCalc divInfo">
+            <p>
+            <h1 class="Titulo">CALCULADORA FINANCEIRA</h1>
+            <br><br>
+            <span class="textoInfo">
+                A Calculadora Financeira é uma ferramenta de
+                análise projetada para auxiliar agricultores do ramo
+                de cultivo de cogumelos a avaliar o potencial de
+                lucro de seus investimentos. Ela permite que os
+                usuários insiram informações sobre seus investimentos e, com base em algoritmos personalizados,
+                fornece projeções de lucro após a implementação de
+                nosso sistema de gerenciamento de temperatura e
+                umidade. <br><br>
+                <div class="textoAnima"><a href="CalculadoraFinal.html">Calculadora</a>
+                    <h1 class="home-interact">🠔 </h1>
+                </div>
+            </span>
+            </p>
+        </div>
+    </div>
+    <div class="pagina" id="pg4">
+        <div class="sobre_nos">
+
+            <div class="box_sn">
+
+                <h1 class="Titulo">SOBRE NÓS</h1>
+
+                <div class="descricao"> A MushRoom Co. é uma empresa que se dedica à produção de
+                    sensores de controle de temperatura e umidade projetados especificamente para cultivos de cogumelos.
+                    Nossa jornada nesse
+                    universo fúngico é marcada por inovação, dedicação e uma
+                    paixão inabalável por ajudar os cultivadores a alcançarem seus
+                    objetivos. Aqui, cada sistema de gerenciamento que implementamos é mais do que um negócio é a
+                    promessa de qualidade, eficiência e sucesso para nossos clientes </div>
+
+
+
+
+            </div>
+
+            <button class="btnsobre btn-sobre-nos" onclick="whats()" target="_blank">
+                <img class="logo_Whatsapp" src="./assets/img/logo_whatsapp-removebg-preview.png"><span
+                    class="frase_button">ENTRE EM CONTATO</span>
+            </button>
+
+        </div>
+    </div>
+
+    <footer>
+        <address id="endereco">
+            <a href="https://maps.app.goo.gl/MXbF6UQy1vSC8Der6"> Rua Haddock Lobo, 595</a>
+        </address>
+        <p>Tel/Whatsap:(11)9 9782-8063</p>
+    </footer>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    if (sessionStorage.logado == 1) {
+        dashUser.style.display = 'block'
+        btnUser.style.display = 'none'
+        sairUser.style.display = 'block'
+    }
+    else {
+        dashUser.style.display = 'none'
+        btnUser.style.display = 'block'
+        sairUser.style.display = 'none'
+    }
+
+
+    function aparecerLogin() {
+
+        var disP = cadbar.style.display
+
+        if (disP == `flex`) {
+            cadbar.style.display = "none"
+        }
+        else {
+            cadbar.style.display = "flex"
+        }
+
+    }
+
+    function whats() {
+        window.open('https://web.whatsapp.com/', '_blank')
+    }
+
+
+
+
+    function entrar() {
+        // aguardar();
+
+        var cnpjVar = cnpj_ipt.value;
+        var senhaVar = senha_ipt.value;
+
+        if (cnpjVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            alert("camos em branco")
+            console.log("campos em branco")
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", cnpjVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cnpjServer: cnpjVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.logado = 1;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashV1.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        // cardErro.style.display = "none"
+    }
+
+</script>

@@ -1,0 +1,54 @@
+!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <h1>Calculadora Financeira</h1>
+    <h2>Tenha uma visão de seu lucro mensal</h2>
+
+
+
+    <br>Insira o valor que pretende investir:<br>
+    <input type="number" min="0" id="input_investimento">
+
+    <br>Valor do Kg:<br>
+    <input id="input_valor">
+
+    <br> Quantidade Kg vendida:<br>
+    <input type="number" id="input_vendas">
+
+    <br><button onclick="calcular()">Lucro total</button><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var investimento = Number(input_investimento.value);
+        var venda = Number(input_vendas.value);
+        var valor = Number(input_valor.value);
+        if (investimento > 0) {
+            var resultado01 = venda * venda - investimento;
+            var resultado02 = venda * venda;
+            div_mensagem.innerHTML = `<br><b>
+            A renda mensal dos cogumelos com a venda de ${venda}Kg no valor de R$ ${venda} é de R$ ${resultado02}, enquanto o valor bruto será de R$${resultado01}
+            e o valor liquido ( Valor descontando as despessas )com uma taxa de 57% de lucro, lucro final R$${resultado01 * 1.57}
+            </b>`
+        } if (investimento <= 0) {
+            alert("O valor do invertimento está invalido , inserir um valor maior que 0 ")
+        } if (valor <= 0) {
+            alert("O valor inserido é invalido , inserir um valor maior que 0 ")
+
+            if (venda <= 0) {
+                alert("O valor das vendas não pode ser menor ou igual a 0 ")
+            }
+        }
+    }
+</script>

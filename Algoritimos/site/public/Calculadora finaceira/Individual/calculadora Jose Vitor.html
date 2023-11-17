@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora financeira</h1>
+    Insira qual cogumelo está sendo plantado<br>
+    <input id="input_tipo_cogumelo"><br>
+    Insira a quantidade em KG são produzidos por safra<br>
+    <input id="input_quantoskg"><br>
+    Insira o valor em reais de quanto é investidos por KG na safra<br>
+    <input id="input_investimento"><br>
+    Insira o preço do cogumelo por kilo<br>
+    <input id="input_PrecoPorKG"><br>
+    o Aumento será de 57% em cima do valor de faturamento <br><br>
+    <button onclick="calcular()">Calcular</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var tipoCogumelo = input_tipo_cogumelo.value
+        var quantosKg = Number(input_quantoskg.value)
+        var precoKg = Number(input_quantoskg.value)
+        var investimento = Number(input_investimento.value)
+        var faturamento = quantosKg * precoKg
+        var mushRoom_co = faturamento * 1.57
+
+        div_mensagem.innerHTML = `<br>
+        Faturamento caso o cliente contrate os sensores da Mush Room Company será de R$${mushRoom_co} <br>
+        Faturamento caso o cliente não contrate os sensores da Mush Room Company será de R$${faturamento}
+        `
+
+    }
+</script>

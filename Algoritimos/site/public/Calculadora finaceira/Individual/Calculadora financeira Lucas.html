@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MushROOM.co</title>
+</head>
+
+<body>
+
+    <h1 style="color:darkred;">MushROOM.co</h1>
+    Qual o gasto mensal com produtos necessários para plantar os cogumelos: <input id="i_ql"> <br>
+    Qual o tipo de cogumelo: <input id="i_c"> <br>
+    Quanto custa cada saco de cogumelo: <input id="i_qnt"> <br>
+    Quantos sacos vende por dia: <input id="i_qv"> <br>
+    <button onclick="calcular()">Calcular receita</button>
+
+    <script>
+        function calcular(){
+            var gastoM = Number(i_ql.value);
+            var cadaS = Number(i_qnt.value);
+            var sacosPd = Number(i_qv.value);
+            var valorM = (sacosPd * cadaS) * 30 * 1.57;
+            var lucro = valorM - gastoM;
+            var perdeu = gastoM - valorM;
+
+            if(valorM > gastoM){
+                mensagem.innerHTML  = `<b style="color: blue;">Com 57% de aumento, sua empresa está lucrando R$${lucro} na safra<b/>`
+            }else{
+                mensagem.innerHTML = `Sua empresa não teve ganhos`
+                if(valorM < gastoM){
+                    mensagem.innerHTML = `<b style="color:red;">Sua empresa não está lucrando, já perdeu R$${perdeu}<b/>`
+                }
+            }
+        }
+    </script>
+
+</body>
+<div id="mensagem"></div>
+</html>

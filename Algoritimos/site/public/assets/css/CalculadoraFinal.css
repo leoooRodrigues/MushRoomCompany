@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(./assets/fonts/berlin-sans-fb-demi-bold.ttf);
+}
+*{
+    font-family: Bwrlin Sans FB Demi Bold;
+    padding: 0%;
+    margin: 0%;
+    
+}
+body{
+    background-image: url(../img/img-MUSH.png);
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quadrado{
+    background-color: #fdf3dd85;
+    width: 70%;
+    border : 2px solid black;
+    height: 65vh;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 30px;
+
+}
+
+.TituloCalc{
+    background-color: #e0c9a9;
+    justify-content: center;
+    align-items: center;
+   width: 35%;
+    border: solid 5px;
+    border-color: #702323;
+    text-align: center;
+    border-radius: 10px;
+    color: #3a2323;
+
+}
+
+.perguntas{
+    color: #3a2323;
+    font-size: 26px;
+    
+}
+
+.respostas{
+    font-size: 20px;
+    color: #3a2323;
+}
+
+.divInp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inpCalc{
+    background-color: #e0c9a9;
+    border: solid 3px;
+    border-color: #702323;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 20px;
+    padding-left: 7px;
+    margin-left: 15px;
+}
+
+.btnCalc{
+    width: 100px;
+    height: 50px;
+    background-color: #e0c9a9;
+    border: solid 3px;
+    border-radius: 5px;
+    font-size: larger;
+    color: #3a2323;
+}
+#pRuim{
+    color: red;
+}
+
+#pBom{
+    color: green;
+}
+
+.mensagemErro{
+    display: none;
+    padding: 3px;
+    color: white;
+    position: absolute;
+    font-size: 15px;
+    margin: auto;
+    background-color: red;
+    border: 2px #702323 solid;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-top: 40px;
+}

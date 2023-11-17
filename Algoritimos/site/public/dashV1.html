@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/dash_cssV1.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
+
+    <title>MushRoom.co</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="containerHeader">
+
+            <h1 class="logo"><a href="inicial.html">MUSHROOM.co</a></h1>
+
+            <div class="navbar">
+                <ul>
+                    <li><a class="linha_baixo" href="index.html">HOME</li>
+                    <li><a class="linha_baixo" href="index.html#pg4">SOBRE NÓS</a></li>
+                    <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
+                    <li id="dashUser"><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
+                    <li id="sairUser"><button onclick="limparSessao()"><b>SAIR</b></button></li>
+                    <!-- <li id="sairUser"><b class="linha_baixo"  href="#"  onclick="limparSessao()">SAIR</a></li> -->
+                    <li><button onclick="aparecerLogin()" id="btnUser"><b>LOGIN</b></button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="cadbar" id="cadbar">
+            <div class="cadbarInput">
+                <span>CNPJ</span>
+                <input type="text" class="inpsbege">
+            </div>
+
+
+
+            <div class="cadbarInput">
+                <span>SENHA</span>
+                <input type="password" class="inpsbege">
+            </div>
+            <button><B>ENTRAR</B></button>
+
+            <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
+        </div>
+    </div>
+    <!-- fim header -->
+
+    <div class="main">
+        <div class="inpts_dash">
+            <div class="sidebar">
+                <h3>Setores</h3>
+                <!--  <a href="#">setor 1</a>
+                <a href="#">setor 2</a>
+                <a href="#">setor 3</a>
+                <a href="#">setor 4</a>
+                <a href="#">setor 5</a>
+                <a href="#">setor 6</a> -->
+                <div class="select">
+                    <select id="slcSetor" class="inpt">
+                        <option class="opcao1" value="1">setor 1</option>
+                        <option class="opcao2" value="2">setor 2</option>
+                        <!-- <option class="opcao3" value="3">setor 3</option>
+                      <option class="opcao4" value="4">setor 4</option> -->
+                    </select>
+                </div> <br>
+                <button class="botao" onclick="setor()">Ver setor</button>
+                <br>
+                <div class="separador"></div>
+
+
+                <div class="select" style="margin-top: 20px;">
+                    <select id="slcFaseCogu" class="inpt">
+                        <option class="opcao0" value="0">Selecione a fase</option>
+                        <option class="opcao1" value="1">Inoculação</option>
+                        <option class="opcao2" value="2">Colonização</option>
+                        <option class="opcao2" value="3">desenvolvimento</option>
+                        <!-- <option class="opcao3" value="3">setor 3</option>
+                      <option class="opcao4" value="4">setor 4</option> -->
+                    </select>
+                </div> <br>
+
+                <button id="btnConfirmar" class="btnMostrar" onclick="confirmar()">Confirmar</button>
+                <!-- <input type="number" id="inpt_mudar"><br> -->
+                <!-- <button onclick="mudarParametros()">Mudar</button> -->
+                <div id="divMostrar" class="divMostrar" style="display: none;">
+                    <div class=" inps_limitador">
+                        umidade ideal minima:
+                        <input type="number" id="inp_umi_min" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        umidade ideal maxima:
+                        <input type="number" id="inp_umi_max" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        temperatura ideal minima:
+                        <input type="number" id="inp_temp_min" class="inpsbege">
+                    </div>
+                    <div class="inps_limitador">
+                        temperatura ideal maxima:
+                        <input type="number" id="inp_temp_max" class="inpsbege">
+                    </div>
+                    <button id="btnConfirmar" class="btnMostrar" onclick="confirmar()">Confirmar</button>
+                </div>
+                <button id="btnMostrar" class="btnMostrar" onclick="habilitar()" style="display: flex; ">Mudar
+                    Parametros</button>
+            </div>
+
+        </div>
+        <div class="content">
+            <div class="divInforma" id="divInfo" style="display: flex;">
+                <!-- box1 -->
+                <div class="box-informacoes">
+                    <div>
+                        <h3>Temperatura Min ideal:</h3>
+                        <h3 id="vlr_Temp_min">15°C</h3>
+                    </div>
+                    <div class="separador"></div>
+                    <div>
+                        <h3>Umidade Min ideal:</h3>
+                        <h3 id="vlr_Umi_min">85%</h3>
+                    </div>
+                </div> <!-- fim box1 -->
+
+                <!-- box2 -->
+                <div class="box-ideal">
+                    <div id="temp" class="ideal temp">Temperatura Ideal</div>
+                    <div id="umi" class="ideal umi">Umidade Ideal</div>
+                </div> <!-- fim box2 -->
+
+                <!-- box3 -->
+                <div class="box-informacoes">
+                    <div>
+                        <h3>Temperatura Max ideal:</h3>
+                        <h3 id="vlr_Temp_max">21°C</h3>
+                    </div>
+                    <div class="separador"></div>
+                    <div>
+                        <h3>Umidade Max ideal:</h3>
+                        <h3 id="vlr_Umi_max">92%</h3>
+                    </div>
+                </div><!-- fim box2 -->
+            </div>
+            <div class="canva2" id="str1" style="display: flex;">
+
+                <h1>Setor 1 - Shiitake</h1>
+                <h1>Sensor 1</h1>
+
+                <div class="Sensor">
+                    <div class="canva">
+                        <div class="graf-conteudo">
+                            <canvas id="myChart" class="cnvs"></canvas>
+                        </div>
+
+                        <div class="graf-conteudo">
+                            <canvas id="myChart2" class="cnvs"></canvas>
+                        </div>
+
+                        <div class="graf-conteudo doughnut">
+                            <canvas id="myChart3" class="cnvs"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- setor 2 -->
+
+            <div class="canva2" id="str2" style="display: none;">
+
+                <h1>Setor 2 - Champignom de Paris</h1>
+
+                <div class="canva">
+                    <div class="graf-conteudo">
+                        <canvas id="myChart4" class="cnvs"></canvas>
+                    </div>
+
+                    <div class="graf-conteudo">
+                        <canvas id="myChart5" class="cnvs"></canvas>
+                    </div>
+
+                    <div class="graf-conteudo doughnut">
+                        <canvas id="myChart6" class="cnvs"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- geral -->
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    if (sessionStorage.logado == 1) {
+        dashUser.style.display = 'block'
+        btnUser.style.display = 'none'
+        sairUser.style.display = 'block'
+    }
+    else {
+        dashUser.style.display = 'none'
+        btnUser.style.display = 'block'
+        sairUser.style.display = 'none'
+    }
+    // grafico 1
+    var umiMin = 70
+    var umiMax = 100
+    var TempMin = 15
+    var TempMax = 25
+    var vlrsGraficoUmi = [70, 81, 82, 78, 80, 79]
+    var vlrsGraficoTemp = [28, 25, 19, 17, 24, 20]
+
+    const ctx = document.getElementById('myChart');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Temperatura (°C)',
+                data: vlrsGraficoTemp,
+                backgroundColor: ('#00000000'),
+                borderColor: ('#ff0000'),
+
+            }]
+        },
+    });
+
+
+    // grafico 2
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: vlrsGraficoUmi,
+                backgroundColor: ('#00000000'),
+                borderColor: ('#0000ff'),
+
+                order: 0
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['Não Ideal', 'Ideal'],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: [17, 83],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
+
+            }]
+        },
+    });
+    // grafico 3
+    const ctx4 = document.getElementById('myChart4');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Temperatura (°C)',
+                data: [27, 20, 18, 16, 20, 13],
+                backgroundColor: ('#00000000'),
+                borderColor: ('#ff0000'),
+
+            }]
+        },
+    });
+
+
+    // grafico 4
+    const ctx5 = document.getElementById('myChart5');
+
+    new Chart(ctx5, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Umidade',
+                data: [88, 90, 93, 86, 98, 89],
+                backgroundColor: ('#00000000'),
+                borderColor: ('#0000ff'),
+
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    var Parametros = [70, 95, 80, 79, 87, 90]
+    // grafico 5
+    const ctx6 = document.getElementById('myChart6');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx6, {
+        type: 'doughnut',
+        data: {
+            labels: ['Não Ideal', 'Ideal'],
+            datasets: [{
+                label: 'Umidade media (%)',
+                data: [44, 56],
+                backgroundColor: [
+                    '#f00',
+                    '#0f0'
+                ]
+
+            }]
+        },
+    });
+
+
+    // grafico 6
+    const ctx7 = document.getElementById('myChart7');
+
+    Chart.defaults.elements.line.borderWidth = 3.5;
+    new Chart(ctx7, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Umidade',
+                data: [88, 90, 93, 86, 98, 89],
+                backgroundColor: ('#00000000'),
+                borderColor: ('#0000ff'),
+
+            },
+            {
+                label: 'Temperatura',
+                data: [27, 20, 18, 16, 20, 10],
+                backgroundColor: ('#00000000'),
+                borderColor: ('#ff0000'),
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+
+
+
+    // função
+
+    var sector = 0;
+    var divInfo = document.getElementById('divInforma');
+    function setor() {
+        sector = Number(slcSetor.value)
+        if (sector == 2) {
+            var str = document.getElementById('str1');
+            var str2 = document.getElementById('str2');
+            var str3 = document.getElementById('str3');
+            str1.style.display = 'none'
+            str2.style.display = 'flex'
+            str3.style.display = 'none'
+            divInfo.style.display = 'flex'
+
+
+            vlrsGraficoTemp = [16, 17, 20, 24, 29, 25]
+            vlrsGraficoUmi = [80, 81, 85, 90, 92, 90]
+
+            ctx.update();
+            ctx2.update();
+
+        }
+        if (sector == 1) {
+            var str = document.getElementById('str1');
+            var str2 = document.getElementById('str2');
+            var str3 = document.getElementById('str3');
+
+            str1.style.display = 'flex'
+            str2.style.display = 'none'
+            str3.style.display = 'none'
+            divInfo.style.display = 'flex'
+
+        }
+
+        if (sector == 0) {
+            var str = document.getElementById('str1');
+            var str2 = document.getElementById('str2');
+            var str3 = document.getElementById('str3');
+
+            str1.style.display = 'none'
+            str2.style.display = 'none'
+            str3.style.display = 'flex'
+            divInfo.style.display = 'none'
+        }
+
+
+    }
+
+
+
+
+
+    var cadbar = document.getElementById('cadbar')
+
+    function aparecerLogin() {
+
+        var disP = cadbar.style.display
+
+        if (disP == `flex`) { cadbar.style.display = "none" }
+        else {
+            cadbar.style.display = "flex"
+            cadbar.style.primary.dim(on)
+        }
+
+
+    }
+
+    function habilitar() {
+        divMostrar
+        var disP = divMostrar.style.display
+
+        if (disP == `none`) {
+            divMostrar.style.display = "flex"
+            btnMostrar.style.display = "none"
+        }
+    }
+
+    function confirmar() {
+
+        faseCogu = slcFaseCogu.value
+
+        if (sector == 1) {
+            if (faseCogu == 1) {
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = '83%';
+                vlr_Umi_max.innerHTML = '89%';
+                vlr_Temp_min.innerHTML = '17°C';
+                vlr_Temp_max.innerHTML = '22°C';
+
+            } else if (faseCogu == 2) {
+
+                alert(`Fase mudada com sucesso`)
+                vlr_Umi_min.innerHTML = '81%';
+                vlr_Umi_max.innerHTML = '87%';
+                vlr_Temp_min.innerHTML = '19°C';
+                vlr_Temp_max.innerHTML = '25°C';
+
+            } else if (faseCogu == 3) {
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = '86%';
+                vlr_Umi_max.innerHTML = '92%';
+                vlr_Temp_min.innerHTML = '15°C';
+                vlr_Temp_max.innerHTML = '20°C';
+
+            } else {
+                alert("Insira um fase para seu cogumelo!")
+            }
+
+        } else if (sector == 2) {
+            if (faseCogu == 1) {
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = '82%';
+                vlr_Umi_max.innerHTML = '90%';
+                vlr_Temp_min.innerHTML = '15°C';
+                vlr_Temp_max.innerHTML = '23°C';
+
+            } else if (faseCogu == 2) {
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = '80%'
+                vlr_Umi_max.innerHTML = '88%'
+                vlr_Temp_min.innerHTML = '18°C';
+                vlr_Temp_max.innerHTML = '25°C';
+
+            } else if (faseCogu == 3) {
+                alert(`Fase mudada com sucesso`)
+
+                vlr_Umi_min.innerHTML = '83%';
+                vlr_Umi_max.innerHTML = '89%';
+                vlr_Temp_min.innerHTML = '17°C';
+                vlr_Temp_max.innerHTML = ' 28°C';
+
+            }
+
+            else {
+                alert("Insira um fase para seu cogumelo!")
+            }
+            divMostrar.style.display = "none"
+            btnMostrar.style.display = "flex"
+
+
+
+            if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMin + 4 && vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMax - 4) {
+                temp.style.backgroundColor = '#29cf00'
+            } else if (vlrsGraficoTemp[vlrsGraficoTemp.length - 1] < TempMin || vlrsGraficoTemp[vlrsGraficoTemp.length - 1] > TempMax) {
+                temp.style.backgroundColor = '#ff0000'
+            } else {
+                temp.style.backgroundColor = '#ffff00'
+
+            }
+
+            if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMin + 5 && vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMax - 5) {
+                temp.style.backgroundColor = '#29cf00'
+            } else if (vlrsGraficoUmi[vlrsGraficoUmi.length - 1] < umiMin || vlrsGraficoUmi[vlrsGraficoUmi.length - 1] > umiMax) {
+                temp.style.backgroundColor = '#ff0000'
+            } else {
+                temp.style.backgroundColor = '#ffff00'
+
+            }
+        } else if (sector == 1) {
+
+        }
+        else {
+            alert(`As mudanças não foram feitas!! Revise os valores passados`)
+        }
+
+    }
+
+    function mudarParametros() {
+
+        num1 = Number(inpt_mudar.value)
+
+        if (Parametros.length == 6) {
+
+            Parametros.splice(1, 1)
+            Parametros.push(num1);
+            // addData(num1)
+            this.ctx5.update();
+        }
+
+    }
+
+    function addData(newData) {
+
+        ctx5.dataset.data.push(Parametros);
+
+    }
+
+    setInterval(() => {
+
+        ctx5.update();
+    }, 1000);
+
+
+</script>

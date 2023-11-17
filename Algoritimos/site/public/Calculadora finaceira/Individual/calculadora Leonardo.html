@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+    <h3>Tenha uma visão de seu lucro anual</h3>
+    
+
+    <p>Insira o tipo de cogumelo que você produz:</p>
+    <input id="input_tipo_cogumelo">
+    <p>Insira a quantidade que deseja investir:</p>
+    <input type="number" min="0" id="input_investimento">
+    <p>Valor do Kg:</p>
+    <input id="input_venda">
+    <p>Quantidade Kg que será vendida:</p>
+    <input type="number" min="0" id="input_kg">
+    
+    <button onclick="calcular()"><b>Lucro total</b></button> 
+    <div id="div_exibir"></div>
+
+</body>
+</html>
+    
+    
+<script>
+    function calcular(){
+        var tipo = input_tipo_cogumelo.value;
+        var investimento = Number(input_investimento.value);
+        var kg = Number(input_kg.value);
+        var venda = Number(input_venda.value);
+        
+        if(investimento > 0){
+            var total1 = kg * venda - investimento;
+            var total2 = kg * venda;
+            div_exibir.innerHTML =`<br><b>
+            A renda total anual do ${tipo} com a venda de ${kg}Kg no valor de R$${venda} é de R$${total2}, enquanto o valor bruto será de R$${total1}
+            e o valor liquido com uma taxa de 57% de lucro será de R$${total1*1.57}
+            </b>`
+        }
+        
+        if(investimento > total2){
+         div_exibir.innerHTML +=`<br><h4 style="color: red">Aumente o valor do kilo</h4>`}
+        
+        if(investimento <=0){
+            div_exibir.innerHTML=`<b style="color: red">Insira um valor maior que zero no valor investido</b>`;} 
+       
+        if(kg <= 0){
+            div_exibir.innerHTML+=`<br><br><b style="color: red">Insira um valor maior que zero no valor do Kg</b>`;}
+       
+        if(venda <=0){
+            div_exibir.innerHTML+=`<br><br><b style="color: red">Insira um valor maior que zero na quantidade vendida</b>`;}
+    }
+</script>

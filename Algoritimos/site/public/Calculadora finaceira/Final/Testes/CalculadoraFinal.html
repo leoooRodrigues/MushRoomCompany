@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <link rel="stylesheet" href="styleCalculadoraFuçando.css
+    " />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MushRoom</title>
+</head>
+<body>
+    
+    <h1>Calculadora Financeira</h1><br>
+    <br>
+    Produção atual em kg: <input type="text" id="inputProducao"><br> 
+    Valor cobrado por kg: <input type="text" id="inputValor"><br>
+    Gastos com a produção: <input type="text" id="inputGastos"><br>
+    <button onclick="calcular()">Calcular</button><br>
+    <br>
+    <div id="divMensagem"></div><br>
+    <table id="tableDados"></table>
+   
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+
+      var produçãoInicial = Number(inputProducao.value)
+      var valorKg = Number(inputValor.value)
+      var gastos = Number(inputGastos.value)
+      var produçãoFinal = produçãoInicial * 1.57 
+      var valorInicial = produçãoInicial *valorKg        
+      var valorFinal = produçãoFinal * valorKg
+      
+      
+      // Mensagem com informações de implementação 
+      
+      divMensagem.innerHTML = `A sua produção irá aumentar em 57% um aumento de ${produçãoFinal - produçãoInicial} cogumelos que reprensentam R$${valorFinal - valorInicial}.<br>
+      O lucro bruto antes da implantação era de R$${valorInicial - gastos} e agora será de R$${valorFinal - gastos}.<br>`;
+
+
+
+
+      // Verificando valores 
+
+      if (produçãoInicial < 0) {
+
+        divMensagem.innerHTML = "<h2>A produção atual não pode ser negativa!</h2>";
+        tableDados.innerHTML ='';
+
+      }else {
+        if (valorKg < 0) {
+
+          divMensagem.innerHTML = "<h2>O valor  por Kg não pode ser negativo!</h2>";
+          tableDados.innerHTML ='';
+
+        }else{
+          if (gastos > valorInicial) {
+
+            divMensagem.innerHTML += "<b>Voce está tendo prejuizo atualmente!</b>";
+
+            if (gastos < valorFinal) {
+
+              divMensagem.innerHTML += "<br><b>A implantação do sistema te ajudará a contornar esse prejuizo!</b>";
+
+            }else {
+
+              divMensagem.innerHTML += "<br><b>Infelizmente a sua produção não dará lucro!</b>";
+              
+            }
+          }
+        }
+      }
+    }
+</script>
