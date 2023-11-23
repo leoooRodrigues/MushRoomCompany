@@ -7,7 +7,8 @@
     <title>MushRoom.co</title>
     <link rel="stylesheet" href="assets/css/inicial.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/sobre_O_projeto.css">
+    <script src="./js/sessao.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/sobre_O_projeto.css"> -->
     <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
 </head>
 
@@ -17,31 +18,33 @@
     <div class="header">
         <div class="containerHeader">
 
-            <h1 class="logo"><a href="inicial.html">MUSHROOM.co</a></h1>
+            <h1 class="logo"><a href="index.html">MUSHROOM.co</a></h1>
 
             <div class="navbar">
                 <ul>
                     <li><a class="linha_baixo" href="#pg1">HOME</li>
                     <li><a class="linha_baixo" href="#pg4">SOBRE NÓS</a></li>
                     <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
-                    <li><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
-                    <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
+                    <li id="dashUser"><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
+                    <li id="sairUser"><button onclick="limparSessao()"><b>SAIR</b></button></li>
+                    <!-- <li id="sairUser"><b class="linha_baixo"  href="#"  onclick="limparSessao()">SAIR</a></li> -->
+                    <li><button onclick="aparecerLogin()" id="btnUser"><b>LOGIN</b></button></li>
                 </ul>
             </div>
         </div>
 
         <div class="cadbar" id="cadbar">
             <div class="cadbarInput">
-                <span class="cadastroTXT">CNPJ</span>
-                <input type="text" class="inpsbege">
+                <span>CNPJ</span>
+                <input type="text" class="inpsbege" id="cnpj_ipt">
             </div>
 
             <div class="cadbarInput">
-                <span class="cadastroTXT">SENHA</span>
-                <input type="password" class="inpsbege">
+                <span>SENHA</span>
+                <input type="password" class="inpsbege" id="senha_ipt">
 
             </div>
-            <button><B>ENTRAR</B></button>
+            <button onclick="entrar()"><B>ENTRAR</B></button>
 
             <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
         </div>
@@ -181,6 +184,18 @@
 </html>
 
 <script type="text/javascript">
+    if (sessionStorage.logado == 1) {
+        dashUser.style.display = 'block'
+        btnUser.style.display = 'none'
+        sairUser.style.display = 'block'
+    }
+    else {
+        dashUser.style.display = 'none'
+        btnUser.style.display = 'block'
+        sairUser.style.display = 'none'
+    }
+
+
     function aparecerLogin() {
 
         var disP = cadbar.style.display
@@ -197,4 +212,80 @@
     function whats() {
         window.open('https://web.whatsapp.com/', '_blank')
     }
+
+
+
+
+    function entrar() {
+        // aguardar();
+
+        var cnpjVar = cnpj_ipt.value;
+        var senhaVar = senha_ipt.value;
+
+        if (cnpjVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            alert("camos em branco")
+            console.log("campos em branco")
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", cnpjVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cnpjServer: cnpjVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.logado = 1;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashV1.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        // cardErro.style.display = "none"
+    }
+
 </script>

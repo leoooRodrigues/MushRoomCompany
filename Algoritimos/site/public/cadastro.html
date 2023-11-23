@@ -17,12 +17,12 @@
   <div class="header">
     <div class="containerHeader">
 
-      <h1 class="logo"><a href="inicial.html">MUSHROOM.co</a></h1>
+      <h1 class="logo"><a href="index.html">MUSHROOM.co</a></h1>
 
       <div class="navbar">
         <ul>
-          <li><a class="linha_baixo" href="inicial.html">HOME</li>
-          <li><a class="linha_baixo" href="inicial.html #pg4">SOBRE NÓS</a></li>
+          <li><a class="linha_baixo" href="index.html">HOME</li>
+          <li><a class="linha_baixo" href="index.html#pg4">SOBRE NÓS</a></li>
           <li><a class="linha_baixo" href="CalculadoraFinal.html">CALCULADORA FINANCEIRA</a></li>
           <li><a class="linha_baixo" href="dashV1.html">DASHBOARD</a></li>
           <li><button onclick="aparecerLogin()"><b>LOGIN</b></button></li>
@@ -47,6 +47,10 @@
       <u><a href="cadastro.html">Não tem conta ? Cadastre-se !</a></u>
     </div>
   </div>
+  <div id="div_logado" class="logado" style="display: none;">
+    <h2>Registrado!</h2>
+    <img  src="./assets/img/check.gif" alt="check">
+  </div>
   <div class="quadrado">
     <h1 class="TituloCad">Cadastrar</h1>
     <div class="container">
@@ -63,7 +67,7 @@
             id="input_ConfSenha" /></span>
 
         <div id="div_mensagem" class="mensagem"></div>
-        <button class="botao" onclick="CADASTRAR()">CADASTRAR</button>
+        <button class="botao" onclick="cadastrar()">CADASTRAR</button>
       </main>
     </div>
   </div>
@@ -81,6 +85,202 @@
 <!-- 712323 vermelho-->
 
 <script type="text/javascript">
+
+  function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_empresa.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_ConfSenha.value;
+    var empresaVar = input_cnpj.value;
+    var telefoneVar = input_telefone.value;
+    var validacao = 0;
+
+    if (
+      nomeVar.indexOf("#") >= 0 ||
+      nomeVar.indexOf("@") >= 0 ||
+      nomeVar.indexOf("!") >= 0 ||
+      nomeVar.indexOf("%") >= 0 ||
+      nomeVar.indexOf("*") >= 0 ||
+      nomeVar.indexOf("$") >= 0 ||
+      nomeVar.indexOf("&") >= 0
+
+    ) {
+      div_mensagem.style.display = "flex"
+      div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
+
+      validacao = 1
+    }
+
+    //CNPJ
+
+    if (empresaVar.length != 14) {
+      div_mensagem.style.display = "flex";
+      div_mensagem.innerHTML += `-CNPJ incorreto conter 14 caracteres <br>`;
+      validacao = 1
+    }
+
+    if (empresaVar.indexOf(".") == 0) {
+      div_mensagem.style.display = "flex";
+      div_mensagem.innerHTML += `-Não pode conter pontuação no CNPJ <br>`;
+
+      validacao = 1
+    }
+
+
+    //SENHA
+
+    if (senhaVar.length < 8) {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+    if (senhaVar.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+    if (
+      !(senhaVar.indexOf("#") >= 1 ||
+        senhaVar.indexOf("@") >= 1 ||
+        senhaVar.indexOf("!") >= 1 ||
+        senhaVar.indexOf("%") >= 1 ||
+        senhaVar.indexOf("*") >= 1 ||
+        senhaVar.indexOf("$") >= 1 ||
+        senhaVar.indexOf("_") >= 1 ||
+        senhaVar.indexOf("-") >= 1 ||
+        senhaVar.indexOf("&") >= 1)
+    ) {
+      div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+    //EMAIL
+    if (!(emailVar.indexOf("@") >= 1)) {
+      div_mensagem.innerHTML += `-Deve conter @ no email<br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    if (!(emailVar.indexOf(".com") >= 1)) {
+      div_mensagem.innerHTML += `-Deve conter .com no email <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    if (emailVar.indexOf(" ") >= 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+
+    //TELEFONE
+    if (telefoneVar.length != 11) {
+
+      div_mensagem.innerHTML += `-Telefone precisa de 11 caracteres<br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+
+    if (telefoneVar.indexOf(" ") > 0) {
+      div_mensagem.innerHTML += `-Não pode conter espaços na Telefone <br>`;
+      div_mensagem.style.display = "flex";
+      validacao = 1
+    }
+    var mensagem = '';
+    var contador = 0;
+
+
+    while (contador < telefoneVar.length) {
+      var num = 0
+      while (num <= 9) {
+        if (telefoneVar[contador] == num) {
+          mensagem = "";
+          break;
+          mensagem = `-Não pode conter outros caracteres <br> além de numeros no Telefone <br>`
+          div_mensagem.style.display = "flex"
+          validacao = 1
+
+        }
+        num += 1
+      }
+      contador += 1;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+      mensagem += `-Senhas incompatíveis`;
+      validacao = 1
+    }
+
+    div_mensagem.innerHTML += mensagem;
+
+    if (validacao == 1) {
+      return false;
+    } else {
+      div_mensagem.style.display = 'none'
+      div_logado.style.display = 'flex'
+
+      
+      setInterval(sumirMensagem, 5000);
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          empresaServer: empresaVar,
+          telefoneServer: telefoneVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            // cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+
+            limparFormulario();
+            // finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          // finalizarAguardar();
+        });
+
+      // setTimeout(() => {
+      //       window.location = "dashV1.html";
+      //     }, "2000"); 
+      return false;
+
+    }
+  }
+
+  function sumirMensagem() {
+    // cardErro.style.display = "none";
+  }
+
+
+
   function aparecerLogin() {
 
     var disP = cadbar.style.display
@@ -89,10 +289,16 @@
     else { cadbar.style.display = "flex" }
   }
 
-  function CADASTRAR() {
+
+
+
+
+
+
+
+  function CADASTRAR2() {
 
     console.log('sla')
-    var validacao = 0;
     div_mensagem.style.display = "none"
     var Empresa = input_empresa.value;
     var CNPJ = input_cnpj.value;
@@ -228,7 +434,7 @@
 
 
     if (validacao == 0) {
-      window.location.href = 'dashV1.html'
+      
     }
   }
 

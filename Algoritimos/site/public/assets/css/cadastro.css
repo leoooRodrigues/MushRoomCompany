@@ -151,3 +151,25 @@ footer {
     color: #FDF2DC;
     display: none;
 }
+
+.logado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    flex-direction: column;
+}
+
+.logado img{
+    height: 250px;
+    width: 300px;
+    background: rgba(0, 0, 0, .5);
+}
+
+.logado h2{
+    color: #f5deb3;
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    font-size: 52px;
+}
