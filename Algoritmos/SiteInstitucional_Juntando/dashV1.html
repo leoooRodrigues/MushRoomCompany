@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/dash_cssV1.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -145,7 +145,7 @@
                     <div class="separador"></div>
                     <div>
                         <h3>Umidade Max ideal:</h3>
-                        <h3 id="vlr_Umi_max">92%</h3>
+                        <h3 id="vlr_Umi_max"> </h3>
                     </div>
                 </div><!-- fim box2 -->
             </div>
@@ -375,7 +375,7 @@
 
     // função
 
-    var sector = 0;
+    var sector = 1;
     var divInfo = document.getElementById('divInforma');
     function setor() {
         sector = Number(slcSetor.value)
@@ -454,31 +454,45 @@
     function confirmar() {
 
         faseCogu = slcFaseCogu.value
+        var inpUmiMax = `${inp_umi_max.value}%`
+        var inpTempMax = `${inp_temp_max.value}°C`
+        var inpUmiMin = `${inp_umi_min.value}%`
+        var inpTempMin = `${inp_temp_min.value}°C`
+
+
+
+
+        if (inpTempMax == '°C') inpTempMax = vlr_Temp_max.innerHTML
+        if (inpTempMin == '°C') inpTempMin = vlr_Temp_min.innerHTML
+        if (inpUmiMax == '%') inpUmiMax = vlr_Umi_max.innerHTML
+        if (inpUmiMin == '%') inpUmiMin = vlr_Umi_min.innerHTML
+
 
         if (sector == 1) {
             if (faseCogu == 1) {
                 alert(`Fase mudada com sucesso`)
 
-                vlr_Umi_min.innerHTML = '83%';
-                vlr_Umi_max.innerHTML = '89%';
-                vlr_Temp_min.innerHTML = '17°C';
-                vlr_Temp_max.innerHTML = '22°C';
+                vlr_Umi_min.innerHTML = `${inpUmiMin}`;
+                vlr_Umi_max.innerHTML = `${inpUmiMax}`;
+                vlr_Temp_min.innerHTML = `${inpTempMin}`;
+                vlr_Temp_max.innerHTML = `${inpTempMax}`;
 
             } else if (faseCogu == 2) {
 
                 alert(`Fase mudada com sucesso`)
-                vlr_Umi_min.innerHTML = '81%';
-                vlr_Umi_max.innerHTML = '87%';
-                vlr_Temp_min.innerHTML = '19°C';
-                vlr_Temp_max.innerHTML = '25°C';
+
+                vlr_Umi_min.innerHTML = `${inpUmiMin}`;
+                vlr_Umi_max.innerHTML = `${inpUmiMax}`;
+                vlr_Temp_min.innerHTML = `${inpTempMin}`;
+                vlr_Temp_max.innerHTML = `${inpTempMax}`;
 
             } else if (faseCogu == 3) {
                 alert(`Fase mudada com sucesso`)
 
-                vlr_Umi_min.innerHTML = '86%';
-                vlr_Umi_max.innerHTML = '92%';
-                vlr_Temp_min.innerHTML = '15°C';
-                vlr_Temp_max.innerHTML = '20°C';
+                vlr_Umi_min.innerHTML = `${inpUmiMin}`;
+                vlr_Umi_max.innerHTML = `${inpUmiMax}`;
+                vlr_Temp_min.innerHTML = `${inpTempMax}`;
+                vlr_Temp_max.innerHTML = `${inpTempMin}`;
 
             } else {
                 alert("Insira um fase para seu cogumelo!")
