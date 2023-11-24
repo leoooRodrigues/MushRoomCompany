@@ -15,7 +15,9 @@ telefone char (15),
 senha varchar(25))auto_increment=1;
 
 select * from empresa;
+
 delete from empresa where idEmpresa = 2;
+
 create table usuarios(
 idUsuario int auto_increment,
 tipoUser varchar(20),

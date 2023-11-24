@@ -252,6 +252,8 @@
 </html>
 
 <script>
+    
+    window.onload = obterDadosGrafico();
 
     function abrir(){
         if(inpts_dash.style.width == '15%'){
@@ -361,112 +363,42 @@
             }]
         },
     });
-    // grafico 3
-    // const ctx4 = document.getElementById('myChart4');
 
-    // Chart.defaults.font.size = 16;
-    // new Chart(ctx4, {
-    //     type: 'line',
-    //     data: {
-    //         labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-    //         datasets: [{
-    //             label: 'Temperatura (°C)',
-    //             data: [27, 20, 18, 16, 20, 13],
-    //             backgroundColor: ('#00000000'),
-    //             borderColor: ('#ff0000'),
+    var sector = 1;
+    sector = Number(slcSetor.value)
+    console.log(sector, "valor do setor")
+    function obterDadosGrafico(sector){
 
-    //         }]
-    //     },
-    // });
+    // alterarTitulo(idAquario)
 
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
 
-    // // grafico 4
-    // const ctx5 = document.getElementById('myChart5');
+        fetch(`/medidas/ultimas/${sector}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-    // new Chart(ctx5, {
-    //     type: 'line',
-    //     data: {
-    //         labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-    //         datasets: [{
-    //             label: 'Umidade',
-    //             data: [88, 90, 93, 86, 98, 89],
-    //             backgroundColor: ('#00000000'),
-    //             borderColor: ('#0000ff'),
+                    // plotarGrafico(resposta);
 
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+        }
 
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
-
-
-    // var Parametros = [70, 95, 80, 79, 87, 90]
-    // // grafico 5
-    // const ctx6 = document.getElementById('myChart6');
-
-    // Chart.defaults.font.size = 16;
-    // new Chart(ctx6, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['Não Ideal', 'Ideal'],
-    //         datasets: [{
-    //             label: 'Umidade media (%)',
-    //             data: [44, 56],
-    //             backgroundColor: [
-    //                 '#f00',
-    //                 '#0f0'
-    //             ]
-
-    //         }]
-    //     },
-    // });
-
-
-    // // grafico 6
-    // const ctx7 = document.getElementById('myChart7');
-
-    // Chart.defaults.elements.line.borderWidth = 3.5;
-    // new Chart(ctx7, {
-    //     type: 'line',
-    //     data: {
-    //         labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-    //         datasets: [{
-    //             label: 'Umidade',
-    //             data: [88, 90, 93, 86, 98, 89],
-    //             backgroundColor: ('#00000000'),
-    //             borderColor: ('#0000ff'),
-
-    //         },
-    //         {
-    //             label: 'Temperatura',
-    //             data: [27, 20, 18, 16, 20, 10],
-    //             backgroundColor: ('#00000000'),
-    //             borderColor: ('#ff0000'),
-
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
-
-
-
+  
 
 
     // função
 
-    var sector = 1;
+   
     // var divInfo = document.getElementById('divInforma');
     function setor() {
         sector = Number(slcSetor.value)
@@ -512,9 +444,6 @@
 
 
     }
-
-
-
 
     var cadbar = document.getElementById('cadbar')
 
@@ -673,6 +602,8 @@
 
         // ctx5.update();
     }, 1000);
+
+
 
 
 </script>
