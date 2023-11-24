@@ -142,7 +142,7 @@
                     </div>
                 </div>
                 <div class="divGraficos">
-                    <div class="Sensor">
+                    <!-- <div class="Sensor"> -->
                         <div class="canva">
                             <div class="graf-conteudo">
                                 <canvas id="myChart" class="cnvs"></canvas>
@@ -151,17 +151,17 @@
                             <div class="graf-conteudo">
                                 <canvas id="myChart2" class="cnvs"></canvas>
                             </div>
-    
+                        </div>
+                        <div class="canva">
                             <div class="graf-conteudo doughnut">
                                 <canvas id="myChart3" class="cnvs"></canvas>
                             </div>
-                            
-                            <div class="graf-conteudo">
+<!--                             
+                            <div class="graf-conteudo doughnut">
                                 <canvas id="myChart4" class="cnvs"></canvas>
-                            </div>
-    
+                            </div> -->
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div> 
 
@@ -256,7 +256,7 @@
     const ctx4 = document.getElementById('myChart4');
 
     Chart.defaults.font.size = 16;
-    new Chart(ctx3, {
+    new Chart(ctx4, {
         type: 'doughnut',
         data: {
             labels: ['%', 'Ideal'],
