@@ -57,7 +57,8 @@
     <!-- fim header -->
 
     <div class="main">
-        <div class="inpts_dash">
+        <div class="inpts_dash" id="inpts_dash">
+            <div class="abridor" onclick="abrir()">| | |</div>
             <div class="sidebar">
                 <h3>Setores</h3>
                 <!--  <a href="#">setor 1</a>
@@ -117,20 +118,99 @@
             </div>
 
         </div>
-        <div class="content">
+        <div class="content" id="content">
 
-             <div class="conteudo">
-                <div class="infosSensores">
+            <div class="conteudo" id="str1">
+                <div class="infosSensores" id="str1">
                     <div class="cardsDash">
                         <h3>Ultimos valores Resgatados</h3>
                         <div class="cardInformacoes">
                             <div class="cardMetricas">
                                 <img src="assets/img/sensor-de-temperatura.png" alt="" class="imgMetricas">
-                                <div class="metricasInfo"><h2>22.6ºC</h2></div>
+                                <div class="metricasInfo">
+                                    <h2>22.6ºC</h2>
+                                </div>
                             </div>
                             <div class="cardMetricas">
                                 <img src="assets/img/umidade.png" alt="" class="imgMetricas">
-                                <div class="metricasInfo"><h2>85%</h2></div>
+                                <div class="metricasInfo">
+                                    <h2>85%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardsDash cd2">
+                        <div class="cardsSeparacao">
+                            <div>
+                                <h4>Temperatura Min ideal:</h4>
+                                <h4 id="vlr_Temp_min">15°C</h4>
+                            </div>
+                            <div>
+                                <h4>Umidade Min ideal:</h4>
+                                <h4 id="vlr_Umi_min">85%</h4>
+                            </div>
+                        </div> <!-- fim box1 -->
+                        <div class="separador"></div>
+                        <div class="cardsSeparacao">
+                            <div>
+                                <h4>Temperatura Max ideal:</h4>
+                                <h4 id="vlr_Temp_max">21°C</h4>
+                            </div>
+                            <div>
+                                <h4>Umidade Max ideal:</h4>
+                                <h4 id="vlr_Umi_max"> </h4>
+                            </div>
+                        </div><!-- fim box2 -->
+                    </div>
+                    <div class="cardsDash">
+                        <div class="box-ideal">
+                            <div id="temp" class="ideal temp">Temperatura Ideal</div>
+                            <div id="umi" class="ideal umi">Umidade Ideal</div>
+                        </div> <!-- fim box2 -->
+                    </div>
+                </div>
+                <div class="divGraficos">
+                    <h2 style="color: black;">Setor 1</h2>
+                    <!-- <div class="Sensor"> -->
+                    <div class="canva">
+                        <div class="graf-conteudo">
+                            <canvas id="myChart" class="cnvs"></canvas>
+                        </div>
+
+                        <div class="graf-conteudo">
+                            <canvas id="myChart2" class="cnvs"></canvas>
+                        </div>
+                    </div>
+                    <div class="canva">
+                        <div class="graf-conteudo doughnut">
+                            <canvas id="myChart3" class="cnvs"></canvas>
+                        </div>
+                        <!--                             
+                            <div class="graf-conteudo doughnut">
+                                <canvas id="myChart4" class="cnvs"></canvas>
+                            </div> -->
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+
+
+            <div class="conteudo" id="str2" style="display: none;">
+                <div class="infosSensores" id="str1">
+                    <div class="cardsDash">
+                        <h3>Ultimos valores Resgatados</h3>
+                        <div class="cardInformacoes">
+                            <div class="cardMetricas">
+                                <img src="assets/img/sensor-de-temperatura.png" alt="" class="imgMetricas">
+                                <div class="metricasInfo">
+                                    <h2>22.6ºC</h2>
+                                </div>
+                            </div>
+                            <div class="cardMetricas">
+                                <img src="assets/img/umidade.png" alt="" class="imgMetricas">
+                                <div class="metricasInfo">
+                                    <h2>85%</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,35 +223,45 @@
                 </div>
                 <div class="divGraficos">
                     <!-- <div class="Sensor"> -->
-                        <div class="canva">
-                            <div class="graf-conteudo">
-                                <canvas id="myChart" class="cnvs"></canvas>
-                            </div>
-
-                            <div class="graf-conteudo">
-                                <canvas id="myChart2" class="cnvs"></canvas>
-                            </div>
+                    <div class="canva">
+                        <div class="graf-conteudo">
+                            <canvas id="myChart" class="cnvs"></canvas>
                         </div>
-                        <div class="canva">
-                            <div class="graf-conteudo doughnut">
-                                <canvas id="myChart3" class="cnvs"></canvas>
-                            </div>
-<!--                             
+
+                        <div class="graf-conteudo">
+                            <canvas id="myChart2" class="cnvs"></canvas>
+                        </div>
+                    </div>
+                    <div class="canva">
+                        <div class="graf-conteudo doughnut">
+                            <canvas id="myChart3" class="cnvs"></canvas>
+                        </div>
+                        <!--                             
                             <div class="graf-conteudo doughnut">
                                 <canvas id="myChart4" class="cnvs"></canvas>
                             </div> -->
-                        </div>
+                    </div>
                     <!-- </div> -->
                 </div>
-            </div> 
+            </div>
 
-        </div>  
+        </div>
     </div>
 </body>
 
 </html>
 
 <script>
+
+    function abrir(){
+        if(inpts_dash.style.width == '15%'){
+            inpts_dash.style.width = '0px'
+            content.style.width = '100%'
+        }else{
+            inpts_dash.style.width = '15%'
+            content.style.width = '85%'
+        }
+    }
 
     if (sessionStorage.logado == 1) {
         dashUser.style.display = 'block'
@@ -188,7 +278,7 @@
     var umiMax = 100
     var TempMin = 15
     var TempMax = 25
-    var vlrsGraficoUmi = [70, 81, 82, 78, 80, 79,70, 81, 82, 78, 80, 79,70, 81, 82, 78, 80, 79]
+    var vlrsGraficoUmi = [70, 81, 82, 78, 80, 79, 70, 81, 82, 78, 80, 79, 70, 81, 82, 78, 80, 79]
     var vlrsGraficoTemp = [28, 25, 19, 17, 24, 20, 28, 25, 19, 17, 24, 20, 28, 25, 19, 17, 24, 20,]
 
     const ctx = document.getElementById('myChart');
@@ -197,7 +287,7 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00', '08:00', '09:00', '10:00', '11:00','12:00', '13:00', '14:00', '15:00', '16:00', '17:00','18:00', '19:00', '.20:00', '21:00', '23:00'],
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '.20:00', '21:00', '23:00'],
             datasets: [{
                 label: 'Temperatura (°C)',
                 data: vlrsGraficoTemp,
@@ -215,7 +305,7 @@
     new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00', '08:00', '09:00', '10:00', '11:00','12:00', '13:00', '14:00', '15:00', '16:00', '17:00','18:00', '19:00', '.20:00', '21:00', '23:00'],
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '.20:00', '21:00', '23:00'],
             datasets: [{
                 label: 'Umidade (%)',
                 data: vlrsGraficoUmi,
@@ -252,7 +342,7 @@
             }]
         },
     });
-    
+
     const ctx4 = document.getElementById('myChart4');
 
     Chart.defaults.font.size = 16;
@@ -377,17 +467,17 @@
     // função
 
     var sector = 1;
-    var divInfo = document.getElementById('divInforma');
+    // var divInfo = document.getElementById('divInforma');
     function setor() {
         sector = Number(slcSetor.value)
         if (sector == 2) {
-            var str = document.getElementById('str1');
-            var str2 = document.getElementById('str2');
-            var str3 = document.getElementById('str3');
+            // var str = document.getElementById('str1');
+            // var str2 = document.getElementById('str2');
+            // var str3 = document.getElementById('str3');
             str1.style.display = 'none'
             str2.style.display = 'flex'
-            str3.style.display = 'none'
-            divInfo.style.display = 'flex'
+            // str3.style.display = 'none'
+            // divInfo.style.display = 'flex'
 
 
             vlrsGraficoTemp = [16, 17, 20, 24, 29, 25]
@@ -398,31 +488,30 @@
 
         }
         if (sector == 1) {
-            var str = document.getElementById('str1');
-            var str2 = document.getElementById('str2');
-            var str3 = document.getElementById('str3');
+            // var str = document.getElementById('str1');
+            // var str2 = document.getElementById('str2');
+            // var str3 = document.getElementById('str3');
 
             str1.style.display = 'flex'
             str2.style.display = 'none'
-            str3.style.display = 'none'
-            divInfo.style.display = 'flex'
+            // str3.style.display = 'none'
+            // divInfo.style.display = 'flex'
 
         }
 
         if (sector == 0) {
             var str = document.getElementById('str1');
             var str2 = document.getElementById('str2');
-            var str3 = document.getElementById('str3');
+            // var str3 = document.getElementById('str3');
 
             str1.style.display = 'none'
             str2.style.display = 'none'
-            str3.style.display = 'flex'
-            divInfo.style.display = 'none'
+            // str3.style.display = 'flex'
+            // divInfo.style.display = 'none'
         }
 
 
     }
-
 
 
 
@@ -569,20 +658,20 @@
             Parametros.splice(1, 1)
             Parametros.push(num1);
             // addData(num1)
-            this.ctx5.update();
+            // this.ctx5.update();
         }
 
     }
 
     function addData(newData) {
 
-        ctx5.dataset.data.push(Parametros);
+        // ctx5.dataset.data.push(Parametros);
 
     }
 
     setInterval(() => {
 
-        ctx5.update();
+        // ctx5.update();
     }, 1000);
 
 
