@@ -8,6 +8,9 @@
     font-family: Bwrlin Sans FB Demi Bold;
     border: none;
     scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 .header {

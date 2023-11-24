@@ -15,7 +15,6 @@ body {
     font-family: Bwrlin Sans FB Demi Bold;
     display: flex;
     align-items: center;
-    min-height: 100vh;
     width: 100%;
 }
 
@@ -29,8 +28,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100%;
+    min-height: calc(100vh - 100px);
     width: 100%;
+    top: 100px;
+    position: relative;
 }
 
 .inpt {
@@ -130,13 +131,12 @@ select {
 /* fim da sidebar */
 
 .content {
-    width: 84%;
+    width: 85%;
     height: 100%;
     position: absolute;
     /* background-color: rgba(224, 220, 220, 0.425); */
-    padding: 10px;
+    /* padding: 10px; */
     right: 0;
-    top: 100px;
 }
 
 .titulo-secao {
@@ -207,12 +207,11 @@ h2 {
 
 .canva {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     height: 1000px;
     justify-content: center;
-    gap: 100px;
 
 }
 
@@ -228,8 +227,9 @@ h2 {
 
 .graf-conteudo {
     display: flex;
-    height: 40%;
-    width: 45%;
+    height: 30%;
+    width: 100%;
+    justify-content: center;
     margin-top: 20px;
     border-radius: 10px;
     background-color: wheat;
@@ -260,4 +260,67 @@ h2 {
 
 .cnvs {
     width: 100%;
+}
+
+
+
+
+
+
+
+
+/* TESTEEEEE */
+
+
+.conteudo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.infosSensores{
+    background-color: green;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardsDash{
+    height: 33.3%;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+.cardInformacoes{
+    height: 70%;
+    width: 100%;
+    display: flex;
+}
+.cardMetricas{
+    display: flex;
+    width: 50%;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.metricasInfo{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.imgMetricas{
+    width: 25%;
+}
+
+.divGraficos{
+    width: 70%;
+    height: 100%;
 }
