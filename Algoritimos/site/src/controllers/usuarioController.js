@@ -88,6 +88,11 @@ function cadastrar(req, res) {
     }
 }
 
+function dashboard(){
+
+    
+}
+
 module.exports = {
     autenticar,
     cadastrar
