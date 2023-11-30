@@ -54,9 +54,9 @@ footer {
 }
 
 .quadrado {
-    background-color: #f7f7f785;
+    background-color: #f7f7f78f;
     width: 35%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: fit-content;
     justify-content: center;
     align-items: center;
@@ -66,42 +66,50 @@ footer {
     justify-content: space-around;
     border-radius: 30px;
     margin-top: 200px;
+    padding-top: 20px;
 }
 
 .TituloCad {
-    background-color: #e0c9a9;
+    /* background-color: #e0c9a9; */
     justify-content: center;
     align-items: center;
     width: 35%;
-    border: solid 5px;
-    border-color: #702323;
+    /* border: solid 5px; */
+    /* border-color: #702323; */
     text-align: center;
-    border-radius: 10px;
-    color: #3a2323;
+    font-size: 45px;
+    padding: 10px;
+    /* border-radius: 10px; */
+    color: #030303;
 
 }
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 75%;
+    column-gap: 50px;
 }
-
+#span{
+    display: flex;
+    align-items: center;
+}
 .inpt,
 .spanCadastro {
-    border: 2px solid #712323;
     border-radius: 10px;
     width: fit-content;
 }
 
 .inpt {
+    border: 1px solid #000000;
     background-color: #FDF2DC;
     color: black;
     height: 30px;
     padding-left: 7px;
     font-size: 20px;
-    width: 70%;
+    width:60%;
     box-sizing: border-box;
 }
 
@@ -110,18 +118,17 @@ footer {
 }
 
 .spanCadastro {
-    color: #FDF2DC;
-    background-color: #712323;
+          /* background-color: #712323; */
     cursor: default;
-    height: fit-content;
+    /* height: fit-content; */
     font-size: 30px;
+    text-align: center;
     width: 90%;
-    margin: 13px;
-    padding: 5px;
+    /* margin: 5px; */
+    padding: 10px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
-
 }
 
 .botao {

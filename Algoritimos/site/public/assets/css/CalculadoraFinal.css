@@ -20,12 +20,12 @@ body{
 
 .quadrado{
     background-color: #fdf3dd85;
-    width: 70%;
-    border : 2px solid black;
-    height: 65vh;
+    width: 50%;
+    /* border : 2px solid black; */
+    min-height: 65vh;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    /* padding: 5px; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -34,21 +34,24 @@ body{
 }
 
 .TituloCalc{
-    background-color: #e0c9a9;
+    /* background-color: #e0c9a9; */
     justify-content: center;
     align-items: center;
    width: 35%;
-    border: solid 5px;
-    border-color: #702323;
+    /* border: solid 5px; */
+    /* border-color: #702323; */
     text-align: center;
     border-radius: 10px;
-    color: #3a2323;
+    color: #000000;
+    font-size: 45px;
+    /* margin: 20px; */
 
 }
 
 .perguntas{
     color: #3a2323;
     font-size: 26px;
+    
     
 }
 
@@ -58,14 +61,14 @@ body{
 }
 
 .divInp{
-    width: 100%;
+    width: 48%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .inpCalc{
-    background-color: #e0c9a9;
-    border: solid 3px;
+    /* background-color: #e0c9a9; */
+    border: solid 2px;
     border-color: #702323;
     border-radius: 5px;
     height: 30px;
@@ -75,12 +78,12 @@ body{
 }
 
 .btnCalc{
-    width: 100px;
-    height: 50px;
-    background-color: #e0c9a9;
+    width: 120px;
+    /* height: 50px; */
+    /* background-color: #e0c9a9; */
     border: solid 3px;
     border-radius: 5px;
-    font-size: larger;
+    font-size: x-large;
     color: #3a2323;
 }
 #pRuim{
