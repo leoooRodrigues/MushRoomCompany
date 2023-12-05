@@ -91,7 +91,11 @@ body{
 }
 
 #pBom{
-    color: green;
+    color: #009d00;
+    background-color: greenyellow;
+    padding: 1px;
+    font-size: xx-large;
+    border-radius: 5px;
 }
 
 .mensagemErro{
