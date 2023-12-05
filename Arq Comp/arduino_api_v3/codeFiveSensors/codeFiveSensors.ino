@@ -35,7 +35,7 @@ void loop()
   lm35_temperatura = lm35_temperatura * 0.00488;
   lm35_temperatura = lm35_temperatura * 100;
   Serial.print(lm35_temperatura);
-  Serial.print(";");
+  // Serial.print("a;");
 
   // int chave = digitalRead(7);
   // if (chave == 0) {

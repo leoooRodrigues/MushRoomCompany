@@ -15,10 +15,10 @@ const serial = async (
 ) => {
     const poolBancoDados = mysql.createPool(
         {
-            host: '192.168.15.177',
+            host: '192.168.43.76',
             port: 3306,
             user: 'root',
-            password: '1304',
+            password: 'D@a170305',
             database: 'mushroom'
         }
     ).promise();
@@ -40,9 +40,9 @@ const serial = async (
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
-        const dht11Temperatura = parseFloat(valores[1]);
+        const lm35Temperatura = parseFloat(valores[1]);
+        const dht11Temperatura = parseFloat(valores[3]);
         const luminosidade = parseFloat(valores[2]);
-        const lm35Temperatura = parseFloat(valores[3]);
         const chave = parseInt(valores[4]);
 
         valoresDht11Umidade.push(dht11Umidade);
