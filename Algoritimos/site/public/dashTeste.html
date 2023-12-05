@@ -121,7 +121,7 @@
         <div class="content" id="content">
 
             <div class="conteudo" id="str1">
-                <div class="infosSensores" id="str1">
+                <div class="infosSensores">
                     <div class="cardsDash">
                         <h3>Ultimos valores Resgatados</h3>
                         <div class="cardInformacoes">
@@ -174,16 +174,23 @@
                     <!-- <div class="Sensor"> -->
                     <div class="canva">
                         <div class="graf-conteudo">
-                            <canvas id="myChart" class="cnvs"></canvas>
+                            <canvas id="myChartLinhaTemp1" class="cnvs"></canvas>
                         </div>
 
-                        <div class="graf-conteudo">
-                            <canvas id="myChart2" class="cnvs"></canvas>
+                        <div class="graf-conteudo doughnut">
+                            <canvas id="myChartdoughnutTemp1" class="cnvs"></canvas>
                         </div>
+
+
                     </div>
                     <div class="canva">
+
+                        <div class="graf-conteudo">
+                            <canvas id="myChartLinhaUmi1" class="cnvs"></canvas>
+                        </div>
+
                         <div class="graf-conteudo doughnut">
-                            <canvas id="myChart3" class="cnvs"></canvas>
+                            <canvas id="myChartdoughnutUmi1" class="cnvs"></canvas>
                         </div>
                         <!--                             
                             <div class="graf-conteudo doughnut">
@@ -196,7 +203,7 @@
 
 
             <div class="conteudo" id="str2" style="display: none;">
-                <div class="infosSensores" id="str1">
+                <div class="infosSensores">
                     <div class="cardsDash">
                         <h3>Ultimos valores Resgatados</h3>
                         <div class="cardInformacoes">
@@ -214,27 +221,60 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cardsDash">
 
+                    <div class="cardsDash cd2">
+                        <div class="cardsSeparacao">
+                            <div>
+                                <h4>Temperatura Min ideal:</h4>
+                                <h4 id="vlr_Temp_min">15°C</h4>
+                            </div>
+                            <div>
+                                <h4>Umidade Min ideal:</h4>
+                                <h4 id="vlr_Umi_min">85%</h4>
+                            </div>
+                        </div> <!-- fim box1 -->
+                        <div class="separador"></div>
+                        <div class="cardsSeparacao">
+                            <div>
+                                <h4>Temperatura Max ideal:</h4>
+                                <h4 id="vlr_Temp_max">21°C</h4>
+                            </div>
+                            <div>
+                                <h4>Umidade Max ideal:</h4>
+                                <h4 id="vlr_Umi_max"> </h4>
+                            </div>
+                        </div><!-- fim box2 -->
                     </div>
                     <div class="cardsDash">
-
+                        <div class="box-ideal">
+                            <div id="temp" class="ideal temp">Temperatura Ideal</div>
+                            <div id="umi" class="ideal umi">Umidade Ideal</div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="divGraficos">
+                    <h2 style="color: black;">Setor 2</h2>
                     <!-- <div class="Sensor"> -->
                     <div class="canva">
                         <div class="graf-conteudo">
-                            <canvas id="myChart" class="cnvs"></canvas>
+                            <canvas id="myChartLinhaTemp2" class="cnvs"></canvas>
                         </div>
 
-                        <div class="graf-conteudo">
-                            <canvas id="myChart2" class="cnvs"></canvas>
+                        <div class="graf-conteudo doughnut">
+                            <canvas id="myChartdoughnutTemp2" class="cnvs"></canvas>
                         </div>
+
+
                     </div>
                     <div class="canva">
+
+                        <div class="graf-conteudo">
+                            <canvas id="myChartLinhaUmi2" class="cnvs"></canvas>
+                        </div>
+
                         <div class="graf-conteudo doughnut">
-                            <canvas id="myChart3" class="cnvs"></canvas>
+                            <canvas id="myChartdoughnutUmi2" class="cnvs"></canvas>
                         </div>
                         <!--                             
                             <div class="graf-conteudo doughnut">
@@ -252,14 +292,14 @@
 </html>
 
 <script>
-    
-    window.onload = obterDadosGrafico();
 
-    function abrir(){
-        if(inpts_dash.style.width == '15%'){
+    // window.onload = obterDadosGrafico();
+
+    function abrir() {
+        if (inpts_dash.style.width == '15%') {
             inpts_dash.style.width = '0px'
             content.style.width = '100%'
-        }else{
+        } else {
             inpts_dash.style.width = '15%'
             content.style.width = '85%'
         }
@@ -283,7 +323,7 @@
     var vlrsGraficoUmi = [70, 81, 82, 78, 80, 79, 70, 81, 82, 78, 80, 79, 70, 81, 82, 78, 80, 79]
     var vlrsGraficoTemp = [28, 25, 19, 17, 24, 20, 28, 25, 19, 17, 24, 20, 28, 25, 19, 17, 24, 20,]
 
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChartLinhaTemp1');
 
     Chart.defaults.font.size = 16;
     new Chart(ctx, {
@@ -301,10 +341,30 @@
     });
 
 
-    // grafico 2
-    const ctx2 = document.getElementById('myChart2');
+    const ctx2 = document.getElementById('myChartLinhaTemp2');
 
+    Chart.defaults.font.size = 16;
     new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '.20:00', '21:00', '23:00'],
+            datasets: [{
+                label: 'Temperatura (°C)',
+                data: vlrsGraficoTemp,
+                backgroundColor: ('#00000000'),
+                borderColor: ('#ff0000'),
+
+            }]
+        },
+    });
+
+
+
+
+    // grafico 2
+    const ctx3 = document.getElementById('myChartLinhaUmi1');
+
+    new Chart(ctx3, {
         type: 'line',
         data: {
             labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '.20:00', '21:00', '23:00'],
@@ -326,38 +386,112 @@
         }
     });
 
-    const ctx3 = document.getElementById('myChart3');
+    const ctx4 = document.getElementById('myChartLinhaUmi2');
 
-    Chart.defaults.font.size = 16;
-    new Chart(ctx3, {
-        type: 'doughnut',
+    new Chart(ctx4, {
+        type: 'line',
         data: {
-            labels: ['Não Ideal', 'Ideal'],
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '.20:00', '21:00', '23:00'],
             datasets: [{
                 label: 'Umidade (%)',
-                data: [17, 83],
+                data: vlrsGraficoUmi,
+                backgroundColor: ('#00000000'),
+                borderColor: ('#0000ff'),
+
+                order: 0
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx5 = document.getElementById('myChartdoughnutTemp1');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx5, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Não Ideal', '%Alerta', '%Emergencial', '%Ideal'],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: [10, 10, 10, 70],
                 backgroundColor: [
-                    '#f00',
-                    '#0f0'
+                    '#ff0000',
+                    '#ffff00',
+                    '#ff9900',
+                    '#00e600',
+
                 ]
 
             }]
         },
     });
 
-    const ctx4 = document.getElementById('myChart4');
+    const ctx6 = document.getElementById('myChartdoughnutTemp2');
 
     Chart.defaults.font.size = 16;
-    new Chart(ctx4, {
+    new Chart(ctx6, {
         type: 'doughnut',
         data: {
-            labels: ['%', 'Ideal'],
+            labels: ['%Não Ideal', '%Alerta', '%Emergencial', '%Ideal'],
             datasets: [{
                 label: 'Umidade (%)',
-                data: [17, 83],
+                data: [10, 10, 10, 70],
                 backgroundColor: [
-                    '#00f',
-                    '#0fa'
+                    '#ff0000',
+                    '#ffff00',
+                    '#ff9900',
+                    '#00e600',
+
+                ]
+
+            }]
+        },
+    });
+
+    const ctx7 = document.getElementById('myChartdoughnutUmi1');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx7, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Não Ideal', '%Alerta', '%Emergencial', '%Ideal'],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: [10, 10, 10, 70],
+                backgroundColor: [
+                    '#ff0000',
+                    '#ffff00',
+                    '#ff9900',
+                    '#00e600',
+
+                ]
+
+            }]
+        },
+    });
+
+    const ctx8 = document.getElementById('myChartdoughnutUmi2');
+
+    Chart.defaults.font.size = 16;
+    new Chart(ctx8, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Não Ideal', '%Alerta', '%Emergencial', '%Ideal'],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: [10, 10, 10, 70],
+                backgroundColor: [
+                    '#ff0000',
+                    '#ffff00',
+                    '#ff9900',
+                    '#00e600',
+
                 ]
 
             }]
@@ -368,66 +502,66 @@
     sector = Number(slcSetor.value)
     console.log(sector, "valor do setor")
 
-    function obterDadosGrafico(sector){
+    // function obterDadosGrafico(sector) {
 
-    // alterarTitulo(idAquario)
+    //     // alterarTitulo(idAquario)
 
-        // if (proximaAtualizacao != undefined) {
-        //     clearTimeout(proximaAtualizacao);
-        // }
+    //     // if (proximaAtualizacao != undefined) {
+    //     //     clearTimeout(proximaAtualizacao);
+    //     // }
 
-        fetch(`/medidas/ultimas/${sector}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+    //     fetch(`/medidas/ultimas/${sector}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (resposta) {
+    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                 resposta.reverse();
 
-                    // plotarGrafico(resposta);
+    //                 // plotarGrafico(resposta);
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-        }
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+    // }
 
-        // plotando graficos
+    // plotando graficos
 
-        function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta, idAquario) {
 
-            console.log('iniciando plotagem do gráfico...');
+        console.log('iniciando plotagem do gráfico...');
 
-            // Criando estrutura para plotar gráfico - labels
-            let labels = [];
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
 
-            // Criando estrutura para plotar gráfico - dados
-            let dados = {
-                labels: labels,
-                datasets: [{
-                    label: 'Umidade',
-                    data: [],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                },
-                {
-                    label: 'Temperatura',
-                    data: [],
-                    fill: false,
-                    borderColor: 'rgb(199, 52, 52)',
-                    tension: 0.1
-                }]
-            };
-        }
-  
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Umidade',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            },
+            {
+                label: 'Temperatura',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            }]
+        };
+    }
+
 
 
     // função
 
-   
+
     // var divInfo = document.getElementById('divInforma');
     function setor() {
         sector = Number(slcSetor.value)
@@ -444,8 +578,8 @@
             vlrsGraficoTemp = [16, 17, 20, 24, 29, 25]
             vlrsGraficoUmi = [80, 81, 85, 90, 92, 90]
 
-            ctx.update();
-            ctx2.update();
+            // ctx.update();
+            // ctx2.update();
 
         }
         if (sector == 1) {
@@ -459,18 +593,6 @@
             // divInfo.style.display = 'flex'
 
         }
-
-        if (sector == 0) {
-            var str = document.getElementById('str1');
-            var str2 = document.getElementById('str2');
-            // var str3 = document.getElementById('str3');
-
-            str1.style.display = 'none'
-            str2.style.display = 'none'
-            // str3.style.display = 'flex'
-            // divInfo.style.display = 'none'
-        }
-
 
     }
 

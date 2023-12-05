@@ -53,6 +53,7 @@ body {
     height: 35px;
     font-size: 15px;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .inpts_dash {
@@ -69,6 +70,7 @@ body {
     z-index: 100;
     transition: 1s;
 }
+
 /* .inpts_dash:hover{
     
     width: 15%;
@@ -78,10 +80,10 @@ body {
     width: 85%;
 } */
 
-.abridor{
-    position: absolute; 
+.abridor {
+    position: absolute;
     right: -50px;
-    top: 1%; 
+    top: 1%;
     /* top:40%; */
     background-color: #712323;
     color: #f5deb3;
@@ -184,7 +186,7 @@ select {
 
 .titulo-secao p,
 h2 {
-    color: #f5deb3;
+    color: #000;
 }
 
 .separador {
@@ -263,7 +265,8 @@ h2 {
     justify-content: center;
     margin-top: 20px;
     border-radius: 10px;
-    background-color: wheat;
+    background-color: #fff0;
+    margin-right: 90px;
 }
 
 .btnMostrar {
@@ -284,13 +287,15 @@ h2 {
 }
 
 .doughnut {
-    width: 30%;
+    width: 25%;
     align-self: center;
     justify-content: flex-end;
+    margin-bottom: 45px;
 }
 
 .cnvs {
     width: 100%;
+    height: 322px;
 }
 
 
@@ -303,13 +308,13 @@ h2 {
 /* TESTEEEEE */
 
 
-.conteudo{
+.conteudo {
     width: 100%;
     height: 100%;
     display: flex;
 }
 
-.infosSensores{
+.infosSensores {
     /* background-color: green; */
     width: 30%;
     height: 100%;
@@ -319,11 +324,11 @@ h2 {
     align-items: center;
 }
 
-.cardsDash{
+.cardsDash {
     height: 30%;
     width: 95%;
     border: 1px solid #712323;
-    background-color: #71232354;
+    background-color: #ffffff54;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -332,14 +337,14 @@ h2 {
     row-gap: 20px;
 }
 
-.cd2{
+.cd2 {
 
     flex-direction: row;
     column-gap: 20px;
 
 }
 
-.cardsSeparacao{
+.cardsSeparacao {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -349,12 +354,13 @@ h2 {
     /* border: 1px solid black; */
 }
 
-.cardInformacoes{
+.cardInformacoes {
     height: 70%;
     width: 100%;
     display: flex;
 }
-.cardMetricas{
+
+.cardMetricas {
     display: flex;
     width: 50%;
     column-gap: 20px;
@@ -362,23 +368,30 @@ h2 {
     align-items: center;
     text-align: center;
 }
-.metricasInfo{
+
+.metricasInfo {
     display: flex;
     flex-direction: column;
     height: 100%;
     align-items: center;
     justify-content: center;
 }
-.imgMetricas{
+
+.imgMetricas {
     width: 25%;
 }
 
-.divGraficos{
+.divGraficos {
     width: 70%;
-    height: 100%;
+    height: 97%;
     text-align: center;
+    background-color: #f8e9cc;
+    margin-top: 15px;
+    border-radius: 15px;
+    border: 1px solid #712323;
+    margin-right: 20px;
 }
 
-.divGraficos h2{
+.divGraficos h2 {
     margin-top: 20px;
 }
