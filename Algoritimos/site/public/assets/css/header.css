@@ -13,6 +13,27 @@
     padding: 0px;
 }
 
+.ajuda {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    margin-bottom: 50px;
+    z-index: 5;
+}
+
+.buttonAjuda {
+    position: relative;
+    width: 14vw;
+    height: 6vh;
+    margin-right: 20px;
+    font-size: 20px;
+    background-color: #712323;
+    color: #f5deb3;
+    border-radius: 10px;
+}
+
 .header {
     background-color: #712323;
     width: 100%;
@@ -117,7 +138,7 @@
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     }
 
-    
+
 }
 
 @keyframes transicaoCadSobe {
@@ -131,7 +152,7 @@
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     }
 
-    
+
 }
 
 .cadbar {
@@ -152,7 +173,7 @@
     font-family: Bwrlin Sans FB Demi Bold;
     animation: transicaoCadDesc 1s;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    
+
 }
 
 .cadbar button {
