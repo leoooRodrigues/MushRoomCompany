@@ -32,6 +32,7 @@
     background-color: #712323;
     color: #f5deb3;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .header {
