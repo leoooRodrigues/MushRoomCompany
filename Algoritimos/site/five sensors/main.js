@@ -16,11 +16,11 @@ const serial = async (
     const poolBancoDados = mysql.createPool(
         {
 
-            host: 'localhost',
+            host: '10.18.32.169',
 
             port: 3306,
             user: 'root',
-            password: 'D@a170305',
+            password: '1304',
             database: 'mushroom'
         }
     ).promise();
@@ -53,7 +53,7 @@ const serial = async (
         valoresLm35Temperatura.push(lm35Temperatura);
         // valoresChave.push(chave);
 
-        
+
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
                 'INSERT INTO registros (dataHora, DadosTemp, DadosUmi, fkSetor,fkEmpresa) VALUES (current_timestamp(),?,?,10,1)',
