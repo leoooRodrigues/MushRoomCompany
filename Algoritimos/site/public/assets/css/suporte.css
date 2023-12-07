@@ -13,30 +13,40 @@
 }
 
 .ajuda {
+    position: fixed;
     display: flex;
+    justify-content: end;
     flex-direction: column;
-    justify-content: center;
-    float: right;
-    margin-right: 1%;
-    margin-top: 20px;
-    padding: 36px;
-    height: 350px;
-    width: fit-content;
-    font-size: 24px;
-    color: #f5deb3;
-    background-color: #712323e5;
-    border: 2px black solid;
-    border-radius: 20px;
-    font-family: Bwrlin Sans FB Demi Bold;
-    animation: transicaoCadDesc 1s;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-
+    bottom: 0;
+    margin-bottom: 50px;
+    z-index: 5;
+    right: 0px;
 }
 
-.iframeClass{
+.buttonAjuda {
+    position: relative;
+    width: 14vw;
+    height: 6vh;
+    margin-right: 20px;
+    font-size: 20px;
+    background-color: #712323;
+    color: #f5deb3;
+    border-radius: 10px;
+    cursor: pointer;
+    right: 0;
+    align-self: flex-end;
+}
+
+/* .iframeClass{
     display: flex;
     visibility: hidden;
     flex-direction: column;
     justify-content: center;
+
+} */
+
+.botao {
+
+position: absolute ;
 
 }

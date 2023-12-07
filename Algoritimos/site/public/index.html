@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MushRoom.co</title>
     <link rel="stylesheet" href="assets/css/inicial.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+        <link rel="stylesheet" href="./assets/css/suporte.css">
     <script src="./js/sessao.js"></script>
     <!-- <link rel="stylesheet" href="assets/css/sobre_O_projeto.css"> -->
     <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
@@ -34,14 +35,14 @@
         </div>
         <div class="ajuda" id="cardAjuda">
 
-            <div  class="iframeClass">
-                <iframe id="iframeAjuda" style="display: none;" width='560' height='580' src='https://app.pipefy.com/public/form/f4yIPafL?embedded=true'
-                    frameborder='0'>
+            <div class="iframeClass">
+                <iframe id="iframeAjuda" style="display: none;" width='560' height='580'
+                    src='https://app.pipefy.com/public/form/f4yIPafL?embedded=true' frameborder='0'>
                 </iframe>
             </div>
-            <div class="botao">
-                <button class="buttonAjuda" onclick="aparecerSuporte()">Suporte</button>
-            </div>
+
+            <button class="buttonAjuda" onclick="aparecerSuporte()"><span id="spam_button">Suporte</span></button>
+
 
         </div>
         <div class="cadbar" id="cadbar">
@@ -220,21 +221,20 @@
 
     }
 
-    function none() {
-
-        iframeAjuda.style.display = "none"
-
-    }
-
     function aparecerSuporte() {
 
         var disB = iframeAjuda.style.display
 
         if (disB == `flex`) {
             iframeAjuda.style.display = "none"
+
+            spam_button.innerHTML = 'Suporte'
+
         }
         else {
             iframeAjuda.style.display = "flex"
+
+            spam_button.innerHTML = 'Sair'
         }
 
     }
