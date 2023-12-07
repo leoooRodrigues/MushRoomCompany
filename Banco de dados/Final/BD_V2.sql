@@ -1,28 +1,22 @@
 create database mushroom;
 use mushroom;
 drop database mushroom;
+describe empresa;
 
 -- Criação das Tabelas
+select * from empresa;
 
-create table Empresa (
+create table empresa (
 idEmpresa int primary key auto_increment ,
 nome varchar(45),
 cnpj char(18),
 email varchar (45),
-telefone char (15))auto_increment=1;
+telefone char (15),
+senha varchar(25))auto_increment=1;
 
-create table usuarios(
-idUsuario int auto_increment,
-tipoUser varchar(20),
-nome varchar(50),
-cpf char(14),
-senha varchar(20),
-fkEmpresa int, 
-email varchar (45),
-constraint empresaFkuser foreign key (fkEmpresa)
-references Empresa(idEmpresa),
-primary key (idUsuario, fkEmpresa)
-)auto_increment = 1000;
+select * from empresa;
+
+delete from empresa where idEmpresa = 2;
 
 
 create table fase (
@@ -59,7 +53,7 @@ constraint fkSetorReg foreign key (fkSetor)
 references setor(idSetor),
 primary key(idRegistros,fkEmpresa,fkSetor))auto_increment=5000;
 
-
+select * from registros;
 -- Inserts nas tabelas 
 
 
@@ -68,11 +62,6 @@ insert into empresa(nome,email,cnpj,telefone) values
     ('Delicias Cogumelos','cogu.delicias@gmail.com','37.134.751/0001-00','(95) 92641-6617'),
     ('Cogumelos Domingues','domi.cogumelos@outlook.com','75.860.814/0001-03','(82) 92384-9974');
 
-insert into usuarios values
-	(1000,'SuperADM', 'Carlos', '046.736.000-61', '**************',1,'carlos@email.com'),
-    (1001,'ADM', 'Paulo', '453.545.030-78', '*****',2,'paulo@email.com'),
-    (1002,'Normal', 'João', '673.865.700-58', '*********',3,'joão@email.com');
-    
     insert into fase (cogumelo,faseCogumelo,tempMin,tempMax,umiMin,umiMax) values
 ('Champignom','Inoculação',20,30,50,73),
 ('Champignom','Colonização',20,30,50,73),
@@ -116,16 +105,11 @@ insert into registros (dataHora, dadosUmi,dadosTemp,fkSetor,fkEmpresa) values
 select *from registros;
 select *from setor;
 select *from empresa;
-select *from usuarios;
 select *from fase;
 
 
 -- Tabelas com ligação
 
--- Usuarios de determinadas empresas e seus niveis
-
-select empresa.nome as empresa, usuarios.nome as Funcionarios , usuarios.tipoUser as 'Nivel do Usuario' from empresa join usuarios
-on usuarios.fkEmpresa = empresa.idEmpresa;
 
 
 -- Empresas e Setores 
@@ -139,7 +123,7 @@ on setor.fkEmpresa = empresa.idEmpresa;
 
 
 select empresa.nome as empresa, setor.nome as setor,  registros.dadosUmi, registros.dadosTemp  from empresa join setor on 
-setor.fkempresa = empresa.idempresa 
+setor.fkempresa = empresa.idempresa 	
 join registros on registros.fksetor = setor.idsetor
 where empresa.nome ='vendetta Cogu';
 
@@ -168,22 +152,4 @@ where empresa.nome ='Delicias Cogumelos' ;
 select empresa.nome as empresa, setor.nome as setor, fase.cogumelo as Cogumelo, fase.fasecogumelo as fase from empresa join setor
 on setor.fkempresa = empresa.idempresa join fase on setor.fkfase = fase.idfase
 where empresa.nome ='Cogumelos Domingues' ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
