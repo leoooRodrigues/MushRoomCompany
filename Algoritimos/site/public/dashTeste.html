@@ -142,22 +142,22 @@
                         <div class="cardsSeparacao">
                             <div>
                                 <h4>Temperatura Min ideal:</h4>
-                                <h4 id="vlr_Temp_min">15°C</h4>
+                                <h4><span id="vlr_Temp_min">15</span>°C</h4>
                             </div>
                             <div>
                                 <h4>Umidade Min ideal:</h4>
-                                <h4 id="vlr_Umi_min">85%</h4>
+                                <h4><span id="vlr_Umi_min">85</span>%</h4>
                             </div>
                         </div> <!-- fim box1 -->
                         <div class="separador"></div>
                         <div class="cardsSeparacao">
                             <div>
                                 <h4>Temperatura Max ideal:</h4>
-                                <h4 id="vlr_Temp_max">21°C</h4>
+                                <h4><span id="vlr_Temp_max">21</span>°C</h4>
                             </div>
                             <div>
                                 <h4>Umidade Max ideal:</h4>
-                                <h4 id="vlr_Umi_max"> </h4>
+                                <h4><span id="vlr_Umi_max">90</span>%</h4>
                             </div>
                         </div><!-- fim box2 -->
                     </div>
@@ -231,7 +231,7 @@
                             </div>
                             <div>
                                 <h4>Umidade Min ideal:</h4>
-                                <h4 ><span id="vlr_Umi_min">85</span>%</h4>
+                                <h4><span id="vlr_Umi_min">85</span>%</h4>
                             </div>
                         </div> <!-- fim box1 -->
                         <div class="separador"></div>
@@ -242,7 +242,7 @@
                             </div>
                             <div>
                                 <h4>Umidade Max ideal:</h4>
-                                <h4><span  id="vlr_Umi_max">90</span>% </h4>
+                                <h4><span id="vlr_Umi_max">90</span>% </h4>
                             </div>
                         </div><!-- fim box2 -->
                     </div>
@@ -295,8 +295,8 @@
 <script>
 
     window.onload = obterDadosGrafico();
-    window.onload = plotarGrafico();
-    window.onload = plotarGrafico1();
+    // window.onload = plotarGrafico();
+    // window.onload = plotarGrafico1();
 
     function abrir() {
         if (inpts_dash.style.width == '15%') {
@@ -358,6 +358,7 @@
     }
 
     function plotarGrafico(resposta) {
+        console.log(resposta);
 
         console.log(' entrou no plotar, iniciando plotagem do gráfico...');
         console.log(resposta[0].temperatura, 'era p ser temperatura')
@@ -426,7 +427,7 @@
     function atualizarGrafico(sector, dados, myChart) {
 
 
-
+        console.log(sector);
         fetch(`/medidas/tempo-real/${sector}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -460,19 +461,24 @@
                         // dados.datasets[0].data.push(novoRegistro[0].umidade); 
                         // incluir uma nova medida de umidade
                         var TempAtual = novoRegistro[0].temperatura
+                        TempAtual -= 10
 
                         dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
                         dados.datasets[0].data.push(TempAtual);
                         MetricasInfoTemp.innerHTML = TempAtual; // incluir uma nova medida de temperatura
 
                         var alerta = document.getElementById('temp');
+                        var vlrTempMax = Number(document.getElementById('vlr_Temp_max').innerText);
+                        var vlrTempMin = Number(document.getElementById('vlr_Temp_min').innerText);
                         // alert(TempAtual)
-                        if (TempAtual > Number(document.getElementById('vlr_Temp_max').innerText) || TempAtual < Number(document.getElementById('vlr_Temp_min').innerText)) {
+                        if (TempAtual > (vlrTempMax + 4) || TempAtual < (vlrTempMin - 4)) {
                             alerta.style.backgroundColor = '#ff0000 '
-                        } else if (TempAtual > (Number(document.getElementById('vlr_Temp_max').innerText) + 2) || TempAtual < (Number(document.getElementById('vlr_Temp_min').innerText) - 2)) {
+                        } else if (TempAtual > (vlrTempMax + 2) || TempAtual < (vlrTempMin - 2)) {
                             alerta.style.backgroundColor = '#ffa500 '
-                        } else if (TempAtual > (Number(document.getElementById('vlr_Temp_max').innerText) - 4) || TempAtual < Number(document.getElementById('vlr_Temp_max').innerText) + 4) {
+                        } else if (TempAtual > vlrTempMax || TempAtual < vlrTempMin) {
                             alerta.style.backgroundColor = '#ff0'
+                        } else {
+                            alerta.style.backgroundColor = '#0f0'
                         }
 
 
@@ -605,16 +611,24 @@
                         dados.datasets[0].data.shift();
                         // apagar o primeiro de umidade
                         var UmiAtual = novoRegistro[0].umidade;
+                        UmiAtual += 20
                         dados.datasets[0].data.push(UmiAtual);
                         MetricasInfoUmi.innerHTML = UmiAtual; // incluir uma nova medida de temperatura
                         alerta = document.getElementById('umi');
+                        alerta = document.getElementById('umi');
                         // alert(UmiAtual);
-                        if (UmiAtual > 90 || UmiAtual < 85) {
+                        if (UmiAtual > 94 || UmiAtual < 81) {
                             alerta.style.backgroundColor = '#ff0000 '
+                            umi.innerHTML = `Umidade Crítica`;
                         } else if (UmiAtual > 92 || UmiAtual < 83) {
                             alerta.style.backgroundColor = '#ffa500 '
-                        } else if (UmiAtual > 94 || UmiAtual < 81) {
+                            umi.innerHTML = `Umidade Emergência`;
+                        } else if (UmiAtual > 90 || UmiAtual < 85) {
                             alerta.style.backgroundColor = '#ff0'
+                            umi.innerHTML = `Umidade Alerta`;
+                        } else {
+                            alerta.style.backgroundColor = '#00ff00 '
+                            umi.innerHTML = `Umidade Ideal`;
                         }
 
                         // incluir uma nova medida de umidade
