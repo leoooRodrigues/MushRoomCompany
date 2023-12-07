@@ -163,8 +163,8 @@
                     </div>
                     <div class="cardsDash">
                         <div class="box-ideal">
-                            <div id="temp" class="ideal temp">Temperatura Ideal</div>
-                            <div id="umi" class="ideal umi">Umidade Ideal</div>
+                            <div id="temp" class="ideal temp">Temperatura - Ideal</div>
+                            <div id="umi" class="ideal umi">Umidade - Ideal</div>
                         </div> <!-- fim box2 -->
                     </div>
                 </div>
@@ -203,7 +203,7 @@
             </div>
 
 
-            <div class="conteudo" id="str2" style="display: none;">
+            <!-- <div class="conteudo" id="str2" style="display: none;">
                 <div class="infosSensores">
                     <div class="cardsDash">
                         <h3>Ultimos valores Resgatados</h3>
@@ -233,7 +233,7 @@
                                 <h4>Umidade Min ideal:</h4>
                                 <h4><span id="vlr_Umi_min">85</span>%</h4>
                             </div>
-                        </div> <!-- fim box1 -->
+                        </div> <!-- fim box1 
                         <div class="separador"></div>
                         <div class="cardsSeparacao">
                             <div>
@@ -244,7 +244,7 @@
                                 <h4>Umidade Max ideal:</h4>
                                 <h4><span id="vlr_Umi_max">90</span>% </h4>
                             </div>
-                        </div><!-- fim box2 -->
+                        </div><!-- fim box2 
                     </div>
                     <div class="cardsDash">
                         <div class="box-ideal">
@@ -256,7 +256,7 @@
                 </div>
                 <div class="divGraficos">
                     <h2 style="color: black;">Setor 2</h2>
-                    <!-- <div class="Sensor"> -->
+                    <!-- <div class="Sensor"> 
                     <div class="canva">
                         <div class="graf-conteudo">
                             <canvas id="myChartLinhaTemp2" class="cnvs"></canvas>
@@ -280,11 +280,11 @@
                         <!--                             
                             <div class="graf-conteudo doughnut">
                                 <canvas id="myChart4" class="cnvs"></canvas>
-                            </div> -->
+                            </div> 
                     </div>
-                    <!-- </div> -->
+                    <!-- </div> 
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -473,12 +473,16 @@
                         // alert(TempAtual)
                         if (TempAtual > (vlrTempMax + 4) || TempAtual < (vlrTempMin - 4)) {
                             alerta.style.backgroundColor = '#ff0000 '
+                            temp.innerHTML = `Temperatura - Crítica`;
                         } else if (TempAtual > (vlrTempMax + 2) || TempAtual < (vlrTempMin - 2)) {
                             alerta.style.backgroundColor = '#ffa500 '
+                            temp.innerHTML = `Temperatura - Emergencia`;
                         } else if (TempAtual > vlrTempMax || TempAtual < vlrTempMin) {
                             alerta.style.backgroundColor = '#ff0'
+                            temp.innerHTML = `Temperatura - Alerta`;
                         } else {
                             alerta.style.backgroundColor = '#0f0'
+                            temp.innerHTML = `Temperatura - Ideal`;
                         }
 
 
@@ -619,16 +623,16 @@
                         // alert(UmiAtual);
                         if (UmiAtual > 94 || UmiAtual < 81) {
                             alerta.style.backgroundColor = '#ff0000 '
-                            umi.innerHTML = `Umidade Crítica`;
+                            umi.innerHTML = `Umidade - Crítica`;
                         } else if (UmiAtual > 92 || UmiAtual < 83) {
                             alerta.style.backgroundColor = '#ffa500 '
-                            umi.innerHTML = `Umidade Emergência`;
+                            umi.innerHTML = `Umidade - Emergência`;
                         } else if (UmiAtual > 90 || UmiAtual < 85) {
                             alerta.style.backgroundColor = '#ff0'
-                            umi.innerHTML = `Umidade Alerta`;
+                            umi.innerHTML = `Umidade - Alerta`;
                         } else {
                             alerta.style.backgroundColor = '#00ff00 '
-                            umi.innerHTML = `Umidade Ideal`;
+                            umi.innerHTML = `Umidade - Ideal`;
                         }
 
                         // incluir uma nova medida de umidade
