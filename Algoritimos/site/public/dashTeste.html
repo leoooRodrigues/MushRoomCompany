@@ -452,9 +452,12 @@
                         console.log(dados.labels[dados.labels.length - 1])
                         console.log("---------------------------------------------------------------")
                     } else {
+                        var dtNova = novoRegistro[0].momento_grafico;
+
+                        dtNova = dtNova.slice(0, -3)
                         // tirando e colocando valores no gráfico
                         dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(parseInt(novoRegistro[0].momento_grafico)); // incluir um novo momento
+                        dados.labels.push(dtNova); // incluir um novo momento
 
                         // dados.datasets[0].data.shift();  
                         // apagar o primeiro de umidade
@@ -608,9 +611,12 @@
                         console.log(dados.labels[dados.labels.length - 1])
                         console.log("---------------------------------------------------------------")
                     } else {
+                        dtNova = novoRegistro[0].momento_grafico;
+                        dtNova = dtNova.slice(0, -3)
+
                         // tirando e colocando valores no gráfico
                         dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(parseInt(novoRegistro[0].momento_grafico)); // incluir um novo momento
+                        dados.labels.push(dtNova); // incluir um novo momento
 
                         dados.datasets[0].data.shift();
                         // apagar o primeiro de umidade
@@ -760,71 +766,71 @@
     //     }
     // });
 
-    // const ctx5 = document.getElementById('myChartdoughnutTemp1');
+    const ctx5 = document.getElementById('myChartdoughnutTemp1');
 
-    // Chart.defaults.font.size = 16;
-    // new Chart(ctx5, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-    //         datasets: [{
-    //             label: 'Temperatura (%)',
-    //             data: [70, 10, 10, 10],
-    //             backgroundColor: [
-    //                 '#00e600',
-    //                 '#ffff00',
-    //                 '#ff9900',
-    //                 '#ff0000',
+    Chart.defaults.font.size = 16;
+    new Chart(ctx5, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+            datasets: [{
+                label: 'Temperatura (%)',
+                data: [70, 10, 10, 10],
+                backgroundColor: [
+                    '#00e600',
+                    '#ffff00',
+                    '#ff9900',
+                    '#ff0000',
 
-    //             ]
+                ]
 
-    //         }]
-    //     },
-    // });
+            }]
+        },
+    });
 
-    // const ctx6 = document.getElementById('myChartdoughnutTemp2');
+    const ctx6 = document.getElementById('myChartdoughnutTemp2');
 
-    // Chart.defaults.font.size = 16;
-    // new Chart(ctx6, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-    //         datasets: [{
-    //             label: 'Temperatura (%)',
-    //             data: [70, 10, 10, 10],
-    //             backgroundColor: [
-    //                 '#00e600',
-    //                 '#ffff00',
-    //                 '#ff9900',
-    //                 '#ff0000',
+    Chart.defaults.font.size = 16;
+    new Chart(ctx6, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+            datasets: [{
+                label: 'Temperatura (%)',
+                data: [70, 10, 10, 10],
+                backgroundColor: [
+                    '#00e600',
+                    '#ffff00',
+                    '#ff9900',
+                    '#ff0000',
 
-    //             ]
+                ]
 
-    //         }]
-    //     },
-    // });
+            }]
+        },
+    });
 
-    // const ctx7 = document.getElementById('myChartdoughnutUmi1');
+    const ctx7 = document.getElementById('myChartdoughnutUmi1');
 
-    // Chart.defaults.font.size = 16;
-    // new Chart(ctx7, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-    //         datasets: [{
-    //             label: 'Umidade (%)',
-    //             data: [70, 10, 10, 10],
-    //             backgroundColor: [
-    //                 '#00e600',
-    //                 '#ffff00',
-    //                 '#ff9900',
-    //                 '#ff0000',
+    Chart.defaults.font.size = 16;
+    new Chart(ctx7, {
+        type: 'doughnut',
+        data: {
+            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+            datasets: [{
+                label: 'Umidade (%)',
+                data: [70, 10, 10, 10],
+                backgroundColor: [
+                    '#00e600',
+                    '#ffff00',
+                    '#ff9900',
+                    '#ff0000',
 
-    //             ]
+                ]
 
-    //         }]
-    //     },
-    // });
+            }]
+        },
+    });
 
     // const ctx8 = document.getElementById('myChartdoughnutUmi2');
 

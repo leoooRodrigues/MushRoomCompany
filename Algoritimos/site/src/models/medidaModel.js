@@ -18,7 +18,7 @@ function buscarUltimasMedidas(sector, limite_linhas) {
         DadosUmi as umidade,
         DadosTemp as temperatura, 
                      dataHora,
-                      DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico
+                      DATE_FORMAT(dataHora,'%H:%i') as momento_grafico
                     from registros
                     where fkEmpresa = 1
                     order by idRegistros desc limit ${limite_linhas};`;
