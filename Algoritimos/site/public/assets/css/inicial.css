@@ -252,4 +252,13 @@ footer {
     min-width: 800px;
     background-color: #2e1111;
     color: #FDF2DC;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.address{
+    
+     
+    
 }
