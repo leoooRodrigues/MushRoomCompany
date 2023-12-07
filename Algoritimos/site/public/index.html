@@ -32,7 +32,18 @@
                 </ul>
             </div>
         </div>
-        <div class="ajuda"><button class="buttonAjuda" onclick="Ajuda()">Suporte</button></div>
+        <div class="ajuda" id="cardAjuda">
+
+            <div  class="iframeClass">
+                <iframe id="iframeAjuda" style="display: none;" width='560' height='580' src='https://app.pipefy.com/public/form/f4yIPafL?embedded=true'
+                    frameborder='0'>
+                </iframe>
+            </div>
+            <div class="botao">
+                <button class="buttonAjuda" onclick="aparecerSuporte()">Suporte</button>
+            </div>
+
+        </div>
         <div class="cadbar" id="cadbar">
             <div class="cadbarInput">
                 <span>CNPJ</span>
@@ -209,11 +220,31 @@
 
     }
 
+    function none() {
+
+        iframeAjuda.style.display = "none"
+
+    }
+
+    function aparecerSuporte() {
+
+        var disB = iframeAjuda.style.display
+
+        if (disB == `flex`) {
+            iframeAjuda.style.display = "none"
+        }
+        else {
+            iframeAjuda.style.display = "flex"
+        }
+
+    }
+
+
     function whats() {
         window.open('https://web.whatsapp.com/', '_blank')
     }
 
-    function Ajuda(){
+    function Ajuda() {
 
         window.location = 'chamado.html'
 

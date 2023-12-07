@@ -1,0 +1,42 @@
+@keyframes transicaoCadSobe {
+    from {
+        transform: translateY(-80px);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
+    }
+
+    to {
+        transform: translateY(0);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+
+
+}
+
+.ajuda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    margin-right: 1%;
+    margin-top: 20px;
+    padding: 36px;
+    height: 350px;
+    width: fit-content;
+    font-size: 24px;
+    color: #f5deb3;
+    background-color: #712323e5;
+    border: 2px black solid;
+    border-radius: 20px;
+    font-family: Bwrlin Sans FB Demi Bold;
+    animation: transicaoCadDesc 1s;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+
+}
+
+.iframeClass{
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+
+}
