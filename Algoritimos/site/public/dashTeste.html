@@ -420,7 +420,7 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico(sector, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(sector, dados, myChart), 5000);
     }
 
 
@@ -493,12 +493,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(sector, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(sector, dados, myChart), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(sector, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(sector, dados, myChart), 5000);
             }
         })
             .catch(function (error) {
@@ -579,7 +579,7 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico1(sector, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico1(sector, dados, myChart), 5000);
     }
 
 
@@ -652,12 +652,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico1(sector, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico1(sector, dados, myChart), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico1(sector, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico1(sector, dados, myChart), 5000);
             }
         })
             .catch(function (error) {
@@ -978,10 +978,10 @@
     function confirmar() {
 
         faseCogu = slcFaseCogu.value
-        var inpUmiMax = `${inp_umi_max.value}%`
-        var inpTempMax = `${inp_temp_max.value}°C`
-        var inpUmiMin = `${inp_umi_min.value}%`
-        var inpTempMin = `${inp_temp_min.value}°C`
+        var inpUmiMax = `${inp_umi_max.value}`
+        var inpTempMax = `${inp_temp_max.value}`
+        var inpUmiMin = `${inp_umi_min.value}`
+        var inpTempMin = `${inp_temp_min.value}`
 
 
 
@@ -1026,26 +1026,26 @@
             if (faseCogu == 1) {
                 alert(`Fase mudada com sucesso`)
 
-                vlr_Umi_min.innerHTML = '82%';
-                vlr_Umi_max.innerHTML = '90%';
-                vlr_Temp_min.innerHTML = '15°C';
-                vlr_Temp_max.innerHTML = '23°C';
+                vlr_Umi_min.innerHTML = '82';
+                vlr_Umi_max.innerHTML = '90';
+                vlr_Temp_min.innerHTML = '15';
+                vlr_Temp_max.innerHTML = '23';
 
             } else if (faseCogu == 2) {
                 alert(`Fase mudada com sucesso`)
 
-                vlr_Umi_min.innerHTML = '80%'
-                vlr_Umi_max.innerHTML = '88%'
-                vlr_Temp_min.innerHTML = '18°C';
-                vlr_Temp_max.innerHTML = '25°C';
+                vlr_Umi_min.innerHTML = '80'
+                vlr_Umi_max.innerHTML = '88'
+                vlr_Temp_min.innerHTML = '18';
+                vlr_Temp_max.innerHTML = '25';
 
             } else if (faseCogu == 3) {
                 alert(`Fase mudada com sucesso`)
 
-                vlr_Umi_min.innerHTML = '83%';
-                vlr_Umi_max.innerHTML = '89%';
-                vlr_Temp_min.innerHTML = '17°C';
-                vlr_Temp_max.innerHTML = ' 28°C';
+                vlr_Umi_min.innerHTML = '83';
+                vlr_Umi_max.innerHTML = '89';
+                vlr_Temp_min.innerHTML = '17';
+                vlr_Temp_max.innerHTML = ' 28';
 
             }
 
