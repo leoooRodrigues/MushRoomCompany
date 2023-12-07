@@ -1,49 +1,36 @@
-#include <DHT.h>
-#include <DHT_U.h>
-#include <Adafruit_Sensor.h>
-#include <DHT.h>
-#include <DHT_U.h>
-#include <DHT.h>
+#include "DHT.h"
+#define dht_type DHT11 //define qual o tipo de sensor DHTxx que se esta utilizando
+int dht_pin = A0;
+DHT dht_1 = DHT(dht_pin, dht_type); // pode-se configurar diversos sensores DHTxx
+const int LM35 = A5;
+float temperaturaLM;
 
-#define DHTPIN A0
-#define LM35PIN A5
-
-DHT dht(DHTPIN, DHT11);
 
 void setup()
 {
-  pinMode(DHTPIN, INPUT);
-  // pinMode(CHAVPIN, INPUT)
   Serial.begin(9600);
-  dht.begin();
+  dht_1.begin();
 }
 
 void loop()
 {
-  float dht11_umidade = dht.readHumidity();
-  // float dht11_temperatura = dht.readTemperature();
-  Serial.print(dht11_umidade);
-  Serial.print(";");
-  // Serial.print(dht11_temperatura);
-  // Serial.print(";");
+  temperaturaLM = (float(analogRead(LM35))*5/(1023))/0.01;
+  
+  Serial.print(temperaturaLM);
+  Serial.print (" ; ");
 
-  // float luminosidade = analogRead(LUMIPIN);
-  // Serial.print(luminosidade);
-  // Serial.print(";");
+  float umidadeDH = dht_1.readHumidity();
+  
+  if (isnan(umidadeDH))
+{
+  Serial.println("Erro ao ler o DHT");
+  }
+  else
+  {
+    
+    Serial.print(umidadeDH);
+    Serial.println(" ; ");
+  
 
-  float lm35_temperatura = analogRead(LM35PIN);
-  lm35_temperatura = lm35_temperatura * 0.00488;
-  lm35_temperatura = lm35_temperatura * 100;
-  Serial.print(lm35_temperatura);
-  // Serial.print("a;");
-
-  // int chave = digitalRead(7);
-  // if (chave == 0) {
-  //   Serial.print("1");
-  // } else {
-  //   Serial.print("0");
-  // }
-
-  Serial.println();
-  delay (3000);
-}
+     }
+     delay(2000);}

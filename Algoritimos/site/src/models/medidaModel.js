@@ -15,12 +15,13 @@ function buscarUltimasMedidas(sector, limite_linhas) {
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade
-       
-                    from medida
-                    where fk_aquario = 1
-                    order by id desc limit ${limite_linhas};`;
+        DadosUmi as umidade,
+        DadosTemp as temperatura, 
+                     dataHora,
+                      DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico
+                    from registros
+                    where fkEmpresa = 1
+                    order by idRegistros desc limit ${limite_linhas};`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -45,12 +46,12 @@ function buscarMedidasEmTempoReal(sector) {
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${sector} 
-                    order by id desc limit 1`;
+        DadosUmi as umidade,
+        DadosTemp as temperatura, 
+                        DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico, 
+                        fkEmpresa 
+                        from registros where fkEmpresa = 1 
+                    order by idRegistros desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
