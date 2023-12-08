@@ -1,16 +1,4 @@
-@keyframes transicaoCadSobe {
-    from {
-        transform: translateY(-80px);
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
-    }
 
-    to {
-        transform: translateY(0);
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    }
-
-
-}
 
 .ajuda {
     position: fixed;
@@ -54,38 +42,25 @@
     border: 2px black solid;
     border-radius: 20px;
     font-family: Bwrlin Sans FB Demi Bold;
-    animation: transicaoCadDesc 1s;
+    animation: transicaoCadAparece 1s;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
 
 }
 
-@keyframes transicaoCadDesc {
+@keyframes transicaoCadAparece {
     from {
-        transform: translateY(-80px);
+        transform: translateX(80px);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
     }
 
     to {
-        transform: translateY(0);
+        transform: translateX(0);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     }
 
 
 }
 
-@keyframes transicaoCadSobe {
-    from {
-        transform: translateY(0);
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .0);
-    }
-
-    to {
-        transform: translateY(-80px);
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    }
-
-
-}
 
 /* .iframeClass{
     display: flex;
