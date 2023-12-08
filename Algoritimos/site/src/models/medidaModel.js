@@ -128,15 +128,9 @@ function buscarUltimasMedidasDouUmi(sector) {
 				order by DadosUmi desc))as hora24
 from registros where fkEmpresa = 1 limit ${sector};`
 
-    
-
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-
-
-
 
 function buscarUltimasMedidasDouTemp(sector) {
 
@@ -242,8 +236,6 @@ from registros where fkEmpresa = ${sector} limit 1;`
     console.log("Executando a instrução SQL popopopo: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-
 
 
 // DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico

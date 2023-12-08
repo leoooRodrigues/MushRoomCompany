@@ -9,7 +9,7 @@ router.get("/ultimas/:sector", function (req, res) {
 });
 
 router.get("/ultimasDouUmi/:sector", function (req, res) {
-    console.log('requisito');
+    // console.log('requisito');
     medidaController.buscarUltimasMedidasDouUmi(req, res);
 });
 

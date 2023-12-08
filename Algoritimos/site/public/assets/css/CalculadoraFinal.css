@@ -18,9 +18,15 @@ body{
     height: 100vh;
 }
 
+.main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .quadrado{
     background-color: #fdf3dd85;
-    width: 50%;
     /* border : 2px solid black; */
     min-height: 65vh;
     justify-content: center;

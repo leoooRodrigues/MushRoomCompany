@@ -24,14 +24,13 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarUltimasMedidasDouUmi(req, res) {
 
-
     var sector = req.params.sector;
     
     console.log(`Recuperando as ultimas 24 Horas medidas`);
     
-    console.log(sector + 'asdkgasd haçsdhçasjd alçsdaçksj');
+    // console.log(sector + 'asdkgasd haçsdhçasjd alçsdaçksj');
     medidaModel.buscarUltimasMedidasDouUmi(sector).then(function (resultado) {
-        console.log('lajsdasnd asdn iaidiasdoasi');
+        // console.log('lajsdasnd asdn iaidiasdoasi');
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -46,14 +45,13 @@ function buscarUltimasMedidasDouUmi(req, res) {
 
 function buscarUltimasMedidasDouTemp(req, res) {
 
-
     var sector = req.params.sector;
 
     console.log(`Recuperando as ultimas 24 Horas medidas Temp`);
 
     medidaModel.buscarUltimasMedidasDouTemp(sector).then(function (resultado) {
         if (resultado.length > 0) {
-            console.log("asjdnasjdnas teste2"+resultado)
+            // console.log("asjdnasjdnas teste2"+resultado)
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")

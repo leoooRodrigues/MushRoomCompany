@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="assets/css/CalculadoraFinal.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/header.css">
   <link rel="shortcut icon" type="imagex/png" href="../SiteInstitucional_Juntando/assets/img/Logo_SEM ESCRITA.png">
+  <link rel="stylesheet" href="assets/css/suporte.css">
 
 </head>
 
 <body>
-  <div class="ajuda"><button class="buttonAjuda">Suporte</button></div>
+  
   <!-- ************HEADER************* -->
   <div class="header">
     <div class="containerHeader">
@@ -50,50 +51,67 @@
     </div>
   </div>
 
-
-  <div class="quadrado">
-
-    <h1 class="TituloCalc">Calculadora Financeira</h1>
-    <br><br>
-    <div class="divInp">
-      <span class="perguntas">Investimento em substrato: </span>
-      <input class="inpCalc" type="text" id="ipt_substrato">
-      <div class="mensagemErro" id="erroSubs"></div>
+  <div class="main">
+    
+    <div class="quadrado">
+      
+      <h1 class="TituloCalc">Calculadora Financeira</h1>
+      <br><br>
+      <div class="divInp">
+        <span class="perguntas">Investimento em substrato: </span>
+        <input class="inpCalc" type="text" id="ipt_substrato">
+        <div class="mensagemErro" id="erroSubs"></div>
+      </div>
+      <br><br>
+      
+      <div class="divInp">
+        <span class="perguntas">Tipo de Cogumelo: </span>
+        <select class="inpCalc" id="ipt_tipo">
+          <option value="nada">Escolha um cogumelo</option>
+          <option value="Shiitake">shiitake</option>
+          <option value="Shimeji">shimeji</option>
+          <option value="Champignon">champignon de paris</option>
+        </select>
+        <div class="mensagemErro" id="erroTipo"></div>
+      </div>
+      <br><br>
+      
+      <div class="divInp">
+        <span class="perguntas">Valor praticado por Kg: </span>
+        <input class="inpCalc" type="text" id="ipt_valor">
+        <div class="mensagemErro" id="erroValor"></div>
+      </div>
+      <br><br>
+      
+      <p class="respostas">
+        Com sua entrada de investimento calcularemos quantos quilos de blocos de substrato você conseguirá comprar<br>
+        e quanto isso te trará de rendimento caso você contrate a <b>Mushroom.co</b>.
+      </p>
+      <br>
+      
+      <button class="btnCalc" onclick="calcular()">Calcular</button>
+      <br><br>
+      
+      <div id="divMensagem" class="respostas"></div>
     </div>
-    <br><br>
-
-    <div class="divInp">
-      <span class="perguntas">Tipo de Cogumelo: </span>
-      <select class="inpCalc" id="ipt_tipo">
-        <option value="nada">Escolha um cogumelo</option>
-        <option value="Shiitake">shiitake</option>
-        <option value="Shimeji">shimeji</option>
-        <option value="Champignon">champignon de paris</option>
-      </select>
-      <div class="mensagemErro" id="erroTipo"></div>
-    </div>
-    <br><br>
-
-    <div class="divInp">
-      <span class="perguntas">Valor praticado por Kg: </span>
-      <input class="inpCalc" type="text" id="ipt_valor">
-      <div class="mensagemErro" id="erroValor"></div>
-    </div>
-    <br><br>
-
-    <p class="respostas">
-      Com sua entrada de investimento calcularemos quantos quilos de blocos de substrato você conseguirá comprar<br>
-      e quanto isso te trará de rendimento caso você contrate a <b>Mushroom.co</b>.
-    </p>
-    <br>
-
-    <button class="btnCalc" onclick="calcular()">Calcular</button>
-    <br><br>
-
-    <div id="divMensagem" class="respostas"></div>
   </div>
 
+  <div class="ajuda" id="cardAjuda">
+
+    <div class="iframeClass">
+        <iframe id="iframeAjuda" class="cadbarAjuda" style="display: none;" width='560' height='580'
+            src='https://app.pipefy.com/public/form/f4yIPafL?embedded=true' frameborder='0'>
+        </iframe>
+    </div>
+
+    <button class="buttonAjuda" onclick="aparecerSuporte()"><span id="spam_button">Suporte</span></button>
+
+
+</div>
+  
+
 </body>
+
 <script>
 
   if (sessionStorage.logado == 1) {
@@ -210,6 +228,24 @@
     else { cadbar.style.display = "flex" }
 
   }
+
+  function aparecerSuporte() {
+
+var disB = iframeAjuda.style.display
+
+if (disB == `flex`) {
+    iframeAjuda.style.display = "none"
+
+    spam_button.innerHTML = 'Suporte'
+
+}
+else {
+    iframeAjuda.style.display = "flex"
+
+    spam_button.innerHTML = 'Sair'
+}
+
+}
 
 </script>
 
