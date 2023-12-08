@@ -55,7 +55,7 @@
         </div>
     </div>
     <!-- fim header -->
-    <div class="ajuda"><button class="buttonAjuda">Suporte</button></div>
+    <!-- <div class="ajuda"><button class="buttonAjuda">Suporte</button></div> -->
     <div class="main">
         <div class="inpts_dash" id="inpts_dash">
             <div class="abridor" onclick="abrir()">| | |</div>
@@ -116,7 +116,7 @@
                     Parametros</button>
             </div>
 
-            
+
 
         </div>
         <div class="content" id="content">
@@ -295,8 +295,63 @@
 </html>
 
 <script>
+    if (sessionStorage.logado == 1) {
+        dashUser.style.display = 'block'
+        btnUser.style.display = 'none'
+        sairUser.style.display = 'block'
+    }
+    else {
+        dashUser.style.display = 'none'
+        btnUser.style.display = 'block'
+        sairUser.style.display = 'none'
+    }
 
-    window.onload = obterDadosGrafico();
+    //     let ctx5 = document.getElementById('myChartdoughnutUmi1');
+
+    // Chart.defaults.font.size = 16;
+    // new Chart(ctx5, {
+    //     type: 'doughnut',
+    //     data: {
+    //         labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+    //         datasets: [{
+    //             label: 'Temperatura (%)',
+    //             data: [10,20,4],
+    //             backgroundColor: [
+    //                 '#00e600',
+    //                 '#ffff00',
+    //                 '#ff9900',
+    //                 '#ff0000',
+
+    //             ]
+
+    //         }]
+    //     },
+    // });
+
+
+    // const ctx6 = document.getElementById('myChartdoughnutTemp1');
+
+    // Chart.defaults.font.size = 16;
+    // new Chart(ctx6, {
+    //     type: 'doughnut',
+    //     data: {
+    //         labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+    //         datasets: [{
+    //             label: 'Temperatura (%)',
+    //             data: [10,50,30],
+    //             backgroundColor: [
+    //                 '#00e600',
+    //                 '#ffff00',
+    //                 '#ff9900',
+    //                 '#ff0000',
+
+    //             ]
+
+    //         }]
+    //     },
+    // });
+
+    window.onload = obterDadosGrafico(1);
     // window.onload = plotarGrafico();
     // window.onload = plotarGrafico1();
 
@@ -334,6 +389,11 @@
 
     function obterDadosGrafico(sector) {
 
+
+        obterDadosGraficoDouUmi(1);
+        obterDadosGraficoDouTemp(1);
+
+
         // alterarTitulo(sector)
 
         // if (proximaAtualizacao != undefined) {
@@ -356,6 +416,8 @@
         })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                alert('lalalaala')
+
             });
     }
 
@@ -427,6 +489,7 @@
 
 
     function atualizarGrafico(sector, dados, myChart) {
+
 
 
         console.log(sector);
@@ -627,20 +690,23 @@
                         dados.datasets[0].data.push(UmiAtual);
                         MetricasInfoUmi.innerHTML = UmiAtual; // incluir uma nova medida de temperatura
                         alerta = document.getElementById('umi');
-                        alerta = document.getElementById('umi');
-                        // alert(UmiAtual);
-                        if (UmiAtual > 94 || UmiAtual < 81) {
+                        var vlrUmiMax = Number(document.getElementById('vlr_Umi_max').innerText);
+                        var vlrUmiMin = Number(document.getElementById('vlr_Umi_min').innerText);
+
+
+                        // alert(TempAtual)
+                        if (UmiAtual > (vlrUmiMax + 4) || UmiAtual < (vlrUmiMin - 4)) {
                             alerta.style.backgroundColor = '#ff0000 '
-                            umi.innerHTML = `Umidade - Crítica`;
-                        } else if (UmiAtual > 92 || UmiAtual < 83) {
+                            temp.innerHTML = `Umidade - Crítica`;
+                        } else if (UmiAtual > (vlrUmiMax + 2) || UmiAtual < (vlrUmiMin - 2)) {
                             alerta.style.backgroundColor = '#ffa500 '
-                            umi.innerHTML = `Umidade - Emergência`;
-                        } else if (UmiAtual > 90 || UmiAtual < 85) {
+                            temp.innerHTML = `Umidade - Emergencia`;
+                        } else if (UmiAtual > vlrUmiMax || UmiAtual < vlrUmiMin) {
                             alerta.style.backgroundColor = '#ff0'
-                            umi.innerHTML = `Umidade - Alerta`;
+                            temp.innerHTML = `Umidade - Alerta`;
                         } else {
-                            alerta.style.backgroundColor = '#00ff00 '
-                            umi.innerHTML = `Umidade - Ideal`;
+                            alerta.style.backgroundColor = '#0f0'
+                            temp.innerHTML = `Umidade - Ideal`;
                         }
 
                         // incluir uma nova medida de umidade
@@ -672,7 +738,745 @@
 
 
     }
+    var dadosGrafDouUmi = [];
+    function obterDadosGraficoDouUmi(sector) {
 
+        // alterarTitulo(sector)
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+        // alert(sector)
+        fetch(`/medidas/ultimasDouUmi/${sector}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+
+
+
+                while (dadosGrafDouUmi.length > 0) {
+                    dadosGrafDouUmi.pop();
+                }
+
+
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // resposta.reverse();
+                    var response = [];
+
+                    // var vlrTempMax = Number(document.getElementById('vlr_Umi_max').innerText);
+                    // var vlrTempMin = Number(document.getElementById('vlr_Umi_min').innerText);
+
+                    var vlrTempMax = 65
+                    var vlrTempMin = 60
+
+                    var ideal = 0;
+                    var alerta = 0;
+                    var emergencia = 0;
+                    var critico = 0;
+
+
+                    if (resposta[0].hora1 > (vlrTempMax + 4) || resposta[0].hora1 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora1 > (vlrTempMax + 2) || resposta[0].hora1 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora1 > vlrTempMax || resposta[0].hora1 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora2 > (vlrTempMax + 4) || resposta[0].hora2 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora2 > (vlrTempMax + 2) || resposta[0].hora2 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora2 > vlrTempMax || resposta[0].hora2 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora3 > (vlrTempMax + 4) || resposta[0].hora3 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora3 > (vlrTempMax + 2) || resposta[0].hora3 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora3 > vlrTempMax || resposta[0].hora3 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora4 > (vlrTempMax + 4) || resposta[0].hora4 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora4 > (vlrTempMax + 2) || resposta[0].hora4 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora4 > vlrTempMax || resposta[0].hora4 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora5 > (vlrTempMax + 4) || resposta[0].hora5 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora5 > (vlrTempMax + 2) || resposta[0].hora5 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora5 > vlrTempMax || resposta[0].hora5 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+
+                    if (resposta[0].hora6 > (vlrTempMax + 4) || resposta[0].hora6 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora6 > (vlrTempMax + 2) || resposta[0].hora6 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora6 > vlrTempMax || resposta[0].hora6 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora7 > (vlrTempMax + 4) || resposta[0].hora7 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora7 > (vlrTempMax + 2) || resposta[0].hora7 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora7 > vlrTempMax || resposta[0].hora7 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora8 > (vlrTempMax + 4) || resposta[0].hora8 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora8 > (vlrTempMax + 2) || resposta[0].hora8 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora8 > vlrTempMax || resposta[0].hora8 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora9 > (vlrTempMax + 4) || resposta[0].hora9 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora9 > (vlrTempMax + 2) || resposta[0].hora9 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora9 > vlrTempMax || resposta[0].hora9 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora10 > (vlrTempMax + 4) || resposta[0].hora10 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora10 > (vlrTempMax + 2) || resposta[0].hora10 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora10 > vlrTempMax || resposta[0].hora10 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora12 > (vlrTempMax + 4) || resposta[0].hora12 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora12 > (vlrTempMax + 2) || resposta[0].hora12 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora12 > vlrTempMax || resposta[0].hora12 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora12 > (vlrTempMax + 4) || resposta[0].hora12 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora12 > (vlrTempMax + 2) || resposta[0].hora12 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora12 > vlrTempMax || resposta[0].hora12 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora13 > (vlrTempMax + 4) || resposta[0].hora13 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora13 > (vlrTempMax + 2) || resposta[0].hora13 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora13 > vlrTempMax || resposta[0].hora13 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora14 > (vlrTempMax + 4) || resposta[0].hora14 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora14 > (vlrTempMax + 2) || resposta[0].hora14 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora14 > vlrTempMax || resposta[0].hora14 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora15 > (vlrTempMax + 4) || resposta[0].hora15 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora15 > (vlrTempMax + 2) || resposta[0].hora15 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora15 > vlrTempMax || resposta[0].hora15 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora16 > (vlrTempMax + 4) || resposta[0].hora16 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora16 > (vlrTempMax + 2) || resposta[0].hora16 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora16 > vlrTempMax || resposta[0].hora16 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora17 > (vlrTempMax + 4) || resposta[0].hora17 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora17 > (vlrTempMax + 2) || resposta[0].hora17 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora17 > vlrTempMax || resposta[0].hora17 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora18 > (vlrTempMax + 4) || resposta[0].hora18 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora18 > (vlrTempMax + 2) || resposta[0].hora18 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora18 > vlrTempMax || resposta[0].hora18 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora19 > (vlrTempMax + 4) || resposta[0].hora19 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora19 > (vlrTempMax + 2) || resposta[0].hora19 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora19 > vlrTempMax || resposta[0].hora19 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora20 > (vlrTempMax + 4) || resposta[0].hora20 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora20 > (vlrTempMax + 2) || resposta[0].hora20 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora20 > vlrTempMax || resposta[0].hora20 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora21 > (vlrTempMax + 4) || resposta[0].hora21 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora21 > (vlrTempMax + 2) || resposta[0].hora21 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora21 > vlrTempMax || resposta[0].hora21 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora22 > (vlrTempMax + 4) || resposta[0].hora22 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora22 > (vlrTempMax + 2) || resposta[0].hora22 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora22 > vlrTempMax || resposta[0].hora22 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+
+                    if (resposta[0].hora23 > (vlrTempMax + 4) || resposta[0].hora23 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora23 > (vlrTempMax + 2) || resposta[0].hora23 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora23 > vlrTempMax || resposta[0].hora23 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+
+                    if (resposta[0].hora24 > (vlrTempMax + 4) || resposta[0].hora24 < (vlrTempMin - 4)) {
+                        critico++
+                    } else if (resposta[0].hora24 > (vlrTempMax + 2) || resposta[0].hora24 < (vlrTempMin - 2)) {
+                        emergencia++
+                    } else if (resposta[0].hora24 > vlrTempMax || resposta[0].hora24 < vlrTempMin) {
+                        alerta++
+                    } else {
+                        ideal++
+                    }
+                    // reponse.push(resposta[0].hora2);
+                    // reponse.push(resposta[0].hora3);
+                    // reponse.push(resposta[0].hora4);
+                    // reponse.push(resposta[0].hora5);
+                    // reponse.push(resposta[0].hora6);
+                    // reponse.push(resposta[0].hora7);
+                    // reponse.push(resposta[0].hora8);
+                    // reponse.push(resposta[0].hora9);
+                    // reponse.push(resposta[0].hora10);
+                    // reponse.push(resposta[0].hora11);
+                    // reponse.push(resposta[0].hora12);
+                    // reponse.push(resposta[0].hora13);
+                    // reponse.push(resposta[0].hora14);
+                    // reponse.push(resposta[0].hora15);
+                    // reponse.push(resposta[0].hora16);
+                    // reponse.push(resposta[0].hora17);
+                    // reponse.push(resposta[0].hora18);
+                    // reponse.push(resposta[0].hora19);
+                    // reponse.push(resposta[0].hora20);
+                    // reponse.push(resposta[0].hora21);
+                    // reponse.push(resposta[0].hora22);
+                    // reponse.push(resposta[0].hora23);
+                    // reponse.push(resposta[0].hora24);
+
+
+
+
+
+
+                    dadosGrafDouUmi.push(ideal, alerta, emergencia, critico)
+
+                    plotarGraficoDouUmi(dadosGrafDouUmi);
+                    // plotarGrafico1DouUmi(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoDouUmi(dadosGrafDouUmi) {
+        // alert('asd')
+
+        let ctx5 = document.getElementById('myChartdoughnutUmi1');
+
+        Chart.defaults.font.size = 16;
+        new Chart(ctx5, {
+            type: 'doughnut',
+            data: {
+                labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+                datasets: [{
+                    label: 'Temperatura (%)',
+                    data: dadosGrafDouUmi,
+                    backgroundColor: [
+                        '#00e600',
+                        '#ffff00',
+                        '#ff9900',
+                        '#ff0000',
+
+                    ]
+
+                }]
+            },
+        });
+
+
+        // setTimeout(() => atualizarGrafico1(sector, dados, myChart), 5000);
+    }
+
+    var dadosGrafDouTemp = [];
+    function obterDadosGraficoDouTemp(sector) {
+
+        // alterarTitulo(sector)
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+
+        fetch(`/medidas/ultimasDouTemp/${sector}`, { cache: 'no-store' }).then(function (response) {
+            // console.log('askjbdasjd  asdnlasjdn asd asdj sad '+ response)
+            // alert('asdasdasd')
+            if (response.ok) {
+
+
+                while (dadosGrafDouTemp.length > 0) {
+                    dadosGrafDouTemp.pop();
+                }
+
+
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos asdjaksjdkasd: ${JSON.stringify(resposta)}`);
+                    // resposta.reverse();
+                    var response = [];
+
+                    // var vlrUmiMax = Number(document.getElementById('vlr_Temp_max').innerText);
+                    // var vlrUmiMin = Number(document.getElementById('vlr_Temp_min').innerText);
+
+                    var vlrUmiMax =15;
+                    var vlrUmiMin =21;
+
+
+
+                    var idealTemp = 0;
+                    var alertaTemp = 0;
+                    var emergenciaTemp = 0;
+                    var criticoTemp = 0;
+
+                    // console.log(JSON.stringify(resposta));
+                    if (resposta[0].hora1 > (vlrUmiMax + 4) || resposta[0].hora1 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora1 > (vlrUmiMax + 2) || resposta[0].hora1 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora1 > vlrUmiMax || resposta[0].hora1 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora2 > (vlrUmiMax + 4) || resposta[0].hora2 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora2 > (vlrUmiMax + 2) || resposta[0].hora2 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora2 > vlrUmiMax || resposta[0].hora2 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora3 > (vlrUmiMax + 4) || resposta[0].hora3 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora3 > (vlrUmiMax + 2) || resposta[0].hora3 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora3 > vlrUmiMax || resposta[0].hora3 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora4 > (vlrUmiMax + 4) || resposta[0].hora4 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora4 > (vlrUmiMax + 2) || resposta[0].hora4 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora4 > vlrUmiMax || resposta[0].hora4 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora5 > (vlrUmiMax + 4) || resposta[0].hora5 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora5 > (vlrUmiMax + 2) || resposta[0].hora5 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora5 > vlrUmiMax || resposta[0].hora5 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+
+                    if (resposta[0].hora6 > (vlrUmiMax + 4) || resposta[0].hora6 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora6 > (vlrUmiMax + 2) || resposta[0].hora6 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora6 > vlrUmiMax || resposta[0].hora6 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora7 > (vlrUmiMax + 4) || resposta[0].hora7 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora7 > (vlrUmiMax + 2) || resposta[0].hora7 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora7 > vlrUmiMax || resposta[0].hora7 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora8 > (vlrUmiMax + 4) || resposta[0].hora8 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora8 > (vlrUmiMax + 2) || resposta[0].hora8 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora8 > vlrUmiMax || resposta[0].hora8 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora9 > (vlrUmiMax + 4) || resposta[0].hora9 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora9 > (vlrUmiMax + 2) || resposta[0].hora9 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora9 > vlrUmiMax || resposta[0].hora9 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora10 > (vlrUmiMax + 4) || resposta[0].hora10 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora10 > (vlrUmiMax + 2) || resposta[0].hora10 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora10 > vlrUmiMax || resposta[0].hora10 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora11 > (vlrUmiMax + 4) || resposta[0].hora11 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora11 > (vlrUmiMax + 2) || resposta[0].hora11 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora11 > vlrUmiMax || resposta[0].hora11 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora12 > (vlrUmiMax + 4) || resposta[0].hora12 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora12 > (vlrUmiMax + 2) || resposta[0].hora12 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora12 > vlrUmiMax || resposta[0].hora12 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora13 > (vlrUmiMax + 4) || resposta[0].hora13 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora13 > (vlrUmiMax + 2) || resposta[0].hora13 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora13 > vlrUmiMax || resposta[0].hora13 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora14 > (vlrUmiMax + 4) || resposta[0].hora14 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora14 > (vlrUmiMax + 2) || resposta[0].hora14 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora14 > vlrUmiMax || resposta[0].hora14 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora15 > (vlrUmiMax + 4) || resposta[0].hora15 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora15 > (vlrUmiMax + 2) || resposta[0].hora15 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora15 > vlrUmiMax || resposta[0].hora15 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora16 > (vlrUmiMax + 4) || resposta[0].hora16 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora16 > (vlrUmiMax + 2) || resposta[0].hora16 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora16 > vlrUmiMax || resposta[0].hora16 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora17 > (vlrUmiMax + 4) || resposta[0].hora17 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora17 > (vlrUmiMax + 2) || resposta[0].hora17 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora17 > vlrUmiMax || resposta[0].hora17 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora18 > (vlrUmiMax + 4) || resposta[0].hora18 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora18 > (vlrUmiMax + 2) || resposta[0].hora18 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora18 > vlrUmiMax || resposta[0].hora18 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora19 > (vlrUmiMax + 4) || resposta[0].hora19 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora19 > (vlrUmiMax + 2) || resposta[0].hora19 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora19 > vlrUmiMax || resposta[0].hora19 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora20 > (vlrUmiMax + 4) || resposta[0].hora20 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora20 > (vlrUmiMax + 2) || resposta[0].hora20 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora20 > vlrUmiMax || resposta[0].hora20 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora21 > (vlrUmiMax + 4) || resposta[0].hora21 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora21 > (vlrUmiMax + 2) || resposta[0].hora21 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora21 > vlrUmiMax || resposta[0].hora21 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora22 > (vlrUmiMax + 4) || resposta[0].hora22 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora22 > (vlrUmiMax + 2) || resposta[0].hora22 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora22 > vlrUmiMax || resposta[0].hora22 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+
+                    if (resposta[0].hora23 > (vlrUmiMax + 4) || resposta[0].hora23 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora23 > (vlrUmiMax + 2) || resposta[0].hora23 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora23 > vlrUmiMax || resposta[0].hora23 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+
+                    if (resposta[0].hora24 > (vlrUmiMax + 4) || resposta[0].hora24 < (vlrUmiMin - 4)) {
+                        criticoTemp++
+                    } else if (resposta[0].hora24 > (vlrUmiMax + 2) || resposta[0].hora24 < (vlrUmiMin - 2)) {
+                        emergenciaTemp++
+                    } else if (resposta[0].hora24 > vlrUmiMax || resposta[0].hora24 < vlrUmiMin) {
+                        emergenciaTemp++
+                    } else {
+                        idealTemp++
+                    }
+                    // reponse.push(resposta[0].hora2);
+                    // reponse.push(resposta[0].hora3);
+                    // reponse.push(resposta[0].hora4);
+                    // reponse.push(resposta[0].hora5);
+                    // reponse.push(resposta[0].hora6);
+                    // reponse.push(resposta[0].hora7);
+                    // reponse.push(resposta[0].hora8);
+                    // reponse.push(resposta[0].hora9);
+                    // reponse.push(resposta[0].hora10);
+                    // reponse.push(resposta[0].hora11);
+                    // reponse.push(resposta[0].hora12);
+                    // reponse.push(resposta[0].hora13);
+                    // reponse.push(resposta[0].hora14);
+                    // reponse.push(resposta[0].hora15);
+                    // reponse.push(resposta[0].hora16);
+                    // reponse.push(resposta[0].hora17);
+                    // reponse.push(resposta[0].hora18);
+                    // reponse.push(resposta[0].hora19);
+                    // reponse.push(resposta[0].hora20);
+                    // reponse.push(resposta[0].hora21);
+                    // reponse.push(resposta[0].hora22);
+                    // reponse.push(resposta[0].hora23);
+                    // reponse.push(resposta[0].hora24);
+
+
+
+                    dadosGrafDouTemp.push(criticoTemp, emergenciaTemp, emergenciaTemp, idealTemp)
+
+                    plotarGraficoDouTemp(dadosGrafDouTemp);
+                    // plotarGrafico1DouUmi(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoDouTemp(dadosGrafDouTemp) {
+
+        const ctx6 = document.getElementById('myChartdoughnutTemp1');
+
+        Chart.defaults.font.size = 16;
+        new Chart(ctx6, {
+            type: 'doughnut',
+            data: {
+                labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
+                datasets: [{
+                    label: 'Temperatura (%)',
+                    data: dadosGrafDouTemp,
+                    backgroundColor: [
+                        '#00e600',
+                        '#ffff00',
+                        '#ff9900',
+                        '#ff0000',
+
+                    ]
+
+                }]
+            },
+        });
+
+
+        // setTimeout(() => atualizarGrafico1(sector, dados, myChart), 5000);
+    }
 
 
 
@@ -768,71 +1572,6 @@
     //     }
     // });
 
-    const ctx5 = document.getElementById('myChartdoughnutTemp1');
-
-    Chart.defaults.font.size = 16;
-    new Chart(ctx5, {
-        type: 'doughnut',
-        data: {
-            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-            datasets: [{
-                label: 'Temperatura (%)',
-                data: [70, 10, 10, 10],
-                backgroundColor: [
-                    '#00e600',
-                    '#ffff00',
-                    '#ff9900',
-                    '#ff0000',
-
-                ]
-
-            }]
-        },
-    });
-
-    const ctx6 = document.getElementById('myChartdoughnutTemp2');
-
-    Chart.defaults.font.size = 16;
-    new Chart(ctx6, {
-        type: 'doughnut',
-        data: {
-            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-            datasets: [{
-                label: 'Temperatura (%)',
-                data: [70, 10, 10, 10],
-                backgroundColor: [
-                    '#00e600',
-                    '#ffff00',
-                    '#ff9900',
-                    '#ff0000',
-
-                ]
-
-            }]
-        },
-    });
-
-    const ctx7 = document.getElementById('myChartdoughnutUmi1');
-
-    Chart.defaults.font.size = 16;
-    new Chart(ctx7, {
-        type: 'doughnut',
-        data: {
-            labels: ['%Ideal', '%Alerta', '%Emergencial', '%Não Ideal',],
-            datasets: [{
-                label: 'Umidade (%)',
-                data: [70, 10, 10, 10],
-                backgroundColor: [
-                    '#00e600',
-                    '#ffff00',
-                    '#ff9900',
-                    '#ff0000',
-
-                ]
-
-            }]
-        },
-    });
 
     // const ctx8 = document.getElementById('myChartdoughnutUmi2');
 
@@ -931,8 +1670,8 @@
             // divInfo.style.display = 'flex'
 
 
-            vlrsGraficoTemp = [16, 17, 20, 24, 29, 25]
-            vlrsGraficoUmi = [80, 81, 85, 90, 92, 90]
+            // vlrsGraficoTemp = [16, 17, 20, 24, 29, 25]
+            // vlrsGraficoUmi = [80, 81, 85, 90, 92, 90]
 
             // ctx.update();
             // ctx2.update();

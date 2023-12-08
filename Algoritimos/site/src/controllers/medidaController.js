@@ -9,6 +9,7 @@ function buscarUltimasMedidas(req, res) {
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
     medidaModel.buscarUltimasMedidas(sector, limite_linhas).then(function (resultado) {
+        console.log(resultado);
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -21,6 +22,48 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function buscarUltimasMedidasDouUmi(req, res) {
+
+
+    var sector = req.params.sector;
+    
+    console.log(`Recuperando as ultimas 24 Horas medidas`);
+    
+    console.log(sector + 'asdkgasd haçsdhçasjd alçsdaçksj');
+    medidaModel.buscarUltimasMedidasDouUmi(sector).then(function (resultado) {
+        console.log('lajsdasnd asdn iaidiasdoasi');
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarUltimasMedidasDouTemp(req, res) {
+
+
+    var sector = req.params.sector;
+
+    console.log(`Recuperando as ultimas 24 Horas medidas Temp`);
+
+    medidaModel.buscarUltimasMedidasDouTemp(sector).then(function (resultado) {
+        if (resultado.length > 0) {
+            console.log("asjdnasjdnas teste2"+resultado)
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 function buscarMedidasEmTempoReal(req, res) {
 
@@ -43,6 +86,8 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarUltimasMedidasDouUmi,
+    buscarUltimasMedidasDouTemp
 
 }

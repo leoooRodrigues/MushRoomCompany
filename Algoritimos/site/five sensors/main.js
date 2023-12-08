@@ -15,11 +15,9 @@ const serial = async (
 ) => {
     const poolBancoDados = mysql.createPool(
         {
-
-
             port: 3306,
             user: 'root',
-            password: '1304',
+            password: 'D@a170305',
             database: 'mushroom'
         }
     ).promise();
